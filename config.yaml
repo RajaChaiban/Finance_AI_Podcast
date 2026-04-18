@@ -11,3 +11,7 @@ audio_format: "mp3"
 sample_rate: 24000
 
 gemini_model: "gemini-2.5-flash"
+
+default_categories:
+  - finance_macro
+  - finance_micro

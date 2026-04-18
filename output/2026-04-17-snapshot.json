@@ -1,169 +1,683 @@
 {
   "date": "2026-04-17",
-  "indices": {
-    "S&P 500": {
-      "current": 0,
-      "change": 0,
-      "change_percent": 0,
-      "previous_close": 0
-    },
-    "NASDAQ": {
-      "current": 0,
-      "change": 0,
-      "change_percent": 0,
-      "previous_close": 0
-    },
-    "DOW": {
-      "current": 0,
-      "change": 0,
-      "change_percent": 0,
-      "previous_close": 0
-    }
-  },
+  "indices": {},
   "top_gainers": [],
   "top_losers": [],
-  "earnings": [
-    {
-      "symbol": "NFTM",
-      "name": "NFTM",
-      "eps_actual": null,
-      "eps_estimate": null,
-      "revenue_actual": null,
-      "surprise_percent": null
-    },
-    {
-      "symbol": "FAT",
-      "name": "FAT",
-      "eps_actual": null,
-      "eps_estimate": -3.1916,
-      "revenue_actual": null,
-      "surprise_percent": null
-    },
-    {
-      "symbol": "NNAX",
-      "name": "NNAX",
-      "eps_actual": null,
-      "eps_estimate": null,
-      "revenue_actual": null,
-      "surprise_percent": null
-    },
-    {
-      "symbol": "CCBC",
-      "name": "CCBC",
-      "eps_actual": 0.52,
-      "eps_estimate": null,
-      "revenue_actual": 5350000,
-      "surprise_percent": null
-    },
-    {
-      "symbol": "ALLY",
-      "name": "ALLY",
-      "eps_actual": 1.11,
-      "eps_estimate": 0.9531,
-      "revenue_actual": 2102000000,
-      "surprise_percent": null
-    },
-    {
-      "symbol": "AMIH",
-      "name": "AMIH",
-      "eps_actual": null,
-      "eps_estimate": null,
-      "revenue_actual": null,
-      "surprise_percent": null
-    },
-    {
-      "symbol": "BTOG",
-      "name": "BTOG",
-      "eps_actual": null,
-      "eps_estimate": null,
-      "revenue_actual": null,
-      "surprise_percent": null
-    },
-    {
-      "symbol": "PKBK",
-      "name": "PKBK",
-      "eps_actual": 0.99,
-      "eps_estimate": null,
-      "revenue_actual": 22990000,
-      "surprise_percent": null
-    },
-    {
-      "symbol": "PMDI",
-      "name": "PMDI",
-      "eps_actual": null,
-      "eps_estimate": null,
-      "revenue_actual": null,
-      "surprise_percent": null
-    },
-    {
-      "symbol": "MCBS",
-      "name": "MCBS",
-      "eps_actual": null,
-      "eps_estimate": 0.7344,
-      "revenue_actual": null,
-      "surprise_percent": null
-    }
-  ],
+  "earnings": [],
   "economic_events": [],
-  "crypto": {
-    "BTC": {
-      "price": 77227.44,
-      "change_percent": 2.8783
-    },
-    "ETH": {
-      "price": 2420.9,
-      "change_percent": 3.1157
-    }
-  },
-  "forex": {
-    "EUR/USD": {
-      "rate": 0,
-      "change_percent": 0
-    },
-    "GBP/USD": {
-      "rate": 0,
-      "change_percent": 0
-    },
-    "USD/JPY": {
-      "rate": 0,
-      "change_percent": 0
-    }
-  },
-  "commodities": {
-    "Gold": {
-      "price": 0,
-      "change_percent": 0
-    },
-    "Oil (WTI)": {
-      "price": 0,
-      "change_percent": 0
-    }
-  },
-  "news": [
+  "crypto": {},
+  "forex": {},
+  "commodities": {},
+  "news": [],
+  "market_sentiment": "neutral",
+  "categories": [
+    "geopolitics"
+  ],
+  "macro_indicators": [],
+  "crypto_extended": [],
+  "crypto_global": {},
+  "crypto_trending": [],
+  "geopolitics": [
     {
-      "title": "OpenAI loses 3 top executives as it cuts back on 'side quests'",
-      "description": "OpenAI loses three executives as it sharpens its business focus and faces rising pressure from Anthropic.",
-      "source": "businessinsider.com",
-      "published_at": "2026-04-18T00:21:23.000000Z",
-      "sentiment": 0.0,
-      "entities": []
+      "title": "Activist Sector \u2013 NZDF training with US should stop amidst illegal war \u2013 Peace Action Wellington",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
     },
     {
-      "title": "The Margin Machine: Why Applied Materials Is Outgrowing Its Peers (NASDAQ:AMAT)",
-      "description": "AMAT is rated Buy, leveraging AI-driven wafer fab equipment demand and structural industry tailwinds for robust earnings growth. Read more on AMAT stock here.",
-      "source": "seekingalpha.com",
-      "published_at": "2026-04-18T00:16:38.000000Z",
-      "sentiment": 0.0,
-      "entities": []
+      "title": "Sri Lanka repatriates survivors of U . S . torpedo attack on Iranian ship",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
     },
     {
-      "title": "Starlink unable to get signal for India liftoff; faces FDI hurdles amid security concerns",
-      "description": "Starlink's plan for satellite services in India is stalled. The government is reviewing Elon Musk's company's investment proposal carefully. National security concerns are a major hurdle. Geopolitical events have heightened these worries. The company awaits crucial security clearance. Officials will discuss the proposal soon. India prioritizes national security in satellite communications.",
-      "source": "economictimes.indiatimes.com",
-      "published_at": "2026-04-18T00:00:00.000000Z",
-      "sentiment": 0.0,
-      "entities": []
+      "title": "Sri Lanka sends 238 Iranian sailors home",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "  If a deal is signed ...: Trump hints at visiting Pakistan ; claims Iran ready to relinquish enriched uranium",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "U . N . Atomic Body :  Very Serious Increase  in North Korea Nuclear Weapons Production",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "  Are you surprised ?: Trump claims historic nuclear breakthrough with Iran",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Alarm Bells Follow New Report of Looming US Plan to Attack Cuba",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Canada adds jobs , losses still loom | The Daily Press",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Canada adds jobs , losses still loom",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "NIA Probes ISI CCTV Spy Network , Foreign Funding Trail",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "NIA To Probe ISI - Linked CCTV Spy Case ; Wider Network , Foreign Funding Under Lens",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Senate extends surveillance powers until April 30 after chaotic votes in House \u2013 KTBB News , Weather , Talk",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "New order in Strait of Hormuz : IRGC Navy mandates authorization for all vessels",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Despite opening of Hormuz , US Navy blockade of Iran \u00a0ports to continue",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "US  locked and loaded  as it announces aggressive expansion of Iran blockade , warns regime to  choose wisely  ",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Iran (340 reports)",
+      "description": "",
+      "source": "World Monitor",
+      "published_at": ""
+    },
+    {
+      "title": "Israel (185 reports)",
+      "description": "",
+      "source": "World Monitor",
+      "published_at": ""
+    },
+    {
+      "title": "Lebanon (106 reports)",
+      "description": "",
+      "source": "World Monitor",
+      "published_at": ""
+    },
+    {
+      "title": "China (55 reports)",
+      "description": "",
+      "source": "World Monitor",
+      "published_at": ""
+    },
+    {
+      "title": "Washington, Washington, United States (66 reports)",
+      "description": "",
+      "source": "World Monitor",
+      "published_at": ""
+    },
+    {
+      "title": "Attacks on education cause lifelong harm",
+      "description": "The recent bombing of a girls\u2019 school in Iran, killing at least 165 schoolgirls, is a stark reminder of how brutally war affects children.",
+      "source": "Peace Research Institute Oslo (PRIO)",
+      "published_at": "2026-04-17T15:51:46Z"
+    },
+    {
+      "title": "Ukraine\u2019s long-range strikes prompt new Russian threat against Europe",
+      "description": "Ukraine has penetrated Russian airspace with unprecedented numbers of drones, denying Russia windfall oil profits.",
+      "source": "Al Jazeera",
+      "published_at": "2026-04-17T15:51:23Z"
+    },
+    {
+      "title": "US, Israel have no option but to surrender to Iranian nation, armed forces: Top cmdr.",
+      "description": "A top Iranian military commander says the US and Israel have no option but to yield to the greatness and strength of the Iranian Armed Forces and resilient nation.",
+      "source": "PressTV",
+      "published_at": "2026-04-17T15:47:00Z"
+    },
+    {
+      "title": "South Africa\u2019s rail system moves toward open access model",
+      "description": "Transnet is opening its rail network to private operators, aiming to boost efficiency, expand capacity, and revitalise South Africa\u2019s freight logistics system...",
+      "source": "Bizcommunity",
+      "published_at": "2026-04-17T15:45:14Z"
+    },
+    {
+      "title": "The No. 1 thing they still do every day to stay in love",
+      "description": "Rosalyn and Irwin Engelman have been married for nearly 70 years. She shares the surprisingly simple ritual that has kept them in love even to this day.",
+      "source": "CNBC",
+      "published_at": "2026-04-17T15:44:35Z"
+    },
+    {
+      "title": "AfCFTA and AI to power Africa's growth - IMF",
+      "description": "The International Monetary Fund (IMF) says Africa\u2019s growth prospects can be strengthened through effective implementation of the African Continental Free Trade Area (AfCFTA) and responsible use of artificial intelligence (AI).",
+      "source": "GhanaWeb",
+      "published_at": "2026-04-17T15:43:43Z"
+    },
+    {
+      "title": "Iran declares Strait of Hormuz open as Lebanon ceasefire begins",
+      "description": "US President Donald Trump immediately welcomed the news from Tehran but went on to warn that the US blockade of Iran's ports would continue.",
+      "source": "Australian Broadcasting Corporation",
+      "published_at": "2026-04-17T15:41:18Z"
+    },
+    {
+      "title": "Israel, Lebanon agree fragile ceasefire in fighting as deeper tensions remain",
+      "description": "Israel and Lebanon have agreed to a temporary halt in fighting, pausing weeks of escalating violence while opening a narrow...",
+      "source": "Businessday NG",
+      "published_at": "2026-04-17T15:39:20Z"
+    },
+    {
+      "title": "Mexican environmentalist survives assassination attempt caught on video: \"I told the hitman 'good morning'\"",
+      "description": "An environmentalist who survived an assassination attempt spoke during the presentation of a report that documented the killing of 10 activists in Mexico in 2025.",
+      "source": "CBS News",
+      "published_at": "2026-04-17T15:36:00Z"
+    },
+    {
+      "title": "Kensington Gardens shut amid Israeli Embassy 'drone threat' probe",
+      "description": "It comes after a group claimed to have targeted the Israeli Embassy in an online video post.",
+      "source": "BBC",
+      "published_at": "2026-04-17T15:34:09Z"
     }
   ],
-  "market_sentiment": "neutral"
+  "ai_updates": [],
+  "fear_greed": {},
+  "macro_signals": {},
+  "sectors": [],
+  "etf_flows": {},
+  "predictions": [
+    {
+      "title": "Trump announces end of military operations against Iran by April 30th?",
+      "yes_price": 49.5,
+      "volume": 28048240.934043948,
+      "url": "https://polymarket.com/event/trump-announces-end-of-military-operations-against-iran-by",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will Jesus Christ return before GTA VI?",
+      "yes_price": 48.5,
+      "volume": 21110330.276485596,
+      "url": "https://polymarket.com/event/what-will-happen-before-gta-vi",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will Ethereum dip to $1,500 by December 31, 2026?",
+      "yes_price": 48.5,
+      "volume": 4240824.6733140005,
+      "url": "https://polymarket.com/event/what-price-will-ethereum-hit-before-2027",
+      "category": "geopolitical"
+    },
+    {
+      "title": "2026 Balance of Power: D Senate, D House",
+      "yes_price": 52.5,
+      "volume": 5163619.068386999,
+      "url": "https://polymarket.com/event/balance-of-power-2026-midterms",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Opensea FDV above $500M one day after launch?",
+      "yes_price": 44.9,
+      "volume": 5770690.38633299,
+      "url": "https://polymarket.com/event/opensea-fdv-above-one-day-after-launch",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will Tom Steyer win the California Governor Election in 2026?",
+      "yes_price": 58.6,
+      "volume": 11024677.812326998,
+      "url": "https://polymarket.com/event/california-governor-election-2026",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Puffpaw FDV above $100M one day after launch?",
+      "yes_price": 42.5,
+      "volume": 5200401.836713124,
+      "url": "https://polymarket.com/event/puffpaw-fdv-above-one-day-after-launch",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will SpaceX's market cap be greater than $2.0T at market close on IPO day?",
+      "yes_price": 46,
+      "volume": 750451.5613909997,
+      "url": "https://polymarket.com/event/spacex-ipo-closing-market-cap-higher-strikes",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will an Anthropic Claude model score at least 45% on Humanity\u2019s Last Exam?",
+      "yes_price": 48,
+      "volume": 239997.31624400028,
+      "url": "https://polymarket.com/event/anthropic-claude-score-on-humanitys-last-exam-by-june-30",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will Morgan Stanley or any of its underwriting affiliates serve as the lead underwriter in SpaceX\u2019s initial public offering?",
+      "yes_price": 42.5,
+      "volume": 1497625.5182460023,
+      "url": "https://polymarket.com/event/lead-bank-in-spacexs-ipo-836",
+      "category": "geopolitical"
+    }
+  ],
+  "forecasts": [
+    {
+      "title": "Inflation and rates pressure from Iran infrastructure fragility state",
+      "domain": "market",
+      "region": "Iran"
+    },
+    {
+      "title": "FX stress from Brazil political instability state",
+      "domain": "market",
+      "region": "Brazil"
+    },
+    {
+      "title": "Inflation and rates pressure from Black Sea maritime disruption state",
+      "domain": "market",
+      "region": "Black Sea"
+    },
+    {
+      "title": "Sovereign risk repricing from Afghanistan security escalation state",
+      "domain": "market",
+      "region": "Afghanistan"
+    },
+    {
+      "title": "Inflation and rates pressure from Eastern Mediterranean maritime disruption state",
+      "domain": "market",
+      "region": "Eastern Mediterranean"
+    },
+    {
+      "title": "Maritime energy flow disruption from Black Sea maritime disruption state (market)",
+      "domain": "supply_chain",
+      "region": "Black Sea"
+    },
+    {
+      "title": "Political instability: China",
+      "domain": "political",
+      "region": "China"
+    },
+    {
+      "title": "Active armed conflict: Ukraine",
+      "domain": "conflict",
+      "region": "Ukraine"
+    },
+    {
+      "title": "Oil price impact from Strait of Hormuz disruption",
+      "domain": "market",
+      "region": "Middle East"
+    },
+    {
+      "title": "GPS interference in Red Sea shipping zone",
+      "domain": "supply_chain",
+      "region": "Red Sea"
+    }
+  ],
+  "sanctions": {
+    "total_count": 19909,
+    "vessel_count": 1461,
+    "aircraft_count": 342,
+    "top_countries": [
+      {
+        "country": "Russia",
+        "count": 0
+      },
+      {
+        "country": "Unknown",
+        "count": 0
+      },
+      {
+        "country": "Iran",
+        "count": 0
+      },
+      {
+        "country": "China",
+        "count": 0
+      },
+      {
+        "country": "Mexico",
+        "count": 0
+      },
+      {
+        "country": "United Arab Emirates",
+        "count": 0
+      },
+      {
+        "country": "Colombia",
+        "count": 0
+      },
+      {
+        "country": "Turkey",
+        "count": 0
+      },
+      {
+        "country": "Lebanon",
+        "count": 0
+      },
+      {
+        "country": "Syria",
+        "count": 0
+      }
+    ]
+  },
+  "unrest_events": [
+    {
+      "title": "Iran (340 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Iran",
+      "city": "Iran",
+      "summary": ""
+    },
+    {
+      "title": "Israel (185 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Israel",
+      "city": "Israel",
+      "summary": ""
+    },
+    {
+      "title": "Lebanon (106 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Lebanon",
+      "city": "Lebanon",
+      "summary": ""
+    },
+    {
+      "title": "China (55 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "China",
+      "city": "China",
+      "summary": ""
+    },
+    {
+      "title": "Washington, Washington, United States (66 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "United States",
+      "city": "Washington",
+      "summary": ""
+    },
+    {
+      "title": "Taiwan (35 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Taiwan",
+      "city": "Taiwan",
+      "summary": ""
+    },
+    {
+      "title": "City Of Houston, Texas, United States (27 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "United States",
+      "city": "City Of Houston",
+      "summary": ""
+    },
+    {
+      "title": "Cuba (31 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Cuba",
+      "city": "Cuba",
+      "summary": ""
+    },
+    {
+      "title": "Pakistan (31 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Pakistan",
+      "city": "Pakistan",
+      "summary": ""
+    },
+    {
+      "title": "Australia (46 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Australia",
+      "city": "Australia",
+      "summary": ""
+    }
+  ],
+  "conflict_events": [
+    {
+      "country": "Ecuador",
+      "side_a": "Fatales, Los Aguilas",
+      "side_b": "Los Lobos , Los Tiguerones",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "DR Congo (Zaire)",
+      "side_a": "IS",
+      "side_b": "Civilians",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Iraq",
+      "side_a": "Government of Iraq",
+      "side_b": "IS",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Brazil",
+      "side_a": "Comando Vermelho",
+      "side_b": "Terceiro Comando Puro",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Ecuador",
+      "side_a": "Los Choneros",
+      "side_b": "Los Lobos",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Ecuador",
+      "side_a": "Los Choneros",
+      "side_b": "Los Lobos",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Mexico",
+      "side_a": "Juarez Cartel",
+      "side_b": "Sinaloa Cartel",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Mexico",
+      "side_a": "Juarez Cartel",
+      "side_b": "Sinaloa Cartel",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Mexico",
+      "side_a": "Juarez Cartel",
+      "side_b": "Sinaloa Cartel",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Mexico",
+      "side_a": "Juarez Cartel",
+      "side_b": "Sinaloa Cartel",
+      "date_start": 1735603200000
+    }
+  ],
+  "cross_signals": [
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_GPS_JAMMING",
+      "theater": "Other",
+      "summary": "GPS jamming detected: 993 high-interference hexagons in Other",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_CRITICAL"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_GPS_JAMMING",
+      "theater": "Sub-Saharan Africa",
+      "summary": "GPS jamming detected: 51 high-interference hexagons in Sub-Saharan Africa",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_CRITICAL"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_GPS_JAMMING",
+      "theater": "Eastern Europe",
+      "summary": "GPS jamming detected: 98 high-interference hexagons in Eastern Europe",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_CRITICAL"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_MILITARY_FLIGHT_SURGE",
+      "theater": "Global",
+      "summary": "Military flight surge: 10 active sorties tracked in Global",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_CRITICAL"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_REGULATORY_ACTION",
+      "theater": "Global Markets",
+      "summary": "Federal Reserve: Federal Reserve Board issues enforcement action with Community Bankshares, Inc.",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_HIGH"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_REGULATORY_ACTION",
+      "theater": "Global Markets",
+      "summary": "FDIC: Press Release: Agencies Issue Revised Model Risk Guidance",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_MEDIUM"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_REGULATORY_ACTION",
+      "theater": "Global Markets",
+      "summary": "SEC: SEC Small Business Advisory Committee to Explore Ways to Encourage More IPOs",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_MEDIUM"
+    }
+  ],
+  "gdelt_intel": [
+    {
+      "topic": "military",
+      "articles": [
+        {
+          "title": "Activist Sector \u2013 NZDF training with US should stop amidst illegal war \u2013 Peace Action Wellington",
+          "url": "https://livenews.co.nz/2026/04/17/activist-sector-nzdf-training-with-us-should-stop-amidst-illegal-war-peace-action-wellington/"
+        },
+        {
+          "title": "Sri Lanka repatriates survivors of U . S . torpedo attack on Iranian ship",
+          "url": "https://www.thehindu.com/news/international/sri-lanka-repatriates-survivors-of-us-torpedo-attack-on-iranian-ship/article70875078.ece"
+        },
+        {
+          "title": "Sri Lanka sends 238 Iranian sailors home",
+          "url": "https://economictimes.indiatimes.com/news/defence/sri-lanka-has-sent-home-238-iranian-sailors-including-32-who-survived-a-u-s-torpedo-attack/articleshow/130342019.cms"
+        },
+        {
+          "title": "Sri Lanka Sent Home 238 Iranian Sailors , Including Survivors of a US Torpedo Attack",
+          "url": "https://www.deccanchronicle.com/world/neighbours/sri-lanka-sent-home-238-iranian-sailors-including-survivors-of-a-us-torpedo-attack-1951024"
+        },
+        {
+          "title": "Sri Lanka sent home 238 Iranian sailors , including survivors of a US torpedo attack",
+          "url": "https://mymotherlode.com/news/world/10748504/sri-lanka-sent-home-238-iranian-sailors-including-survivors-of-a-us-torpedo-attack.html"
+        }
+      ]
+    },
+    {
+      "topic": "nuclear",
+      "articles": [
+        {
+          "title": "  If a deal is signed ...: Trump hints at visiting Pakistan ; claims Iran ready to relinquish enriched uranium",
+          "url": "https://www.indiatvnews.com/news/world/if-a-deal-is-signed-donald-trump-hints-at-visiting-pakistan-claims-iran-ready-to-relinquish-enriched-uranium-2026-04-17-1037814"
+        },
+        {
+          "title": "U . N . Atomic Body :  Very Serious Increase  in North Korea Nuclear Weapons Production",
+          "url": "https://www.breitbart.com/asia/2026/04/16/u-n-atomic-body-very-serious-increase-in-north-korea-nuclear-weapons-production/"
+        },
+        {
+          "title": "  Are you surprised ?: Trump claims historic nuclear breakthrough with Iran",
+          "url": "https://timesofoman.com/article/170741-are-you-surprised-trump-claims-historic-nuclear-breakthrough-with-iran"
+        },
+        {
+          "title": "  Are you surprised ?: Trump claims historic nuclear breakthrough with Iran",
+          "url": "https://news.webindia123.com/news/Articles/World/20260417/4440583.html"
+        },
+        {
+          "title": "US to recover uranium from Iran , says Trump",
+          "url": "https://www.thenews.com.pk/latest/1399393-us-to-recover-uranium-from-iran-says-trump"
+        }
+      ]
+    },
+    {
+      "topic": "sanctions",
+      "articles": [
+        {
+          "title": "Alarm Bells Follow New Report of Looming US Plan to Attack Cuba",
+          "url": "https://alaska-native-news.com/alarm-bells-follow-new-report-of-looming-us-plan-to-attack-cuba/83717/"
+        },
+        {
+          "title": "Canada adds jobs , losses still loom | The Daily Press",
+          "url": "https://www.timminspress.com:443/opinion/unemployment-steady-as-job-gains-lag"
+        },
+        {
+          "title": "Canada adds jobs , losses still loom",
+          "url": "https://www.thesudburystar.com:443/opinion/unemployment-steady-as-job-gains-lag"
+        },
+        {
+          "title": "Canada adds jobs , losses still loom | Mid - North Monitor",
+          "url": "https://www.midnorthmonitor.com:443/opinion/unemployment-steady-as-job-gains-lag"
+        },
+        {
+          "title": "Canada adds jobs , losses still loom | The Daily Press",
+          "url": "https://www.timminspress.com/opinion/unemployment-steady-as-job-gains-lag"
+        }
+      ]
+    },
+    {
+      "topic": "intelligence",
+      "articles": [
+        {
+          "title": "NIA Probes ISI CCTV Spy Network , Foreign Funding Trail",
+          "url": "https://www.newkerala.com/news/a/nia-probe-isi-linked-cctv-spy-case-wider-network-891.htm"
+        },
+        {
+          "title": "NIA To Probe ISI - Linked CCTV Spy Case ; Wider Network , Foreign Funding Under Lens",
+          "url": "https://idrw.org/nia-to-probe-isi-linked-cctv-spy-case-wider-network-foreign-funding-under-lens/"
+        },
+        {
+          "title": "Senate extends surveillance powers until April 30 after chaotic votes in House \u2013 KTBB News , Weather , Talk",
+          "url": "https://ktbb.com/post/?p=1497811"
+        },
+        {
+          "title": "House extends surveillance powers until April 30 after late - night revolt sinks GOP plan - Las Vegas Sun News",
+          "url": "https://lasvegassun.com/news/2026/apr/16/house-extends-surveillance-powers-until-april-30-a/"
+        },
+        {
+          "title": "House extends surveillance powers until April 30 after late - night revolt sinks GOP plan \u2013 Brandon Sun",
+          "url": "https://www.brandonsun.com/world/2026/04/17/house-extends-surveillance-powers-until-april-30-after-late-night-revolt-sinks-gop-plan"
+        }
+      ]
+    },
+    {
+      "topic": "maritime",
+      "articles": [
+        {
+          "title": "New order in Strait of Hormuz : IRGC Navy mandates authorization for all vessels",
+          "url": "https://www.presstv.ir/Detail/2026/04/17/767056/new-order-strait-hormuz-irgc-navy-mandates-authorization-all-vessel-traffic"
+        },
+        {
+          "title": "Despite opening of Hormuz , US Navy blockade of Iran \u00a0ports to continue",
+          "url": "https://www.tribuneindia.com/news/world/despite-opening-of-hormuz-us-navy-blockade-of-irans-ports-to-continue/"
+        },
+        {
+          "title": "US  locked and loaded  as it announces aggressive expansion of Iran blockade , warns regime to  choose wisely  ",
+          "url": "https://www.skynews.com.au/world-news/global-affairs/us-locked-and-loaded-as-it-announces-aggressive-expansion-of-iran-blockade-warns-regime-to-choose-wisely/news-story/d2c457c541bf6daa20db32e5fa96b8f3?nk=dc511e6271f06c64f4c110ede580407a-1776388622"
+        },
+        {
+          "title": "Iran Reopens Strait of Hormuz Following Ceasefire Between Israel and Lebanon , Easing Geopolitical Tensions",
+          "url": "https://www.elciudadano.com/en/iran-reopens-strait-of-hormuz-following-ceasefire-between-israel-and-lebanon-easing-geopolitical-tensions/04/17/"
+        },
+        {
+          "title": "  Present , vigilant , ready , says US Central Command as naval blockade continues against Iran",
+          "url": "http://www.bignewsnetwork.com/news/278995297/present-vigilant-ready-says-us-central-command-as-naval-blockade-continues-against-iran"
+        }
+      ]
+    }
+  ]
 }

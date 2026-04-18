@@ -1,8 +1,8 @@
-import re
 from google import genai
 from google.genai.types import GenerateContentConfig
 from src.data.models import MarketSnapshot
-from src.script.prompts import SYSTEM_PROMPT, build_user_prompt
+from src.data.categories import PodcastCategory, DEFAULT_CATEGORIES
+from src.script.prompts import build_system_prompt, build_user_prompt
 from src.utils.logger import log
 
 
@@ -11,16 +11,20 @@ class ScriptGenerator:
         self.client = genai.Client(api_key=api_key)
         self.model = model
 
-    def generate(self, snapshot: MarketSnapshot) -> str:
+    def generate(self, snapshot: MarketSnapshot, categories: list[PodcastCategory] = None) -> str:
+        if categories is None:
+            categories = DEFAULT_CATEGORIES
+
         log.info("Generating podcast script with Gemini...")
 
-        user_prompt = build_user_prompt(snapshot.to_json())
+        system_prompt = build_system_prompt(categories)
+        user_prompt = build_user_prompt(snapshot.to_json(), categories)
 
         response = self.client.models.generate_content(
             model=self.model,
             contents=user_prompt,
             config=GenerateContentConfig(
-                system_instruction=SYSTEM_PROMPT,
+                system_instruction=system_prompt,
                 temperature=0.8,
                 max_output_tokens=8192,
             ),
@@ -28,7 +32,7 @@ class ScriptGenerator:
 
         script = response.text
         script = self._clean_script(script)
-        self._validate_script(script)
+        self._validate_script(script, len(categories))
 
         word_count = len(script.split())
         log.info(f"Script generated: {word_count} words")
@@ -50,7 +54,7 @@ class ScriptGenerator:
                     cleaned[-1] += " " + line
         return "\n".join(cleaned)
 
-    def _validate_script(self, script: str):
+    def _validate_script(self, script: str, num_categories: int = 2):
         s1_count = script.count("[S1]")
         s2_count = script.count("[S2]")
 
@@ -58,10 +62,14 @@ class ScriptGenerator:
             log.warning(f"Script validation: missing speakers (S1={s1_count}, S2={s2_count})")
 
         word_count = len(script.split())
-        if word_count < 500:
-            log.warning(f"Script is short: {word_count} words (target: 2500-3500)")
-        elif word_count > 5000:
-            log.warning(f"Script is long: {word_count} words (target: 2500-3500)")
+        target = max(2000, min(4000, num_categories * 600))
+        low = target - 1000
+        high = target + 1500
+
+        if word_count < low:
+            log.warning(f"Script is short: {word_count} words (target: ~{target})")
+        elif word_count > high:
+            log.warning(f"Script is long: {word_count} words (target: ~{target})")
 
     def save_script(self, script: str, path: str):
         with open(path, "w", encoding="utf-8") as f:

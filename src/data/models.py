@@ -43,6 +43,43 @@ class NewsItem:
 
 
 @dataclass
+class MacroIndicator:
+    name: str            # e.g. "10-Year Treasury Yield"
+    series_id: str       # e.g. "DGS10"
+    value: float
+    previous_value: float
+    date: str
+    unit: str            # e.g. "percent", "billions_usd"
+
+
+@dataclass
+class CryptoAsset:
+    symbol: str
+    name: str
+    price: float
+    change_percent_24h: float
+    market_cap: float
+    volume_24h: float
+
+
+@dataclass
+class GeopoliticsItem:
+    title: str
+    description: str
+    source: str
+    published_at: str
+
+
+@dataclass
+class AIUpdateItem:
+    title: str
+    description: str
+    source: str
+    published_at: str
+    subcategory: str     # "model_release", "funding", "regulation", "research"
+
+
+@dataclass
 class MarketSnapshot:
     date: str
     indices: dict = field(default_factory=dict)
@@ -55,6 +92,36 @@ class MarketSnapshot:
     commodities: dict = field(default_factory=dict)
     news: list[NewsItem] = field(default_factory=list)
     market_sentiment: str = "neutral"
+
+    # Category metadata
+    categories: list[str] = field(default_factory=list)
+
+    # Finance Macro additions
+    macro_indicators: list[MacroIndicator] = field(default_factory=list)
+
+    # Crypto additions (beyond basic crypto dict)
+    crypto_extended: list[CryptoAsset] = field(default_factory=list)
+    crypto_global: dict = field(default_factory=dict)
+    crypto_trending: list[str] = field(default_factory=list)
+
+    # Geopolitics
+    geopolitics: list[GeopoliticsItem] = field(default_factory=list)
+
+    # AI Updates
+    ai_updates: list[AIUpdateItem] = field(default_factory=list)
+
+    # World Monitor enrichments
+    fear_greed: dict = field(default_factory=dict)          # {score, label}
+    macro_signals: dict = field(default_factory=dict)       # {verdict, bullishCount, signals}
+    sectors: list[dict] = field(default_factory=list)       # [{symbol, name, change}]
+    etf_flows: dict = field(default_factory=dict)           # {summary, etfs}
+    predictions: list[dict] = field(default_factory=list)   # [{title, yesPrice, volume}]
+    forecasts: list[dict] = field(default_factory=list)     # [{title, domain, region}]
+    sanctions: dict = field(default_factory=dict)           # {totalCount, countries, programs}
+    unrest_events: list[dict] = field(default_factory=list) # [{title, eventType, country}]
+    conflict_events: list[dict] = field(default_factory=list)  # [{country, sideA, sideB}]
+    cross_signals: list[dict] = field(default_factory=list) # [{type, summary, severity}]
+    gdelt_intel: list[dict] = field(default_factory=list)   # [{topic, articles}]
 
     def to_json(self) -> str:
         return json.dumps(self._to_dict(), indent=2)
@@ -71,6 +138,10 @@ class MarketSnapshot:
         data["earnings"] = [EarningsReport(**e) for e in data.get("earnings", [])]
         data["economic_events"] = [EconomicEvent(**e) for e in data.get("economic_events", [])]
         data["news"] = [NewsItem(**n) for n in data.get("news", [])]
+        data["macro_indicators"] = [MacroIndicator(**m) for m in data.get("macro_indicators", [])]
+        data["crypto_extended"] = [CryptoAsset(**c) for c in data.get("crypto_extended", [])]
+        data["geopolitics"] = [GeopoliticsItem(**g) for g in data.get("geopolitics", [])]
+        data["ai_updates"] = [AIUpdateItem(**a) for a in data.get("ai_updates", [])]
         return cls(**data)
 
     def save(self, path: str):

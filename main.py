@@ -6,13 +6,14 @@ import click
 import yaml
 from dotenv import load_dotenv
 
-from src.data.finnhub_collector import FinnhubCollector
-from src.data.marketaux_collector import MarketAuxCollector
+from src.data.categories import PodcastCategory, DEFAULT_CATEGORIES
+from src.data.collector_router import CategoryCollectorRouter
 from src.data.models import MarketSnapshot
 from src.script.generator import ScriptGenerator
 from src.audio.kokoro_engine import KokoroEngine
 from src.audio.processor import AudioProcessor
 from src.utils.logger import log
+from src.utils.email_sender import send_episode_email
 
 
 def load_config() -> dict:
@@ -23,43 +24,26 @@ def load_config() -> dict:
     config["finnhub_api_key"] = os.getenv("FINNHUB_API_KEY", "")
     config["marketaux_api_key"] = os.getenv("MARKETAUX_API_KEY", "")
     config["gemini_api_key"] = os.getenv("GEMINI_API_KEY", "")
+    config["fred_api_key"] = os.getenv("FRED_API_KEY", "")
+    config["gnews_api_key"] = os.getenv("GNEWS_API_KEY", "")
+    config["currents_api_key"] = os.getenv("CURRENTS_API_KEY", "")
+    config["newsdata_api_key"] = os.getenv("NEWSDATA_API_KEY", "")
     return config
 
 
-def collect_data(config: dict, status_callback=None) -> MarketSnapshot:
+def collect_data(config: dict, categories: list[PodcastCategory], status_callback=None) -> MarketSnapshot:
     log.info("=== STAGE 1: Data Collection ===")
+    router = CategoryCollectorRouter(config, categories)
+    snapshot = router.collect_all(status_callback=status_callback)
 
-    finnhub = FinnhubCollector(api_key=config["finnhub_api_key"])
-    marketaux = MarketAuxCollector(api_key=config["marketaux_api_key"])
-
-    if status_callback:
-        status_callback("Collecting Finnhub data...")
-    finnhub_data = finnhub.collect_all()
-
-    if status_callback:
-        status_callback("Collecting MarketAux news...")
-    marketaux_data = marketaux.collect_all()
-
-    snapshot = MarketSnapshot(
-        date=datetime.now().strftime("%Y-%m-%d"),
-        indices=finnhub_data.get("indices", {}),
-        top_gainers=finnhub_data.get("top_gainers", []),
-        top_losers=finnhub_data.get("top_losers", []),
-        earnings=finnhub_data.get("earnings", []),
-        economic_events=finnhub_data.get("economic_events", []),
-        crypto=finnhub_data.get("crypto", {}),
-        forex=finnhub_data.get("forex", {}),
-        commodities=finnhub_data.get("commodities", {}),
-        news=marketaux_data.get("news", []),
-        market_sentiment=marketaux_data.get("market_sentiment", "neutral"),
-    )
-
-    log.info(f"Snapshot: {len(snapshot.news)} news, {len(snapshot.top_gainers)} gainers, "
-             f"{len(snapshot.top_losers)} losers, sentiment={snapshot.market_sentiment}")
+    log.info(f"Snapshot: categories={[c.value for c in categories]}, "
+             f"{len(snapshot.news)} news, {len(snapshot.top_gainers)} gainers, "
+             f"{len(snapshot.top_losers)} losers, {len(snapshot.geopolitics)} geopolitics, "
+             f"{len(snapshot.ai_updates)} AI updates")
     return snapshot
 
 
-def generate_script(config: dict, snapshot: MarketSnapshot) -> str:
+def generate_script(config: dict, snapshot: MarketSnapshot, categories: list[PodcastCategory]) -> str:
     log.info("=== STAGE 2: Script Generation ===")
 
     api_key = config["gemini_api_key"]
@@ -70,7 +54,7 @@ def generate_script(config: dict, snapshot: MarketSnapshot) -> str:
         api_key=api_key,
         model=config.get("gemini_model", "gemini-2.5-flash"),
     )
-    script = generator.generate(snapshot)
+    script = generator.generate(snapshot, categories)
     return script
 
 
@@ -93,24 +77,33 @@ def generate_audio(config: dict, script: str, date: str) -> str:
     return mp3_path
 
 
+CATEGORY_CHOICES = [c.value for c in PodcastCategory]
+
+
 @click.command()
 @click.option("--stage", type=click.Choice(["data", "script", "audio", "all"]), default="all",
               help="Run a specific stage or the full pipeline")
 @click.option("--date", default=None, help="Date override (YYYY-MM-DD)")
-def main(stage: str, date: str | None):
+@click.option("--categories", "-c", multiple=True, type=click.Choice(CATEGORY_CHOICES),
+              default=["finance_macro", "finance_micro"],
+              help="Categories to include (repeatable, e.g. -c crypto -c geopolitics)")
+@click.option("--email", "-e", default=None, help="Send episode to this email address after generation")
+def main(stage: str, date: str | None, categories: tuple[str], email: str | None):
     """Market Pulse -- Automated Finance Podcast Generator"""
     config = load_config()
     date = date or datetime.now().strftime("%Y-%m-%d")
     output_dir = config.get("output_dir", "output")
     os.makedirs(output_dir, exist_ok=True)
 
+    cat_list = [PodcastCategory(c) for c in categories]
+
     snapshot_path = os.path.join(output_dir, f"{date}-snapshot.json")
     script_path = os.path.join(output_dir, f"{date}-script.txt")
 
-    log.info(f"Market Pulse pipeline -- {date}")
+    log.info(f"Market Pulse pipeline -- {date} -- categories: {[c.value for c in cat_list]}")
 
     if stage in ("data", "all"):
-        snapshot = collect_data(config)
+        snapshot = collect_data(config, cat_list)
         snapshot.save(snapshot_path)
         log.info(f"Snapshot saved: {snapshot_path}")
         if stage == "data":
@@ -119,7 +112,9 @@ def main(stage: str, date: str | None):
     if stage in ("script", "all"):
         if stage == "script":
             snapshot = MarketSnapshot.load(snapshot_path)
-        script = generate_script(config, snapshot)
+            if snapshot.categories:
+                cat_list = [PodcastCategory(c) for c in snapshot.categories]
+        script = generate_script(config, snapshot, cat_list)
         with open(script_path, "w", encoding="utf-8") as f:
             f.write(script)
         log.info(f"Script saved: {script_path}")
@@ -132,6 +127,18 @@ def main(stage: str, date: str | None):
                 script = f.read()
         mp3_path = generate_audio(config, script, date)
         log.info(f"=== DONE === Episode saved: {mp3_path}")
+
+        # ── STAGE 4: Email Delivery ─────────────────────────
+        if email:
+            log.info("=== STAGE 4: Email Delivery ===")
+            cat_names = [c.value.replace("_", " ").title() for c in cat_list]
+            sent = send_episode_email(
+                mp3_path=mp3_path,
+                recipient=email,
+                categories=cat_names,
+            )
+            if not sent:
+                log.warning("Email delivery failed. Check EMAIL_ADDRESS and EMAIL_APP_PASSWORD in .env")
 
 
 if __name__ == "__main__":

@@ -12,18 +12,34 @@ class FinnhubCollector:
     def collect_all(self) -> dict:
         log.info("Collecting data from Finnhub...")
         data = {}
-
-        data["indices"] = self._get_indices()
-        data["top_gainers"] = self._get_top_movers("gainers")
-        data["top_losers"] = self._get_top_movers("losers")
-        data["earnings"] = self._get_earnings()
-        data["economic_events"] = self._get_economic_calendar()
-        data["crypto"] = self._get_crypto()
-        data["forex"] = self._get_forex()
-        data["commodities"] = self._get_commodities()
-
+        data.update(self.collect_macro())
+        data.update(self.collect_micro())
+        data.update(self.collect_crypto())
         log.info("Finnhub data collection complete")
         return data
+
+    def collect_macro(self) -> dict:
+        log.info("Collecting Finnhub macro data...")
+        return {
+            "indices": self._get_indices(),
+            "economic_events": self._get_economic_calendar(),
+            "forex": self._get_forex(),
+            "commodities": self._get_commodities(),
+        }
+
+    def collect_micro(self) -> dict:
+        log.info("Collecting Finnhub micro data...")
+        return {
+            "top_gainers": self._get_top_movers("gainers"),
+            "top_losers": self._get_top_movers("losers"),
+            "earnings": self._get_earnings(),
+        }
+
+    def collect_crypto(self) -> dict:
+        log.info("Collecting Finnhub crypto data...")
+        return {
+            "crypto": self._get_crypto(),
+        }
 
     def _get_indices(self) -> dict:
         log.info("Fetching market indices...")
