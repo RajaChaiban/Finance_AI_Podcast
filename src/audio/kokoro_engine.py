@@ -44,12 +44,18 @@ class KokoroEngine:
             f"prosody={'on' if enable_prosody else 'off'}"
         )
 
+    # Abort synthesis if more than this fraction of segments fail. Below the
+    # threshold we still log each failure but keep going, since an occasional
+    # bad segment is better than no episode.
+    MAX_FAILURE_RATIO = 0.2
+
     def generate_audio(self, script: str, sample_rate: int = 24000, on_progress=None) -> tuple[np.ndarray, int]:
         segments = self._parse_script(script)
         total = len(segments)
         log.info(f"Generating audio for {total} segments...")
 
         audio_parts = []
+        failures = 0
         for i, (speaker, emotion, text) in enumerate(segments):
             following = segments[i + 1][1] if i + 1 < total else None
             log.info(f"  Segment {i+1}/{total}: {speaker}:{emotion} ({len(text)} chars)")
@@ -62,9 +68,19 @@ class KokoroEngine:
                 audio_parts.append(segment_audio)
                 pause_len = int(sample_rate * prosody.pause_ms(emotion, following) / 1000)
                 audio_parts.append(np.zeros(pause_len, dtype=np.float32))
+            else:
+                failures += 1
 
         if not audio_parts:
             raise RuntimeError("No audio segments generated")
+
+        if total > 0 and failures / total > self.MAX_FAILURE_RATIO:
+            raise RuntimeError(
+                f"Synthesis failed on {failures}/{total} segments "
+                f"({failures/total:.0%}); aborting to avoid shipping a broken episode"
+            )
+        if failures:
+            log.warning(f"Synthesis completed with {failures}/{total} failed segments")
 
         combined = np.concatenate(audio_parts)
         duration = len(combined) / sample_rate
@@ -113,9 +129,23 @@ class KokoroEngine:
         anchor = self.anchor_map.get(speaker, self.anchor_map["S1"])
         if self.blender is None or emotion == "neutral":
             return anchor
-        tensor = self.blender.resolve(speaker, emotion, anchor=anchor)
+        try:
+            tensor = self.blender.resolve(speaker, emotion, anchor=anchor)
+        except Exception as e:
+            log.warning(
+                f"Voice blend failed for {speaker}:{emotion} ({e}); "
+                f"falling back to anchor voice '{anchor}'"
+            )
+            return anchor
         # Pipeline's load_voice() passes torch.FloatTensor through unchanged;
-        # ensure we're CPU float32 so the isinstance() check matches.
+        # ensure we're CPU float32 so the isinstance() check matches. If a
+        # future kokoro version rejects tensors here, fall back to the anchor.
+        if not isinstance(tensor, torch.Tensor):
+            log.warning(
+                f"Blender returned non-tensor for {speaker}:{emotion}; "
+                f"falling back to anchor voice '{anchor}'"
+            )
+            return anchor
         if tensor.dtype != torch.float32:
             tensor = tensor.to(torch.float32)
         if tensor.device.type != "cpu":

@@ -95,7 +95,7 @@ def _concat_to_mp3(rendered: list[tuple[str, Path]], out_path: Path, gap_s: floa
 
     processor = AudioProcessor(output_dir=str(out_path.parent))
     # Reuse the existing normalize helper for consistent levels.
-    normalized = processor._normalize(combined)
+    normalized = processor.normalize(combined)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     normalized.export(str(out_path), format="mp3", bitrate="192k",
                       tags={"title": "TTS A/B Comparison", "artist": "Market Pulse"})

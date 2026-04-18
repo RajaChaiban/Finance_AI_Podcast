@@ -1,3 +1,4 @@
+import re
 import smtplib
 import os
 from email.mime.multipart import MIMEMultipart
@@ -5,6 +6,20 @@ from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email import encoders
 from src.utils.logger import log
+
+
+# Plain email regex — enough to block header-injection via CR/LF and catch
+# the common malformed inputs. The MIME library isn't strict about these, so
+# a recipient like "x@y.com\r\nBcc: evil@x.com" would otherwise slip through.
+_EMAIL_RE = re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]+$")
+
+
+def _is_valid_email(addr: str) -> bool:
+    if not addr or not isinstance(addr, str):
+        return False
+    if "\r" in addr or "\n" in addr:
+        return False
+    return bool(_EMAIL_RE.match(addr))
 
 
 def send_episode_email(
@@ -35,6 +50,13 @@ def send_episode_email(
 
     if not sender_email or not sender_password:
         log.warning("Email not configured: set EMAIL_ADDRESS and EMAIL_APP_PASSWORD in .env")
+        return False
+
+    if not _is_valid_email(recipient):
+        log.warning(f"Rejected invalid recipient address: {recipient!r}")
+        return False
+    if not _is_valid_email(sender_email):
+        log.warning(f"Rejected invalid sender address: {sender_email!r}")
         return False
 
     if not os.path.exists(mp3_path):

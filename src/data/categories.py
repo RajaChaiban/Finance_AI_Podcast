@@ -40,8 +40,6 @@ CATEGORY_API_KEYS = {
 
 # Human-readable names for API keys (for UI display)
 API_KEY_LABELS = {
-    "finnhub_api_key": "Finnhub",
-    "marketaux_api_key": "MarketAux",
     "gemini_api_key": "Gemini",
     "fred_api_key": "FRED",
     "gnews_api_key": "GNews",

@@ -1,5 +1,6 @@
 import httpx
 from src.data.models import AIUpdateItem
+from src.data.classifiers import classify_ai_subcategory
 from src.utils.logger import log
 
 BASE_URL = "https://newsdata.io/api/1/latest"
@@ -33,26 +34,12 @@ class NewsDataCollector:
             for article in results:
                 title = article.get("title", "") or ""
                 description = article.get("description", "") or ""
-
-                # Classify subcategory based on keywords
-                text = (title + " " + description).lower()
-                if any(kw in text for kw in ["funding", "raised", "investment", "startup", "valuation"]):
-                    subcategory = "funding"
-                elif any(kw in text for kw in ["regulation", "law", "policy", "ban", "compliance"]):
-                    subcategory = "regulation"
-                elif any(kw in text for kw in ["paper", "research", "study", "benchmark"]):
-                    subcategory = "research"
-                elif any(kw in text for kw in ["launch", "release", "model", "update", "version"]):
-                    subcategory = "model_release"
-                else:
-                    subcategory = "general"
-
                 items.append(AIUpdateItem(
                     title=title,
                     description=description,
                     source=article.get("source_name", "") or article.get("source_id", ""),
                     published_at=article.get("pubDate", ""),
-                    subcategory=subcategory,
+                    subcategory=classify_ai_subcategory(title, description),
                 ))
             return items
         except Exception as e:

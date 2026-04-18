@@ -21,8 +21,6 @@ def load_config() -> dict:
     with open("config.yaml", "r") as f:
         config = yaml.safe_load(f)
 
-    config["finnhub_api_key"] = os.getenv("FINNHUB_API_KEY", "")
-    config["marketaux_api_key"] = os.getenv("MARKETAUX_API_KEY", "")
     config["gemini_api_key"] = os.getenv("GEMINI_API_KEY", "")
     config["fred_api_key"] = os.getenv("FRED_API_KEY", "")
     config["gnews_api_key"] = os.getenv("GNEWS_API_KEY", "")

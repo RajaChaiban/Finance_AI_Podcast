@@ -1,5 +1,6 @@
 import httpx
 from src.data.models import GeopoliticsItem, AIUpdateItem
+from src.data.classifiers import classify_ai_subcategory
 from src.utils.logger import log
 
 BASE_URL = "https://api.currentsapi.services/v1"
@@ -52,25 +53,12 @@ class CurrentsCollector:
             for a in articles:
                 title = a.get("title", "") or ""
                 desc = a.get("description", "") or ""
-                text = (title + " " + desc).lower()
-
-                if any(kw in text for kw in ["funding", "raised", "investment", "startup"]):
-                    subcategory = "funding"
-                elif any(kw in text for kw in ["regulation", "law", "policy", "ban"]):
-                    subcategory = "regulation"
-                elif any(kw in text for kw in ["paper", "research", "study", "benchmark"]):
-                    subcategory = "research"
-                elif any(kw in text for kw in ["launch", "release", "model", "update"]):
-                    subcategory = "model_release"
-                else:
-                    subcategory = "general"
-
                 items.append(AIUpdateItem(
                     title=title,
                     description=desc,
                     source=a.get("author", "") or "Currents",
                     published_at=a.get("published", ""),
-                    subcategory=subcategory,
+                    subcategory=classify_ai_subcategory(title, desc),
                 ))
             return items
         except Exception as e:

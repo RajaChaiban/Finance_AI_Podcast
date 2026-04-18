@@ -5,7 +5,7 @@ from src.data.models import MarketSnapshot
 from src.data.worldmonitor_collector import WorldMonitorCollector
 from src.data.gnews_collector import GNewsCollector
 from src.data.newsdata_collector import NewsDataCollector
-from src.data.guardian_collector import CurrentsCollector
+from src.data.currents_collector import CurrentsCollector
 from src.data.fred_collector import FredCollector
 from src.data.coingecko_collector import CoinGeckoCollector
 from src.utils.logger import log

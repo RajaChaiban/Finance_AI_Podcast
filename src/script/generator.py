@@ -38,20 +38,28 @@ class ScriptGenerator:
         log.info(f"Script generated: {word_count} words")
         return script
 
+    _SPEAKER_PREFIX_RE = (
+        "[S1]", "[S2]", "[S1:", "[S2:",
+    )
+
     def _clean_script(self, script: str) -> str:
         lines = script.strip().split("\n")
         cleaned = []
+        dropped = 0
         for line in lines:
             line = line.strip()
             if not line:
                 continue
-            # Keep only lines that start with speaker tags
-            if line.startswith("[S1]") or line.startswith("[S2]"):
+            if line.startswith(self._SPEAKER_PREFIX_RE):
                 cleaned.append(line)
             else:
-                # Try to attach orphan lines to the previous speaker
-                if cleaned:
-                    cleaned[-1] += " " + line
+                # Drop orphan lines (preambles like "INTRO:", stage directions,
+                # unlabelled continuations). Attaching them to the previous
+                # speaker turn was causing non-dialogue text to be read aloud.
+                dropped += 1
+                log.warning(f"Dropping orphan line: {line[:80]!r}")
+        if dropped:
+            log.warning(f"Cleaned script: dropped {dropped} orphan line(s)")
         return "\n".join(cleaned)
 
     def _validate_script(self, script: str, num_categories: int = 2):

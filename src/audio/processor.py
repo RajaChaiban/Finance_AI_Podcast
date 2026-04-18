@@ -23,7 +23,7 @@ class AudioProcessor:
         audio_segment = AudioSegment.from_wav(wav_path)
 
         # Normalize audio levels
-        audio_segment = self._normalize(audio_segment)
+        audio_segment = self.normalize(audio_segment)
 
         audio_segment.export(
             mp3_path,
@@ -43,6 +43,6 @@ class AudioProcessor:
         log.info(f"MP3 saved: {mp3_path} ({file_size_mb:.1f} MB)")
         return mp3_path
 
-    def _normalize(self, audio: AudioSegment, target_dbfs: float = -20.0) -> AudioSegment:
+    def normalize(self, audio: AudioSegment, target_dbfs: float = -20.0) -> AudioSegment:
         change = target_dbfs - audio.dBFS
         return audio.apply_gain(change)

@@ -143,8 +143,10 @@ def _expand_numerics(text: str) -> str:
         _expand_plain_big,
         text,
     )
-    # Years 20XX
-    text = re.sub(r"\b(20\d{2})\b", _expand_year, text)
+    # Years 20XX — `\b` blocks adjacent word chars (so "2025c" is safe); the
+    # negative lookahead also blocks decimals like "2025.50" that slipped past
+    # _expand_money (e.g. a bare number without a $ prefix).
+    text = re.sub(r"\b(20\d{2})\b(?!\.\d)", _expand_year, text)
     # Q3 / Q4 → Q three / Q four
     text = re.sub(
         r"\bQ([1-4])\b",
@@ -154,13 +156,24 @@ def _expand_numerics(text: str) -> str:
     return text
 
 
+_TICKER_ADJACENT = set(",. !?;:\n\t()-\"'")
+
+
 def _emphasize_tickers(text: str) -> str:
     def repl(m: re.Match) -> str:
-        tok = m.group(0)
-        if tok not in KNOWN_TICKERS:
-            return tok
-        spaced = " ".join(tok)
-        return f", {spaced},"
+        ticker = m.group(1)
+        if ticker not in KNOWN_TICKERS:
+            return m.group(0)
+        spaced = " ".join(ticker)
+        # Only add emphasis commas when the ticker isn't already adjacent to
+        # punctuation or sentence boundaries — otherwise we produce double
+        # commas like ", N V D A,." on inputs like "NVDA." or "NVDA, AAPL".
+        start, end = m.span()
+        before = text[start - 1] if start > 0 else ""
+        after = text[end] if end < len(text) else ""
+        prefix = "" if before == "" or before in _TICKER_ADJACENT else ", "
+        suffix = "" if after == "" or after in _TICKER_ADJACENT else ","
+        return f"{prefix}{spaced}{suffix}"
 
     # Match 2-5 uppercase letter runs with optional leading $; guard so common
     # small English words like "OR/IT/SO" aren't caught (they're not in the set).

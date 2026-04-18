@@ -268,7 +268,9 @@ class WorldMonitorCollector:
             for q in crypto_quotes
         ]
 
-        # Crypto ETF flows (filter for crypto ETFs like IBIT)
+        # Crypto ETF flows (filter for crypto ETFs like IBIT). Merge into the
+        # existing etf_flows dict (which macro populated with summary/etfs)
+        # rather than overwriting it — the UI in app.py reads both shapes.
         etf = raw.get("etfFlows", {})
         if etf:
             crypto_etfs = [
@@ -277,8 +279,8 @@ class WorldMonitorCollector:
                        for kw in ["IBIT", "FBTC", "ARKB", "GBTC", "ETHE", "BITO"])
             ]
             if crypto_etfs:
-                result["etf_flows"] = result.get("etf_flows", {})
-                result.setdefault("etf_flows", {})["crypto_etfs"] = crypto_etfs
+                existing = result.setdefault("etf_flows", {})
+                existing["crypto_etfs"] = crypto_etfs
 
     # ── Geopolitics ──────────────────────────────────────────
 

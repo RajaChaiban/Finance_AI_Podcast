@@ -256,9 +256,11 @@ def build_recipes(anchor_s1: str, anchor_s2: str,
         new_anchor = anchor_for[speaker]
         if default_anchor == new_anchor:
             return dict(weights)
-        # If the user picked a voice that was already a color voice in this
-        # recipe, swap names so both slots stay distinct (avoiding a collapse
-        # to a single voice). Otherwise simply rename default_anchor → new.
+        # If the user's new anchor was already a color voice in this recipe,
+        # swap the two voice IDs so the weight *roles* (anchor weight vs.
+        # color weight) stay attached to their roles — new_anchor inherits
+        # the old anchor's weight, and default_anchor (now a color voice)
+        # inherits what new_anchor had. Otherwise just rename default → new.
         swap = new_anchor in weights
         out: dict[str, float] = {}
         for voice, weight in weights.items():
@@ -268,7 +270,14 @@ def build_recipes(anchor_s1: str, anchor_s2: str,
                 key = default_anchor
             else:
                 key = voice
-            out[key] = out.get(key, 0.0) + weight
+            # The swap logic above guarantees no two input voices map to the
+            # same output key, so a collision here would signal a design bug.
+            if key in out:
+                raise RuntimeError(
+                    f"Re-anchor swap collided on {key!r} for {speaker} — "
+                    f"original={weights}, default={default_anchor}, new={new_anchor}"
+                )
+            out[key] = weight
         return out
 
     remapped: dict[tuple[str, str], BlendRecipe] = {}

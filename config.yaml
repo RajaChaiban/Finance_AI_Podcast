@@ -4,7 +4,6 @@ tone: "casual_educational"
 
 speaker_1_voice: "am_adam"
 speaker_2_voice: "af_bella"
-pause_between_turns_ms: 300
 
 tts:
   base_speed: 1.0

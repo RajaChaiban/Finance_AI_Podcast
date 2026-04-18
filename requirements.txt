@@ -1,9 +1,7 @@
-finnhub-python
 httpx
 google-genai
 kokoro>=0.9
 torch
-librosa
 soundfile
 numpy
 pydub
