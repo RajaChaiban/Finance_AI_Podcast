@@ -15,6 +15,7 @@ from src.data.models import MarketSnapshot
 from src.script.generator import ScriptGenerator
 from src.audio.kokoro_engine import KokoroEngine
 from src.audio.processor import AudioProcessor
+from src.audio.voice_blender import VOICE_CATALOG, ALL_VOICE_IDS, voice_label
 from src.utils.email_sender import send_episode_email
 
 # ── Page config ──────────────────────────────────────────────
@@ -93,10 +94,38 @@ with st.sidebar:
     st.divider()
     st.subheader("Podcast Settings")
     st.text(f"Name: {config.get('podcast_name', 'Market Pulse')}")
-    st.text(f"Voice S1: {config.get('speaker_1_voice', 'am_adam')}")
-    st.text(f"Voice S2: {config.get('speaker_2_voice', 'af_bella')}")
     st.text(f"LLM: {config.get('gemini_model', 'gemini-2.5-flash')}")
     st.text(f"Date: {date}")
+
+    st.divider()
+    st.subheader("Host Voices")
+    st.caption("Grade is Kokoro's published sample quality (A best → F worst).")
+
+    male_voice_ids = [v["id"] for v in VOICE_CATALOG if v["gender"] == "male"]
+    female_voice_ids = [v["id"] for v in VOICE_CATALOG if v["gender"] == "female"]
+
+    configured_s1 = config.get("speaker_1_voice", "am_adam")
+    configured_s2 = config.get("speaker_2_voice", "af_bella")
+
+    s1_default_idx = male_voice_ids.index(configured_s1) if configured_s1 in male_voice_ids else 0
+    s2_default_idx = female_voice_ids.index(configured_s2) if configured_s2 in female_voice_ids else 0
+
+    selected_voice_s1 = st.selectbox(
+        "Alex (Speaker 1)",
+        options=male_voice_ids,
+        index=s1_default_idx,
+        format_func=voice_label,
+        help="Highest-graded male voices: Michael, Fenrir, Puck (all C+).",
+    )
+    selected_voice_s2 = st.selectbox(
+        "Sam (Speaker 2)",
+        options=female_voice_ids,
+        index=s2_default_idx,
+        format_func=voice_label,
+        help="Highest-graded female voices: Heart (A), Bella (A-), Emma / Nicole (B-).",
+    )
+    st.session_state.selected_voice_s1 = selected_voice_s1
+    st.session_state.selected_voice_s2 = selected_voice_s2
 
     st.divider()
     if st.button("Reset", use_container_width=True):
@@ -169,9 +198,16 @@ if run_pipeline:
         t0 = time.time()
 
         st.write("Loading Kokoro-82M TTS model...")
+        tts_cfg = config.get("tts", {}) or {}
+        voice_s1 = st.session_state.get("selected_voice_s1", config.get("speaker_1_voice", "am_adam"))
+        voice_s2 = st.session_state.get("selected_voice_s2", config.get("speaker_2_voice", "af_bella"))
+        st.write(f"Voices: Alex = {voice_label(voice_s1)}  |  Sam = {voice_label(voice_s2)}")
         engine = KokoroEngine(
-            voice_s1=config.get("speaker_1_voice", "am_adam"),
-            voice_s2=config.get("speaker_2_voice", "af_bella"),
+            voice_s1=voice_s1,
+            voice_s2=voice_s2,
+            speed=tts_cfg.get("base_speed", 1.0),
+            enable_blending=tts_cfg.get("enable_blending", True),
+            enable_prosody=tts_cfg.get("enable_prosody", True),
         )
 
         progress_bar = st.progress(0, text="Starting synthesis...")
@@ -445,17 +481,22 @@ if st.session_state.has_run:
             word_count = len(script.split())
             st.metric("Word Count", f"{word_count:,}", delta=f"~{word_count // 150} min")
             st.divider()
+            import re as _re
+            tag_re = _re.compile(r"^\[(S[12])(?::([a-z_]+))?\]\s*(.*)")
             for line in script.split("\n"):
                 line = line.strip()
                 if not line:
                     continue
-                if line.startswith("[S1]"):
-                    text = line.replace("[S1]", "").strip()
+                m = tag_re.match(line)
+                if not m:
+                    continue
+                speaker, emotion, text = m.group(1), m.group(2), m.group(3)
+                emo_badge = f' <span style="opacity:0.6;font-size:0.85em">[{emotion}]</span>' if emotion else ""
+                if speaker == "S1":
                     st.markdown(f'<div style="margin:6px 0; padding:8px 12px; border-left:3px solid #4A90D9; '
-                                f'background:rgba(74,144,217,0.08);"><strong style="color:#4A90D9;">Alex:</strong> {text}</div>',
+                                f'background:rgba(74,144,217,0.08);"><strong style="color:#4A90D9;">Alex:</strong>{emo_badge} {text}</div>',
                                 unsafe_allow_html=True)
-                elif line.startswith("[S2]"):
-                    text = line.replace("[S2]", "").strip()
+                else:
                     st.markdown(f'<div style="margin:6px 0; padding:8px 12px; border-left:3px solid #D94A8A; '
-                                f'background:rgba(217,74,138,0.08);"><strong style="color:#D94A8A;">Sam:</strong> {text}</div>',
+                                f'background:rgba(217,74,138,0.08);"><strong style="color:#D94A8A;">Sam:</strong>{emo_badge} {text}</div>',
                                 unsafe_allow_html=True)

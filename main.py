@@ -61,9 +61,13 @@ def generate_script(config: dict, snapshot: MarketSnapshot, categories: list[Pod
 def generate_audio(config: dict, script: str, date: str) -> str:
     log.info("=== STAGE 3: Audio Generation ===")
 
+    tts_cfg = config.get("tts", {}) or {}
     engine = KokoroEngine(
         voice_s1=config.get("speaker_1_voice", "am_adam"),
         voice_s2=config.get("speaker_2_voice", "af_bella"),
+        speed=tts_cfg.get("base_speed", 1.0),
+        enable_blending=tts_cfg.get("enable_blending", True),
+        enable_prosody=tts_cfg.get("enable_prosody", True),
     )
     audio, sample_rate = engine.generate_audio(script, sample_rate=config.get("sample_rate", 24000))
 

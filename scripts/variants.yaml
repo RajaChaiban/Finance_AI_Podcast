@@ -1,0 +1,27 @@
+# A/B variants for scripts/tts_ab_render.py
+# Each variant renders the full fixture. Keep the list short (3-5) so the
+# resulting comparison MP3 is easy to audition end-to-end.
+
+- name: baseline
+  description: "Original behavior: no blending, no prosody, fixed 300ms pauses."
+  enable_blending: false
+  enable_prosody: false
+  base_speed: 1.0
+
+- name: blend_only
+  description: "Style-vector blending on; text rewriting off."
+  enable_blending: true
+  enable_prosody: false
+  base_speed: 1.0
+
+- name: prosody_only
+  description: "Text rewriting + emotion speed on; no blending."
+  enable_blending: false
+  enable_prosody: true
+  base_speed: 1.0
+
+- name: full
+  description: "Blending + prosody stressing combined."
+  enable_blending: true
+  enable_prosody: true
+  base_speed: 1.0

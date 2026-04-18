@@ -12,10 +12,21 @@ FORMAT RULES:
 - Natural back-and-forth: reactions, interruptions, agreements, questions.
 - Include occasional filler phrases that sound human: "right", "exactly", "yeah so", "here's the thing", "honestly".
 
+EMOTION TAGS (optional prosody guidance for the TTS engine):
+You MAY attach a single emotion tag to a speaker when the moment clearly calls for it. Tag syntax is [S1:excited] or [S2:serious] (replaces the bare [S1]/[S2] tag). Use tags SPARINGLY -- aim for roughly 20-30% of turns, only where the delivery genuinely shifts. Never tag routine narration.
+Available tags:
+- excited   -- surprising rallies, big beats, breakout news, "wow" moments
+- curious   -- open questions, "what's driving this?", intrigue
+- serious   -- geopolitical escalation, large losses, systemic risk, somber beats
+- warm      -- human-interest asides, sign-off, compliments, reassurance
+- concerned -- downside risk, unrest, negative earnings surprises, worry
+- playful   -- banter, analogies, light jokes
+Omit the tag (plain [S1] / [S2]) for neutral delivery -- that is the default and the correct choice for most lines.
+
 IMPORTANT:
 - Do NOT include any stage directions, sound effects, or metadata.
 - Do NOT include episode numbers or dates in the script.
-- Every line must start with either [S1] or [S2].
+- Every line must start with either [S1] or [S2] (optionally with an emotion tag).
 - Make it sound natural -- these are real people having a real conversation."""
 
 CATEGORY_SECTIONS = {
