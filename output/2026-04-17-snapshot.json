@@ -1,0 +1,169 @@
+{
+  "date": "2026-04-17",
+  "indices": {
+    "S&P 500": {
+      "current": 0,
+      "change": 0,
+      "change_percent": 0,
+      "previous_close": 0
+    },
+    "NASDAQ": {
+      "current": 0,
+      "change": 0,
+      "change_percent": 0,
+      "previous_close": 0
+    },
+    "DOW": {
+      "current": 0,
+      "change": 0,
+      "change_percent": 0,
+      "previous_close": 0
+    }
+  },
+  "top_gainers": [],
+  "top_losers": [],
+  "earnings": [
+    {
+      "symbol": "NFTM",
+      "name": "NFTM",
+      "eps_actual": null,
+      "eps_estimate": null,
+      "revenue_actual": null,
+      "surprise_percent": null
+    },
+    {
+      "symbol": "FAT",
+      "name": "FAT",
+      "eps_actual": null,
+      "eps_estimate": -3.1916,
+      "revenue_actual": null,
+      "surprise_percent": null
+    },
+    {
+      "symbol": "NNAX",
+      "name": "NNAX",
+      "eps_actual": null,
+      "eps_estimate": null,
+      "revenue_actual": null,
+      "surprise_percent": null
+    },
+    {
+      "symbol": "CCBC",
+      "name": "CCBC",
+      "eps_actual": 0.52,
+      "eps_estimate": null,
+      "revenue_actual": 5350000,
+      "surprise_percent": null
+    },
+    {
+      "symbol": "ALLY",
+      "name": "ALLY",
+      "eps_actual": 1.11,
+      "eps_estimate": 0.9531,
+      "revenue_actual": 2102000000,
+      "surprise_percent": null
+    },
+    {
+      "symbol": "AMIH",
+      "name": "AMIH",
+      "eps_actual": null,
+      "eps_estimate": null,
+      "revenue_actual": null,
+      "surprise_percent": null
+    },
+    {
+      "symbol": "BTOG",
+      "name": "BTOG",
+      "eps_actual": null,
+      "eps_estimate": null,
+      "revenue_actual": null,
+      "surprise_percent": null
+    },
+    {
+      "symbol": "PKBK",
+      "name": "PKBK",
+      "eps_actual": 0.99,
+      "eps_estimate": null,
+      "revenue_actual": 22990000,
+      "surprise_percent": null
+    },
+    {
+      "symbol": "PMDI",
+      "name": "PMDI",
+      "eps_actual": null,
+      "eps_estimate": null,
+      "revenue_actual": null,
+      "surprise_percent": null
+    },
+    {
+      "symbol": "MCBS",
+      "name": "MCBS",
+      "eps_actual": null,
+      "eps_estimate": 0.7344,
+      "revenue_actual": null,
+      "surprise_percent": null
+    }
+  ],
+  "economic_events": [],
+  "crypto": {
+    "BTC": {
+      "price": 77227.44,
+      "change_percent": 2.8783
+    },
+    "ETH": {
+      "price": 2420.9,
+      "change_percent": 3.1157
+    }
+  },
+  "forex": {
+    "EUR/USD": {
+      "rate": 0,
+      "change_percent": 0
+    },
+    "GBP/USD": {
+      "rate": 0,
+      "change_percent": 0
+    },
+    "USD/JPY": {
+      "rate": 0,
+      "change_percent": 0
+    }
+  },
+  "commodities": {
+    "Gold": {
+      "price": 0,
+      "change_percent": 0
+    },
+    "Oil (WTI)": {
+      "price": 0,
+      "change_percent": 0
+    }
+  },
+  "news": [
+    {
+      "title": "OpenAI loses 3 top executives as it cuts back on 'side quests'",
+      "description": "OpenAI loses three executives as it sharpens its business focus and faces rising pressure from Anthropic.",
+      "source": "businessinsider.com",
+      "published_at": "2026-04-18T00:21:23.000000Z",
+      "sentiment": 0.0,
+      "entities": []
+    },
+    {
+      "title": "The Margin Machine: Why Applied Materials Is Outgrowing Its Peers (NASDAQ:AMAT)",
+      "description": "AMAT is rated Buy, leveraging AI-driven wafer fab equipment demand and structural industry tailwinds for robust earnings growth. Read more on AMAT stock here.",
+      "source": "seekingalpha.com",
+      "published_at": "2026-04-18T00:16:38.000000Z",
+      "sentiment": 0.0,
+      "entities": []
+    },
+    {
+      "title": "Starlink unable to get signal for India liftoff; faces FDI hurdles amid security concerns",
+      "description": "Starlink's plan for satellite services in India is stalled. The government is reviewing Elon Musk's company's investment proposal carefully. National security concerns are a major hurdle. Geopolitical events have heightened these worries. The company awaits crucial security clearance. Officials will discuss the proposal soon. India prioritizes national security in satellite communications.",
+      "source": "economictimes.indiatimes.com",
+      "published_at": "2026-04-18T00:00:00.000000Z",
+      "sentiment": 0.0,
+      "entities": []
+    }
+  ],
+  "market_sentiment": "neutral"
+}

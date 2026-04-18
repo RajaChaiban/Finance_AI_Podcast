@@ -1,0 +1,11 @@
+finnhub-python
+httpx
+google-genai
+kokoro>=0.9
+soundfile
+numpy
+pydub
+pyyaml
+python-dotenv
+click
+streamlit

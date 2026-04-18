@@ -1,0 +1,13 @@
+podcast_name: "Market Pulse"
+target_length_words: 3000
+tone: "casual_educational"
+
+speaker_1_voice: "am_adam"
+speaker_2_voice: "af_bella"
+pause_between_turns_ms: 300
+
+output_dir: "output"
+audio_format: "mp3"
+sample_rate: 24000
+
+gemini_model: "gemini-2.5-flash"

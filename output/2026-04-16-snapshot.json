@@ -1,0 +1,63 @@
+{
+  "date": "2026-04-16",
+  "indices": {
+    "S&P 500": {
+      "current": 0,
+      "change": 0,
+      "change_percent": 0,
+      "previous_close": 0
+    },
+    "NASDAQ": {
+      "current": 0,
+      "change": 0,
+      "change_percent": 0,
+      "previous_close": 0
+    },
+    "DOW": {
+      "current": 0,
+      "change": 0,
+      "change_percent": 0,
+      "previous_close": 0
+    }
+  },
+  "top_gainers": [],
+  "top_losers": [],
+  "earnings": [],
+  "economic_events": [],
+  "crypto": {
+    "BTC": {
+      "price": 0,
+      "change_percent": 0
+    },
+    "ETH": {
+      "price": 0,
+      "change_percent": 0
+    }
+  },
+  "forex": {
+    "EUR/USD": {
+      "rate": 0,
+      "change_percent": 0
+    },
+    "GBP/USD": {
+      "rate": 0,
+      "change_percent": 0
+    },
+    "USD/JPY": {
+      "rate": 0,
+      "change_percent": 0
+    }
+  },
+  "commodities": {
+    "Gold": {
+      "price": 0,
+      "change_percent": 0
+    },
+    "Oil (WTI)": {
+      "price": 0,
+      "change_percent": 0
+    }
+  },
+  "news": [],
+  "market_sentiment": "neutral"
+}
