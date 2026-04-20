@@ -59,12 +59,17 @@ def send_episode_email(
         log.warning(f"Rejected invalid sender address: {sender_email!r}")
         return False
 
-    if not os.path.exists(mp3_path):
+    has_attachment = bool(mp3_path) and os.path.exists(mp3_path)
+    if mp3_path and not has_attachment:
         log.warning(f"MP3 file not found: {mp3_path}")
         return False
 
-    filename = os.path.basename(mp3_path)
-    file_size_mb = os.path.getsize(mp3_path) / (1024 * 1024)
+    if has_attachment:
+        filename = os.path.basename(mp3_path)
+        file_size_mb = os.path.getsize(mp3_path) / (1024 * 1024)
+    else:
+        filename = ""
+        file_size_mb = 0.0
 
     if subject is None:
         subject = f"Market Pulse - {filename.replace('.mp3', '').replace('-', ' ').title()}"
@@ -85,12 +90,13 @@ def send_episode_email(
         msg["Subject"] = subject
         msg.attach(MIMEText(body, "plain"))
 
-        with open(mp3_path, "rb") as f:
-            part = MIMEBase("audio", "mpeg")
-            part.set_payload(f.read())
-            encoders.encode_base64(part)
-            part.add_header("Content-Disposition", f"attachment; filename={filename}")
-            msg.attach(part)
+        if has_attachment:
+            with open(mp3_path, "rb") as f:
+                part = MIMEBase("audio", "mpeg")
+                part.set_payload(f.read())
+                encoders.encode_base64(part)
+                part.add_header("Content-Disposition", f"attachment; filename={filename}")
+                msg.attach(part)
 
         log.info(f"Sending episode to {recipient} ({file_size_mb:.1f} MB)...")
 
