@@ -1,0 +1,95 @@
+name: Daily Podcast
+
+on:
+  schedule:
+    # 10:30 UTC = 6:30 AM ET during EDT (summer) / 5:30 AM ET during EST (winter).
+    # Single cron; DST drift is documented in docs/superpowers/specs/2026-04-19-scheduled-email-automation-design.md.
+    - cron: "30 10 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: daily-podcast
+  cancel-in-progress: false
+
+jobs:
+  generate-and-deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+      GNEWS_API_KEY: ${{ secrets.GNEWS_API_KEY }}
+      CURRENTS_API_KEY: ${{ secrets.CURRENTS_API_KEY }}
+      NEWSDATA_API_KEY: ${{ secrets.NEWSDATA_API_KEY }}
+      EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+      EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install system deps (ffmpeg for pydub)
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install Python deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Restore Kokoro model cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/huggingface
+            ~/.cache/kokoro
+          key: kokoro-model-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            kokoro-model-
+
+      - name: Run pipeline with fan-out delivery
+        id: run_pipeline
+        run: |
+          set -o pipefail
+          python main.py \
+            -e "$EMAIL_ADDRESS" \
+            --telegram-chat-id "$TELEGRAM_CHAT_ID" \
+            2>&1 | tee pipeline.log
+
+      - name: Upload MP3 artifact (safety net)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: market-pulse-${{ github.run_id }}
+          path: output/Market_Pulse_*.mp3
+          retention-days: 7
+          if-no-files-found: warn
+
+      - name: Upload pipeline log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-log-${{ github.run_id }}
+          path: pipeline.log
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Notify failure on both channels
+        if: failure()
+        env:
+          GITHUB_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          FAILURE_SUMMARY: "Daily podcast run failed"
+        run: |
+          if [ -f pipeline.log ]; then
+            tail -n 50 pipeline.log | python -m src.utils.notify_failure
+          else
+            echo "(no pipeline log captured)" | python -m src.utils.notify_failure
+          fi
