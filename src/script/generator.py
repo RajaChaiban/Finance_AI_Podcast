@@ -2,7 +2,11 @@ from google import genai
 from google.genai.types import GenerateContentConfig
 from src.data.models import MarketSnapshot
 from src.data.categories import PodcastCategory, DEFAULT_CATEGORIES
-from src.script.prompts import build_system_prompt, build_user_prompt
+from src.script.prompts import (
+    build_system_prompt,
+    build_user_prompt,
+    FORBIDDEN_ADVICE_PHRASES,
+)
 from src.utils.logger import log
 
 
@@ -11,13 +15,19 @@ class ScriptGenerator:
         self.client = genai.Client(api_key=api_key)
         self.model = model
 
-    def generate(self, snapshot: MarketSnapshot, categories: list[PodcastCategory] = None) -> str:
+    def generate(
+        self,
+        snapshot: MarketSnapshot,
+        categories: list[PodcastCategory] = None,
+        target_words: int | None = None,
+        preset_key: str | None = None,
+    ) -> str:
         if categories is None:
             categories = DEFAULT_CATEGORIES
 
         log.info("Generating podcast script with Gemini...")
 
-        system_prompt = build_system_prompt(categories)
+        system_prompt = build_system_prompt(categories, target_words=target_words, preset_key=preset_key)
         user_prompt = build_user_prompt(snapshot.to_json(), categories)
 
         response = self.client.models.generate_content(
@@ -25,14 +35,15 @@ class ScriptGenerator:
             contents=user_prompt,
             config=GenerateContentConfig(
                 system_instruction=system_prompt,
-                temperature=0.8,
+                temperature=0.7,
                 max_output_tokens=8192,
             ),
         )
 
         script = response.text
         script = self._clean_script(script)
-        self._validate_script(script, len(categories))
+        self._validate_script(script, len(categories), target_words=target_words, preset_key=preset_key)
+        self._validate_content(script)
 
         word_count = len(script.split())
         log.info(f"Script generated: {word_count} words")
@@ -62,7 +73,13 @@ class ScriptGenerator:
             log.warning(f"Cleaned script: dropped {dropped} orphan line(s)")
         return "\n".join(cleaned)
 
-    def _validate_script(self, script: str, num_categories: int = 2):
+    def _validate_script(
+        self,
+        script: str,
+        num_categories: int = 2,
+        target_words: int | None = None,
+        preset_key: str | None = None,
+    ):
         s1_count = script.count("[S1]")
         s2_count = script.count("[S2]")
 
@@ -70,14 +87,40 @@ class ScriptGenerator:
             log.warning(f"Script validation: missing speakers (S1={s1_count}, S2={s2_count})")
 
         word_count = len(script.split())
-        target = max(2000, min(4000, num_categories * 600))
-        low = target - 1000
-        high = target + 1500
+        if target_words is None:
+            # Legacy path preserved for callers that haven't threaded a preset.
+            target = max(1800, min(2500, num_categories * 450))
+        else:
+            target = int(target_words)
+        low = target - 500
+        high = target + 500
 
         if word_count < low:
             log.warning(f"Script is short: {word_count} words (target: ~{target})")
-        elif word_count > high:
-            log.warning(f"Script is long: {word_count} words (target: ~{target})")
+        elif word_count > high and preset_key != "deep":
+            # Deep mode explicitly asks Gemini to go long, so the commuter cap
+            # warning would be noise.
+            log.warning(
+                f"Script is long: {word_count} words (target: ~{target}); "
+                "commuter attention caps at ~20 min -- consider trimming"
+            )
+
+    def _validate_content(self, script: str):
+        """Scan for advice-language phrases that must not appear in the script.
+
+        The prompt forbids these, but Gemini occasionally drifts -- particularly
+        when the data contains explicit buy/sell signals. Logging-only rather
+        than regenerating: a reject-and-retry loop would double latency and
+        cost, and the prompt-level constraint catches the vast majority. The
+        warning is surfaced so a human can gate publishing.
+        """
+        lower = script.lower()
+        hits = [phrase for phrase in FORBIDDEN_ADVICE_PHRASES if phrase in lower]
+        if hits:
+            log.warning(
+                f"Script contains advice-like language: {hits}. "
+                "Review before publishing -- this is a regulatory risk."
+            )
 
     def save_script(self, script: str, path: str):
         with open(path, "w", encoding="utf-8") as f:

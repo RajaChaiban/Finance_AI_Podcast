@@ -4,6 +4,7 @@ from src.data.models import (
 )
 from src.data.categories import PodcastCategory
 from src.utils.logger import log
+from src.utils.retry import retry_http
 
 BASE_URL = "https://www.worldmonitor.app/api/bootstrap"
 
@@ -41,8 +42,10 @@ class WorldMonitorCollector:
     One API call returns all needed data across categories.
     """
 
-    def __init__(self):
-        pass  # No API key needed
+    def __init__(self, client: httpx.Client | None = None):
+        # An injected client lets the router pool connections across collectors.
+        # Fall back to a per-call client so direct instantiation still works.
+        self.client = client
 
     def collect(self, categories: list[PodcastCategory], status_callback=None) -> dict:
         """Fetch data for the given categories in a single API call."""
@@ -75,17 +78,29 @@ class WorldMonitorCollector:
         log.info(f"WorldMonitor: parsed {len(result)} fields")
         return result
 
-    def _fetch_bootstrap(self, keys: list[str]) -> dict:
-        try:
+    @retry_http()
+    def _raw_fetch_bootstrap(self, keys: list[str]) -> dict:
+        # Split from _fetch_bootstrap so the decorator runs BEFORE the
+        # catch-all-return-empty below -- otherwise retries never fire.
+        if self.client is not None:
+            resp = self.client.get(
+                BASE_URL,
+                params={"keys": ",".join(keys)},
+                headers=HEADERS,
+            )
+        else:
             with httpx.Client(timeout=30) as client:
                 resp = client.get(
                     BASE_URL,
                     params={"keys": ",".join(keys)},
                     headers=HEADERS,
                 )
-                resp.raise_for_status()
-                data = resp.json()
+        resp.raise_for_status()
+        return resp.json()
 
+    def _fetch_bootstrap(self, keys: list[str]) -> dict:
+        try:
+            data = self._raw_fetch_bootstrap(keys)
             result = data.get("data", {})
             missing = data.get("missing", [])
             if missing:

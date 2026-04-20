@@ -10,6 +10,7 @@ from src.data.categories import PodcastCategory, DEFAULT_CATEGORIES
 from src.data.collector_router import CategoryCollectorRouter
 from src.data.models import MarketSnapshot
 from src.script.generator import ScriptGenerator
+from src.script.length import LENGTH_PRESETS
 from src.audio.kokoro_engine import KokoroEngine
 from src.audio.processor import AudioProcessor
 from src.utils.logger import log
@@ -30,10 +31,20 @@ def load_config() -> dict:
     return config
 
 
-def collect_data(config: dict, categories: list[PodcastCategory], status_callback=None) -> MarketSnapshot:
+def collect_data(
+    config: dict,
+    categories: list[PodcastCategory],
+    status_callback=None,
+    cache_dir: str | None = None,
+    force_refresh: bool = False,
+) -> MarketSnapshot:
     log.info("=== STAGE 1: Data Collection ===")
-    router = CategoryCollectorRouter(config, categories)
-    snapshot = router.collect_all(status_callback=status_callback)
+    with CategoryCollectorRouter(config, categories) as router:
+        snapshot = router.collect_all(
+            status_callback=status_callback,
+            cache_dir=cache_dir,
+            force_refresh=force_refresh,
+        )
 
     log.info(f"Snapshot: categories={[c.value for c in categories]}, "
              f"{len(snapshot.news)} news, {len(snapshot.top_gainers)} gainers, "
@@ -42,7 +53,12 @@ def collect_data(config: dict, categories: list[PodcastCategory], status_callbac
     return snapshot
 
 
-def generate_script(config: dict, snapshot: MarketSnapshot, categories: list[PodcastCategory]) -> str:
+def generate_script(
+    config: dict,
+    snapshot: MarketSnapshot,
+    categories: list[PodcastCategory],
+    preset_key: str | None = None,
+) -> str:
     log.info("=== STAGE 2: Script Generation ===")
 
     api_key = config["gemini_api_key"]
@@ -53,17 +69,29 @@ def generate_script(config: dict, snapshot: MarketSnapshot, categories: list[Pod
         api_key=api_key,
         model=config.get("gemini_model", "gemini-2.5-flash"),
     )
-    script = generator.generate(snapshot, categories)
+    target_words = LENGTH_PRESETS[preset_key].target_words if preset_key else None
+    script = generator.generate(
+        snapshot,
+        categories,
+        target_words=target_words,
+        preset_key=preset_key,
+    )
     return script
 
 
-def generate_audio(config: dict, script: str, date: str) -> str:
+def generate_audio(
+    config: dict,
+    script: str,
+    date: str,
+    voice_s1: str | None = None,
+    voice_s2: str | None = None,
+) -> str:
     log.info("=== STAGE 3: Audio Generation ===")
 
     tts_cfg = config.get("tts", {}) or {}
     engine = KokoroEngine(
-        voice_s1=config.get("speaker_1_voice", "am_adam"),
-        voice_s2=config.get("speaker_2_voice", "af_bella"),
+        voice_s1=voice_s1 or config.get("speaker_1_voice", "am_adam"),
+        voice_s2=voice_s2 or config.get("speaker_2_voice", "af_bella"),
         speed=tts_cfg.get("base_speed", 1.0),
         enable_blending=tts_cfg.get("enable_blending", True),
         enable_prosody=tts_cfg.get("enable_prosody", True),
@@ -93,8 +121,16 @@ CATEGORY_CHOICES = [c.value for c in PodcastCategory]
 @click.option("--email", "-e", default=None, help="Send episode to this email address after generation")
 @click.option("--telegram-chat-id", default=None,
               help="Push episode to this Telegram chat ID after generation")
+@click.option("--length-preset", type=click.Choice(list(LENGTH_PRESETS.keys())), default=None,
+              help="Episode length preset (brief / standard / deep). Overrides default target length.")
+@click.option("--no-cache", is_flag=True,
+              help="Force re-fetch of data even if today's snapshot cache exists.")
+@click.option("--voice-s1", default=None, help="Override speaker 1 (Alex) voice id.")
+@click.option("--voice-s2", default=None, help="Override speaker 2 (Sam) voice id.")
 def main(stage: str, date: str | None, categories: tuple[str],
-         email: str | None, telegram_chat_id: str | None):
+         email: str | None, telegram_chat_id: str | None,
+         length_preset: str | None, no_cache: bool,
+         voice_s1: str | None, voice_s2: str | None):
     """Market Pulse -- Automated Finance Podcast Generator"""
     config = load_config()
     date = date or datetime.now().strftime("%Y-%m-%d")
@@ -109,7 +145,18 @@ def main(stage: str, date: str | None, categories: tuple[str],
     log.info(f"Market Pulse pipeline -- {date} -- categories: {[c.value for c in cat_list]}")
 
     if stage in ("data", "all"):
-        snapshot = collect_data(config, cat_list)
+        snapshot = collect_data(
+            config, cat_list,
+            cache_dir=output_dir,
+            force_refresh=no_cache,
+        )
+        # Record user selections on the canonical snapshot (audit trail).
+        snapshot.user_voice_s1 = voice_s1 or config.get("speaker_1_voice", "")
+        snapshot.user_voice_s2 = voice_s2 or config.get("speaker_2_voice", "")
+        snapshot.user_length_preset = length_preset or ""
+        snapshot.user_target_words = (
+            LENGTH_PRESETS[length_preset].target_words if length_preset else 0
+        )
         snapshot.save(snapshot_path)
         log.info(f"Snapshot saved: {snapshot_path}")
         if stage == "data":
@@ -120,7 +167,11 @@ def main(stage: str, date: str | None, categories: tuple[str],
             snapshot = MarketSnapshot.load(snapshot_path)
             if snapshot.categories:
                 cat_list = [PodcastCategory(c) for c in snapshot.categories]
-        script = generate_script(config, snapshot, cat_list)
+            # Prefer the preset recorded on the snapshot if the user didn't
+            # override it on the re-run, so stage=script rehydrates cleanly.
+            if length_preset is None and snapshot.user_length_preset:
+                length_preset = snapshot.user_length_preset
+        script = generate_script(config, snapshot, cat_list, preset_key=length_preset)
         with open(script_path, "w", encoding="utf-8") as f:
             f.write(script)
         log.info(f"Script saved: {script_path}")
@@ -131,7 +182,7 @@ def main(stage: str, date: str | None, categories: tuple[str],
         if stage == "audio":
             with open(script_path, "r", encoding="utf-8") as f:
                 script = f.read()
-        mp3_path = generate_audio(config, script, date)
+        mp3_path = generate_audio(config, script, date, voice_s1=voice_s1, voice_s2=voice_s2)
         log.info(f"=== DONE === Episode saved: {mp3_path}")
 
         # ── STAGE 4: Delivery Fan-out ───────────────────────

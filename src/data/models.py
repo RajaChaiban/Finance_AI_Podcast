@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, fields
 from typing import Optional
 import json
 from datetime import datetime
@@ -123,6 +123,14 @@ class MarketSnapshot:
     cross_signals: list[dict] = field(default_factory=list) # [{type, summary, severity}]
     gdelt_intel: list[dict] = field(default_factory=list)   # [{topic, articles}]
 
+    # User selections captured at generation time. Populated by the caller
+    # after collect_all() and before save(). Empty / 0 when unknown (CLI run
+    # without flags, or a snapshot loaded from pre-audit-trail JSON).
+    user_voice_s1: str = ""
+    user_voice_s2: str = ""
+    user_length_preset: str = ""
+    user_target_words: int = 0
+
     def to_json(self) -> str:
         return json.dumps(self._to_dict(), indent=2)
 
@@ -142,6 +150,10 @@ class MarketSnapshot:
         data["crypto_extended"] = [CryptoAsset(**c) for c in data.get("crypto_extended", [])]
         data["geopolitics"] = [GeopoliticsItem(**g) for g in data.get("geopolitics", [])]
         data["ai_updates"] = [AIUpdateItem(**a) for a in data.get("ai_updates", [])]
+        # Drop unknown keys so schemas from older snapshots (or newer ones with
+        # fields removed here) don't blow up with a TypeError on cls(**data).
+        known = {f.name for f in fields(cls)}
+        data = {k: v for k, v in data.items() if k in known}
         return cls(**data)
 
     def save(self, path: str):

@@ -1,13 +1,15 @@
 import httpx
 from src.data.models import GeopoliticsItem, AIUpdateItem
 from src.utils.logger import log
+from src.utils.retry import retry_http
 
 BASE_URL = "https://gnews.io/api/v4"
 
 
 class GNewsCollector:
-    def __init__(self, api_key: str):
+    def __init__(self, api_key: str, client: httpx.Client | None = None):
         self.api_key = api_key
+        self.client = client
 
     def collect_geopolitics(self) -> list[GeopoliticsItem]:
         log.info("Collecting geopolitics news from GNews...")
@@ -51,13 +53,20 @@ class GNewsCollector:
         log.info(f"GNews AI updates: {len(items)} articles")
         return items
 
+    @retry_http()
+    def _raw_fetch(self, endpoint: str, params: dict) -> dict:
+        if self.client is not None:
+            resp = self.client.get(f"{BASE_URL}{endpoint}", params=params)
+        else:
+            with httpx.Client(timeout=30) as client:
+                resp = client.get(f"{BASE_URL}{endpoint}", params=params)
+        resp.raise_for_status()
+        return resp.json()
+
     def _fetch_articles(self, endpoint: str, params: dict) -> list[dict]:
         try:
             params["apikey"] = self.api_key
-            with httpx.Client(timeout=30) as client:
-                resp = client.get(f"{BASE_URL}{endpoint}", params=params)
-                resp.raise_for_status()
-                data = resp.json()
+            data = self._raw_fetch(endpoint, params)
             return data.get("articles", [])
         except Exception as e:
             log.warning(f"Failed to fetch GNews {endpoint}: {e}")

@@ -1,6 +1,7 @@
 import httpx
 from src.data.models import MacroIndicator
 from src.utils.logger import log
+from src.utils.retry import retry_http
 
 BASE_URL = "https://api.stlouisfed.org/fred/series/observations"
 
@@ -15,8 +16,9 @@ SERIES = {
 
 
 class FredCollector:
-    def __init__(self, api_key: str):
+    def __init__(self, api_key: str, client: httpx.Client | None = None):
         self.api_key = api_key
+        self.client = client
 
     def collect_all(self) -> dict:
         log.info("Collecting data from FRED...")
@@ -28,19 +30,26 @@ class FredCollector:
         log.info(f"FRED collection complete: {len(indicators)} indicators")
         return {"macro_indicators": indicators}
 
+    @retry_http(attempts=2)
+    def _fetch_series(self, series_id: str) -> dict:
+        params = {
+            "series_id": series_id,
+            "api_key": self.api_key,
+            "file_type": "json",
+            "sort_order": "desc",
+            "limit": 2,
+        }
+        if self.client is not None:
+            resp = self.client.get(BASE_URL, params=params)
+        else:
+            with httpx.Client(timeout=30) as client:
+                resp = client.get(BASE_URL, params=params)
+        resp.raise_for_status()
+        return resp.json()
+
     def _get_series(self, series_id: str, name: str, unit: str) -> MacroIndicator | None:
         try:
-            with httpx.Client(timeout=30) as client:
-                resp = client.get(BASE_URL, params={
-                    "series_id": series_id,
-                    "api_key": self.api_key,
-                    "file_type": "json",
-                    "sort_order": "desc",
-                    "limit": 2,
-                })
-                resp.raise_for_status()
-                data = resp.json()
-
+            data = self._fetch_series(series_id)
             observations = data.get("observations", [])
             if not observations:
                 log.warning(f"FRED: no observations for {series_id}")

@@ -2,6 +2,7 @@ import httpx
 from src.data.models import GeopoliticsItem, AIUpdateItem
 from src.data.classifiers import classify_ai_subcategory
 from src.utils.logger import log
+from src.utils.retry import retry_http
 
 BASE_URL = "https://api.currentsapi.services/v1"
 
@@ -12,8 +13,9 @@ class CurrentsCollector:
     Signup: https://currentsapi.services/en/register
     """
 
-    def __init__(self, api_key: str):
+    def __init__(self, api_key: str, client: httpx.Client | None = None):
         self.api_key = api_key
+        self.client = client
 
     def collect_geopolitics(self) -> list[GeopoliticsItem]:
         log.info("Collecting geopolitics from Currents API...")
@@ -65,14 +67,21 @@ class CurrentsCollector:
             log.warning(f"Failed to fetch Currents AI news: {e}")
             return []
 
+    @retry_http()
+    def _raw_fetch(self, params: dict) -> dict:
+        if self.client is not None:
+            resp = self.client.get(f"{BASE_URL}/latest-news", params=params)
+        else:
+            with httpx.Client(timeout=30) as client:
+                resp = client.get(f"{BASE_URL}/latest-news", params=params)
+        resp.raise_for_status()
+        return resp.json()
+
     def _fetch_articles(self, params: dict) -> list[dict]:
         try:
             params["apiKey"] = self.api_key
             params["language"] = "en"
-            with httpx.Client(timeout=30) as client:
-                resp = client.get(f"{BASE_URL}/latest-news", params=params)
-                resp.raise_for_status()
-                return resp.json().get("news", [])
+            return self._raw_fetch(params).get("news", [])
         except Exception as e:
             log.warning(f"Failed to fetch Currents API: {e}")
             return []

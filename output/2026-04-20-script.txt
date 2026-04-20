@@ -1,0 +1,5 @@
+[S1] Welcome to Market Pulse -- your daily AI-generated markets briefing. Everything you'll hear is for information only and not financial advice. Let's get into it.
+[S2] We are tracking a flurry of activity in the AI space today, specifically around Anthropic’s new model, Mythos. It’s drawing major attention from global regulators, including the Bank of England, the Fed, and ASIC, who are all monitoring it for potential banking and cybersecurity risks.
+[S1] It’s a classic tug-of-war between innovation and oversight. While firms are eager to integrate these frontier models, the CEO of Deutsche Bank, Christian Sewing, confirmed that banks are in close contact with European regulators precisely because of those stability concerns.
+[S2] And it’s not just the banks watching; the NSA is reportedly using Mythos as well, which is fueling a broader conversation about shifting our cybersecurity defenses from reactive to proactive. It’s a reminder that as these models get more powerful, the infrastructure around them has to evolve just as quickly to keep things secure.
+[S1] Thanks for listening to this Market Pulse briefing. We'll be back tomorrow with more updates.

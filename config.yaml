@@ -14,7 +14,7 @@ output_dir: "output"
 audio_format: "mp3"
 sample_rate: 24000
 
-gemini_model: "gemini-2.5-flash"
+gemini_model: "gemini-3.1-flash-lite-preview"
 
 default_categories:
   - finance_macro
