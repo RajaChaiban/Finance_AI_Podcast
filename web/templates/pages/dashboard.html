@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — Market Pulse{% endblock %}
+
+{% block content %}
+
+<div class="mp-hero">
+  <div class="mp-eyebrow mb-2">Today's edition</div>
+  <h1 class="mp-display text-5xl md:text-6xl mb-3">
+    {% if today_episode %}
+      Ready to listen.
+    {% else %}
+      A new episode awaits.
+    {% endif %}
+  </h1>
+  <p class="mp-muted text-lg max-w-2xl">
+    {% if today_episode %}
+      The {{ today_episode.date_long }} edition of {{ today_episode.podcast_name }} is live. Press play, or scroll for the archive.
+    {% else %}
+      Generate today's Market Pulse — data fetch, AI-scripted dialogue, and voiced audio in a few minutes.
+    {% endif %}
+  </p>
+</div>
+
+{# ── Today's episode OR Generate CTA ────────────────── #}
+{% if today_episode %}
+  <section class="mb-10">
+    <div class="mp-card p-6 md:p-8 flex flex-col md:flex-row gap-6 md:items-center">
+      <div class="flex-1 min-w-0">
+        <div class="mp-eyebrow mb-2">Today · {{ today_episode.duration_pretty }} · {{ today_episode.word_count }} words</div>
+        <h2 class="mp-headline text-2xl md:text-3xl mb-3">{{ today_episode.podcast_name }}</h2>
+        <div class="flex flex-wrap gap-1.5 mb-4">
+          {% for label in today_episode.category_labels %}
+            <span class="mp-chip active">{{ label }}</span>
+          {% endfor %}
+        </div>
+        {% if today_episode.mp3_url %}
+          <div class="mp-audio">
+            <audio controls src="{{ today_episode.mp3_url }}"></audio>
+          </div>
+        {% endif %}
+      </div>
+      <div class="flex flex-col gap-2 md:w-48 shrink-0">
+        <a href="/library#ep-{{ today_episode.id }}" hx-boost="true" class="mp-btn mp-btn-ghost justify-center">View details</a>
+        {% if today_episode.mp3_url %}
+          <a href="{{ today_episode.mp3_url }}" download class="mp-btn mp-btn-ghost justify-center">Download MP3</a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% else %}
+  <section class="mb-10">
+    <div class="mp-card-accent p-8 flex flex-col md:flex-row gap-6 md:items-center">
+      <div class="flex-1">
+        <div class="mp-eyebrow mb-2">No edition yet today</div>
+        <h2 class="mp-headline text-3xl mb-2">Generate today's episode</h2>
+        <p class="opacity-80 max-w-xl">Pull fresh market data, have Gemini draft a dialogue, voice it with Kokoro. Takes about 3–6 minutes.</p>
+      </div>
+      <a href="/generate" hx-boost="true" class="mp-btn bg-white text-[color:var(--mp-accent)] hover:bg-[#FFF8F2] justify-center px-6 py-3 text-base font-semibold">
+        Start generating →
+      </a>
+    </div>
+  </section>
+{% endif %}
+
+{% if active_job %}
+  <section class="mb-10">
+    <a href="/generate" hx-boost="true" class="mp-card hoverable p-5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="mp-pill-dot"></span>
+        <div>
+          <div class="mp-eyebrow">Now generating</div>
+          <div class="text-sm font-medium">Stage: {{ active_job.stage or 'starting' }} · {{ '%.0f' % (active_job.progress * 100) }}%</div>
+        </div>
+      </div>
+      <span class="mp-btn mp-btn-ghost mp-btn-sm">Watch live →</span>
+    </a>
+  </section>
+{% endif %}
+
+{# ── Cadence streak ──────────────────────────────────── #}
+<section class="mb-10">
+  <div class="flex items-baseline justify-between mb-3">
+    <h3 class="mp-headline text-xl">Cadence</h3>
+    <span class="mp-subtle text-sm mp-numeric">{{ streak_count }} / {{ streak_total }} days</span>
+  </div>
+  <div class="mp-card p-5">
+    <div class="flex gap-1.5 items-end">
+      {% for day in streak %}
+        <div class="flex-1 flex flex-col items-center gap-1">
+          <div class="w-full h-10 rounded-md {% if day.published %}bg-[color:var(--mp-accent)]{% else %}bg-[color:var(--mp-grid)]{% endif %}"
+               title="{{ day.date }}"></div>
+          <div class="mp-numeric text-[10px] mp-subtle">{{ day.short }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ── Recent episodes ─────────────────────────────────── #}
+<section class="mb-10">
+  <div class="flex items-baseline justify-between mb-3">
+    <h3 class="mp-headline text-xl">Recent episodes</h3>
+    <a href="/library" hx-boost="true" class="text-sm mp-subtle hover:text-[color:var(--mp-accent)]">All episodes →</a>
+  </div>
+  {% if recent %}
+    <div class="grid md:grid-cols-3 gap-4">
+      {% for ep in recent %}
+        <a href="/library#ep-{{ ep.id }}" hx-boost="true" class="mp-card hoverable p-5 block">
+          <div class="mp-eyebrow mb-2">{{ ep.date_long }}</div>
+          <div class="mp-headline text-lg mb-2 leading-snug">{{ ep.podcast_name }}</div>
+          <div class="flex flex-wrap gap-1 mb-3">
+            {% for label in ep.category_labels %}
+              <span class="mp-chip text-[11px]">{{ label }}</span>
+            {% endfor %}
+          </div>
+          <div class="flex items-center justify-between mp-subtle text-xs mp-numeric">
+            <span>{{ ep.duration_pretty }}</span>
+            <span>{{ ep.word_count }} words</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="mp-empty">No episodes yet. Generate your first one.</div>
+  {% endif %}
+</section>
+
+{% endblock %}

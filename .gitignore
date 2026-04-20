@@ -11,3 +11,10 @@ build/
 .venv/
 venv/
 .claude/
+data/
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+.playwright-mcp/
+*.png

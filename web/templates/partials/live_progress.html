@@ -1,0 +1,48 @@
+{# Live progress view — re-rendered on every SSE tick. #}
+<div class="mp-eyebrow mb-2">Now generating</div>
+<h2 class="mp-headline text-3xl mb-6">{{ ('%.0f' % (job.progress * 100)) }}% · {{ (job.stage or 'starting') | capitalize }}</h2>
+
+<div class="mp-progress mb-6">
+  <div class="mp-progress-fill" style="width: {{ (job.progress * 100) | round(1) }}%"></div>
+</div>
+
+<div class="space-y-3 mb-6">
+  {% for stage in job.stages %}
+    <div class="mp-stage {{ stage.state }}">
+      <span class="mp-stage-dot"></span>
+      <div class="flex-1">
+        <div class="flex items-baseline justify-between">
+          <div class="font-medium">Stage {{ stage.index }}/3 · {{ stage.label }}</div>
+          <div class="mp-numeric text-xs mp-subtle">
+            {% if stage.state == 'done' %}✓ Complete{% elif stage.state == 'active' %}Running…{% elif stage.state == 'failed' %}Failed{% else %}Queued{% endif %}
+          </div>
+        </div>
+        <div class="mp-subtle text-sm">{{ stage.desc }}</div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<div class="mp-log">
+  {% for line in job.log_tail %}
+    <div class="mp-log-line">{{ line }}</div>
+  {% else %}
+    <div class="mp-log-line mp-subtle">Waiting for first log line…</div>
+  {% endfor %}
+</div>
+
+{% if job.status == 'done' %}
+  <div class="mt-6 p-5 mp-card border-[color:var(--mp-positive)]">
+    <div class="mp-eyebrow mb-1" style="color: var(--mp-positive)">Episode ready</div>
+    <div class="flex items-center justify-between">
+      <div class="text-sm">Your new episode is in the Library.</div>
+      <a href="/" hx-boost="true" class="mp-btn mp-btn-primary mp-btn-sm">Open dashboard →</a>
+    </div>
+  </div>
+{% elif job.status == 'failed' %}
+  <div class="mt-6 p-5 mp-card border-[color:var(--mp-negative)]">
+    <div class="mp-eyebrow mb-1" style="color: var(--mp-negative)">Generation failed</div>
+    <div class="text-sm mb-3">{{ job.error_message or 'Unknown error' }}</div>
+    <a href="/generate" hx-boost="true" class="mp-btn mp-btn-ghost mp-btn-sm">Back to compose</a>
+  </div>
+{% endif %}

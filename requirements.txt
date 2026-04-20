@@ -8,5 +8,10 @@ pydub
 pyyaml
 python-dotenv
 click
-streamlit
 python-telegram-bot
+fastapi
+uvicorn[standard]
+jinja2
+sqlmodel
+python-multipart
+itsdangerous

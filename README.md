@@ -1,6 +1,6 @@
 # Market Pulse
 
-Automated multi-category finance podcast generator. Pulls live market data, drafts a two-host script with Gemini, and synthesizes an MP3 episode with Kokoro-82M TTS. Runs from a Streamlit UI, a CLI, or a Telegram bot.
+Automated multi-category finance podcast generator. Pulls live market data, drafts a two-host script with Gemini, and synthesizes an MP3 episode with Kokoro-82M TTS. Runs from a FastAPI web UI, a CLI, or a Telegram bot.
 
 ---
 
@@ -42,10 +42,23 @@ Only `GEMINI_API_KEY` is required. World Monitor (the primary data source) needs
 ### 3. Run the UI
 
 ```bash
-streamlit run app.py
+uvicorn web.main:app --reload
 ```
 
-Opens at http://localhost:8501. Pick categories in the sidebar, choose host voices, then click **Generate Podcast**. The pipeline runs in three stages (data → script → audio) and produces an MP3 in `output/`.
+Opens at http://127.0.0.1:8000. Four views accessed via the sidebar:
+
+- **Dashboard** — today's episode, recent three, 14-day cadence streak
+- **Generate** — pick categories / length / voices, watch the three-stage pipeline live (server-sent events)
+- **Library** — every episode with inline player, full-text script search, category/date filters
+- **Settings** — API-key status (read from `.env`), default preferences
+
+First-time setup: once you've generated a few episodes with the CLI, register them with:
+
+```bash
+python -m scripts.backfill_episodes
+```
+
+Data lives in `data/market_pulse.db` (SQLite). Back it up or delete it to reset.
 
 ---
 

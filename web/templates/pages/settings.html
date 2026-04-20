@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}Settings — Market Pulse{% endblock %}
+
+{% block content %}
+
+<div class="mp-hero">
+  <div class="mp-eyebrow mb-2">Control Deck</div>
+  <h1 class="mp-display text-5xl md:text-6xl mb-3">Defaults &amp; keys.</h1>
+  <p class="mp-muted text-lg max-w-2xl">Tune the studio — set the categories, length, and voices you want every new episode to start from.</p>
+</div>
+
+{% if request.query_params.get('saved') %}
+  <div class="mp-card border-[color:var(--mp-positive)] p-4 mb-6 flex items-center gap-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--mp-positive)"><path d="M20 6 9 17l-5-5"/></svg>
+    <div class="text-sm">Defaults saved.</div>
+  </div>
+{% endif %}
+
+{# ── API Keys ─────────────────────────────────────── #}
+<section class="mb-10">
+  <h2 class="mp-headline text-xl mb-3">API Keys</h2>
+  <p class="mp-subtle text-sm mb-4">Keys are read from your <code class="mp-numeric">.env</code> file. Edit <code class="mp-numeric">.env</code> then restart the server.</p>
+  <div class="mp-card divide-y divide-[color:var(--mp-grid)]">
+    {% for k in api_keys %}
+      <div class="px-5 py-4 flex items-center justify-between">
+        <div>
+          <div class="font-medium">{{ k.label }}</div>
+          <div class="mp-subtle text-xs mp-numeric">{{ k.key }}</div>
+        </div>
+        <div class="text-right">
+          <div class="mp-numeric text-sm {% if k.is_set %}mp-delta-pos{% else %}mp-delta-neg{% endif %}">
+            {% if k.is_set %}✓ {{ k.masked }}{% else %}{{ k.masked }}{% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{# ── Podcast meta ──────────────────────────────────── #}
+<section class="mb-10">
+  <h2 class="mp-headline text-xl mb-3">Podcast</h2>
+  <div class="mp-card p-5 space-y-2 text-sm">
+    <div class="flex justify-between"><span class="mp-subtle">Name</span><span class="font-medium">{{ podcast_name }}</span></div>
+    <div class="flex justify-between"><span class="mp-subtle">LLM</span><span class="mp-numeric">{{ gemini_model }}</span></div>
+  </div>
+</section>
+
+{# ── Default preferences ───────────────────────────── #}
+<section class="mb-10">
+  <h2 class="mp-headline text-xl mb-3">Generation defaults</h2>
+  <form method="post" action="/settings/defaults" class="mp-card p-6 space-y-6">
+
+    <div>
+      <h3 class="mp-eyebrow mb-2">Default categories</h3>
+      <div class="flex flex-wrap gap-2" x-data='{ selected: {{ defaults.categories | tojson }} }'>
+        {% for value, label in all_categories %}
+          <button type="button"
+                  @click="selected.includes('{{ value }}') ? selected = selected.filter(c => c !== '{{ value }}') : selected.push('{{ value }}')"
+                  :class="selected.includes('{{ value }}') ? 'active' : ''"
+                  class="mp-chip">{{ label }}</button>
+          <input type="hidden" name="categories" :value="selected.includes('{{ value }}') ? '{{ value }}' : ''" x-effect="$el.disabled = !selected.includes('{{ value }}')">
+        {% endfor %}
+      </div>
+    </div>
+
+    <div>
+      <h3 class="mp-eyebrow mb-2">Default length</h3>
+      <div class="grid md:grid-cols-3 gap-3" x-data="{ preset: '{{ defaults.length_preset }}' }">
+        {% for key, p in length_presets.items() %}
+          <label class="mp-card hoverable p-3 cursor-pointer"
+                 :class="preset === '{{ key }}' ? 'border-[color:var(--mp-accent)]' : ''">
+            <input type="radio" name="length_preset" value="{{ key }}" x-model="preset" class="sr-only">
+            <div class="flex items-baseline justify-between">
+              <span class="font-medium">{{ p.label }}</span>
+              <span class="mp-numeric text-xs mp-subtle">{{ p.approx_minutes }}</span>
+            </div>
+          </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5">
+      <div>
+        <h3 class="mp-eyebrow mb-2">Alex (default male voice)</h3>
+        <select name="voice_s1" class="mp-select">
+          {% for v in voices_male %}
+            <option value="{{ v.id }}" {% if v.id == defaults.voice_s1 %}selected{% endif %}>{{ voice_label_fn(v.id) }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <h3 class="mp-eyebrow mb-2">Sam (default female voice)</h3>
+        <select name="voice_s2" class="mp-select">
+          {% for v in voices_female %}
+            <option value="{{ v.id }}" {% if v.id == defaults.voice_s2 %}selected{% endif %}>{{ voice_label_fn(v.id) }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="flex justify-end border-t border-[color:var(--mp-grid)] pt-5">
+      <button class="mp-btn mp-btn-primary">Save defaults</button>
+    </div>
+  </form>
+</section>
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}Generate — Market Pulse{% endblock %}
+
+{% block content %}
+
+<div class="mp-hero">
+  <div class="mp-eyebrow mb-2">The Studio</div>
+  <h1 class="mp-display text-5xl md:text-6xl mb-3">Compose an edition.</h1>
+  <p class="mp-muted text-lg max-w-2xl">Pick the beats, tune the voices, press record. The pipeline walks the three stages live.</p>
+</div>
+
+{% if active_job %}
+  {# ── Live progress view ─────────────────────────────── #}
+  <section class="mb-10">
+    <div id="mp-live"
+         hx-ext="sse"
+         sse-connect="/jobs/{{ active_job.id }}/stream"
+         sse-swap="message">
+      {% include "partials/live_progress.html" %}
+    </div>
+  </section>
+{% else %}
+  {# ── Compose form ───────────────────────────────────── #}
+  {% if missing_keys %}
+    <div class="mp-card border-[color:var(--mp-warn)] p-5 mb-6 flex items-start gap-3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--mp-warn);flex-shrink:0;margin-top:2px"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+      <div>
+        <div class="font-medium mb-1">API keys missing</div>
+        <div class="mp-subtle text-sm">Set these in your <code class="mp-numeric">.env</code>: {{ missing_keys|join(', ') }}. <a href="/settings" hx-boost="true" class="text-[color:var(--mp-accent)] hover:underline">Check Settings →</a></div>
+      </div>
+    </div>
+  {% endif %}
+
+  <form method="post" action="/generate/start" class="space-y-8">
+
+    <section>
+      <h3 class="mp-eyebrow mb-3">Categories</h3>
+      <div class="flex flex-wrap gap-2" x-data='{ selected: {{ defaults.categories | tojson }} }'>
+        {% for cat in all_categories %}
+          <button type="button"
+                  @click="selected.includes('{{ cat.value }}') ? selected = selected.filter(c => c !== '{{ cat.value }}') : selected.push('{{ cat.value }}')"
+                  :class="selected.includes('{{ cat.value }}') ? 'active' : ''"
+                  class="mp-chip">
+            {{ cat.label }}
+          </button>
+          <input type="hidden" name="categories" :value="selected.includes('{{ cat.value }}') ? '{{ cat.value }}' : ''" x-effect="$el.disabled = !selected.includes('{{ cat.value }}')">
+        {% endfor %}
+      </div>
+      <div class="grid md:grid-cols-2 gap-2 mt-3">
+        {% for cat in all_categories %}
+          <div class="mp-subtle text-xs"><span class="font-medium text-[color:var(--mp-ink-muted)]">{{ cat.label }}</span> — {{ cat.description }}</div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section>
+      <h3 class="mp-eyebrow mb-3">Length</h3>
+      <div class="grid md:grid-cols-3 gap-3" x-data="{ preset: '{{ defaults.length_preset }}' }">
+        {% for key, p in length_presets.items() %}
+          <label class="mp-card hoverable p-4 cursor-pointer"
+                 :class="preset === '{{ key }}' ? 'border-[color:var(--mp-accent)] shadow-sm' : ''">
+            <input type="radio" name="length_preset" value="{{ key }}" x-model="preset" class="sr-only">
+            <div class="flex items-baseline justify-between mb-1">
+              <span class="mp-headline text-base">{{ p.label }}</span>
+              <span class="mp-numeric text-xs mp-subtle">{{ p.approx_minutes }}</span>
+            </div>
+            <div class="mp-subtle text-xs mp-numeric">~{{ p.target_words }} words</div>
+          </label>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="grid md:grid-cols-2 gap-6">
+      <div>
+        <h3 class="mp-eyebrow mb-3">Alex (Speaker 1 — male)</h3>
+        <select name="voice_s1" class="mp-select">
+          {% for v in voices.male %}
+            <option value="{{ v.id }}" {% if v.id == defaults.voice_s1 %}selected{% endif %}>{{ voice_label_fn(v.id) }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <h3 class="mp-eyebrow mb-3">Sam (Speaker 2 — female)</h3>
+        <select name="voice_s2" class="mp-select">
+          {% for v in voices.female %}
+            <option value="{{ v.id }}" {% if v.id == defaults.voice_s2 %}selected{% endif %}>{{ voice_label_fn(v.id) }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </section>
+
+    <section>
+      <label class="inline-flex items-center gap-2 cursor-pointer">
+        <input type="checkbox" name="force_refresh" value="1" class="accent-[color:var(--mp-accent)]">
+        <span class="text-sm">Force data refresh (ignore today's cached snapshot)</span>
+      </label>
+    </section>
+
+    <div class="flex items-center justify-between border-t border-[color:var(--mp-grid)] pt-6">
+      <div class="mp-subtle text-sm">Est. time: 3–6 min (depends on length + TTS).</div>
+      <button type="submit" class="mp-btn mp-btn-accent px-6 py-3 text-base" {% if missing_keys %}disabled{% endif %}>
+        ⚡ Generate episode
+      </button>
+    </div>
+  </form>
+{% endif %}
+
+{% endblock %}
