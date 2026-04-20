@@ -14,6 +14,7 @@ from src.audio.kokoro_engine import KokoroEngine
 from src.audio.processor import AudioProcessor
 from src.utils.logger import log
 from src.utils.email_sender import send_episode_email
+from src.utils.telegram_sender import send_episode_telegram
 
 
 def load_config() -> dict:
@@ -90,7 +91,10 @@ CATEGORY_CHOICES = [c.value for c in PodcastCategory]
               default=["finance_macro", "finance_micro"],
               help="Categories to include (repeatable, e.g. -c crypto -c geopolitics)")
 @click.option("--email", "-e", default=None, help="Send episode to this email address after generation")
-def main(stage: str, date: str | None, categories: tuple[str], email: str | None):
+@click.option("--telegram-chat-id", default=None,
+              help="Push episode to this Telegram chat ID after generation")
+def main(stage: str, date: str | None, categories: tuple[str],
+         email: str | None, telegram_chat_id: str | None):
     """Market Pulse -- Automated Finance Podcast Generator"""
     config = load_config()
     date = date or datetime.now().strftime("%Y-%m-%d")
@@ -130,17 +134,38 @@ def main(stage: str, date: str | None, categories: tuple[str], email: str | None
         mp3_path = generate_audio(config, script, date)
         log.info(f"=== DONE === Episode saved: {mp3_path}")
 
-        # ── STAGE 4: Email Delivery ─────────────────────────
-        if email:
-            log.info("=== STAGE 4: Email Delivery ===")
+        # ── STAGE 4: Delivery Fan-out ───────────────────────
+        if email or telegram_chat_id:
+            log.info("=== STAGE 4: Delivery ===")
             cat_names = [c.value.replace("_", " ").title() for c in cat_list]
-            sent = send_episode_email(
-                mp3_path=mp3_path,
-                recipient=email,
-                categories=cat_names,
-            )
-            if not sent:
-                log.warning("Email delivery failed. Check EMAIL_ADDRESS and EMAIL_APP_PASSWORD in .env")
+
+            email_ok = True
+            tg_ok = True
+            attempted = 0
+
+            if email:
+                attempted += 1
+                email_ok = send_episode_email(
+                    mp3_path=mp3_path,
+                    recipient=email,
+                    categories=cat_names,
+                )
+                if not email_ok:
+                    log.warning("Email delivery failed. Check EMAIL_ADDRESS / EMAIL_APP_PASSWORD.")
+
+            if telegram_chat_id:
+                attempted += 1
+                tg_ok = send_episode_telegram(
+                    mp3_path=mp3_path,
+                    chat_id=telegram_chat_id,
+                    categories=cat_names,
+                )
+                if not tg_ok:
+                    log.warning("Telegram delivery failed. Check TELEGRAM_BOT_TOKEN / chat id.")
+
+            if attempted > 0 and not (email_ok or tg_ok):
+                import sys
+                sys.exit(1)
 
 
 if __name__ == "__main__":
