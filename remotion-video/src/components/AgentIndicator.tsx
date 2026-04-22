@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCurrentFrame, interpolate, Easing } from 'remotion';
+import { COLORS } from '../styles/colors';
 
 interface AgentIndicatorProps {
   startFrame: number;
@@ -37,8 +38,8 @@ export const AgentIndicator: React.FC<AgentIndicatorProps> = ({
       {/* Arrow icon */}
       <polygon
         points="0,-8 8,8 0,4 -8,8"
-        fill="#FF6B35"
-        style={{ filter: 'drop-shadow(0 2px 4px rgba(255,107,53,0.3))' }}
+        fill={COLORS.accent}
+        style={{ filter: `drop-shadow(0 2px 4px ${COLORS.accent}33)` }}
       />
     </g>
   );
