@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "dev": "remotion preview src/index.tsx",
+    "build": "remotion render src/index.tsx MarketPulseVideo out/market-pulse-video.mp4",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,10 +14,12 @@
   "dependencies": {
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "remotion": "^4.0.450",
+    "remotion": "^4.0.451",
     "typescript": "^6.0.3"
   },
   "devDependencies": {
+    "@remotion/bundler": "^4.0.450",
+    "@remotion/renderer": "^4.0.450",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "ts-node": "^10.9.2"
