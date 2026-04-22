@@ -42,8 +42,8 @@
 **Elements:**
 - Large button labeled "Start Generating" appears on dashboard
 - Button has orange accent background (#FF6B35), subtle border
-- Agent cursor/indicator "moves toward" button with animation
-- Button responds with glow effect and state change when "clicked"
+- Visual indicator (animated arrow or circle) "moves toward" button to show agent action
+- Button responds with glow effect and state change when "clicked" (no actual click detection needed)
 
 **Animation:**
 - Button slides in from left: x position interpolates from -200 to final position over 20 frames
@@ -127,9 +127,9 @@
 - Hold duration: frames 840-900 (last 2 seconds)
 
 **Visual Polish:**
-- Logo uses official Market Pulse branding (orange + white)
-- Tagline uses sans-serif font (Inter or system font) in white, smaller than logo
-- Both centered on dark background
+- Logo: simplified text logo "Market Pulse" in orange (#FF6B35) and white, or use existing SVG logo if available (no complex branding required, simplicity preferred)
+- Tagline: sans-serif font (Inter, system-ui fallback) in white, 40-60% size of logo text
+- Both centered on dark background with proper spacing
 - No jarring transitions—all easing uses cubic out
 
 **Audio Cue:** Subtle "power-down" tone or ambient sound, then silence. Optional: very subtle voiceover "Market Pulse" as logo appears.
@@ -177,7 +177,7 @@
 6. **PodcastCard** — Individual card with title, date, duration, icon
 7. **ExpandedPodcastCard** — Enlarged, centered version of podcast card with play button
 8. **PlayButton** — Centered on card, pulses to indicate readiness
-9. **Waveform** — Existing component, animates to show "now playing" state
+9. **Waveform** — Reuse existing Waveform component from previous video, animates with progress=1 to show active playback state
 10. **PowerDownOverlay** — Black overlay that increases opacity over time
 11. **LogoAndTagline** — Market Pulse branding display, fades in and scales
 
