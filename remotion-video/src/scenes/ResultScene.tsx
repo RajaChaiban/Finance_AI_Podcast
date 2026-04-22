@@ -16,8 +16,8 @@ export const ResultScene: React.FC<ResultSceneProps> = ({
 }) => {
   const frame = useCurrentFrame();
 
-  // Scene starts at frame 1740 (58 sec * 30 fps) - closing animation
-  const sceneFrame = frame - 1740;
+  // Scene starts at frame 300 (10 sec * 30 fps) - closing animation after intro
+  const sceneFrame = frame - 300;
 
   // Player emphasis fade in
   const playerOpacity = interpolate(sceneFrame, [0, 20], [0, 1], {

@@ -26,8 +26,8 @@ export const DashboardScene: React.FC<DashboardSceneProps> = ({ width, height })
     easing: Easing.out(Easing.cubic),
   });
 
-  // Waveform progress (60-1800 frames = 30-60 seconds at 30fps, covers the podcast playing)
-  const waveProgress = interpolate(frame, [60, 1800], [0, 1], {
+  // Waveform progress (60-300 frames = 2-10 seconds at 30fps, covers the 10s podcast intro)
+  const waveProgress = interpolate(frame, [60, 300], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
