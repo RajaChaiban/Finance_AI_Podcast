@@ -1,6 +1,8 @@
 import React from 'react';
 import { useCurrentFrame, interpolate, Easing } from 'remotion';
 import { COLORS } from '../styles/colors';
+import { Waveform } from '../components/Waveform';
+import dashboardImage from '../../public/dashboard.png';
 
 interface DashboardSceneProps {
   width: number;
@@ -17,21 +19,15 @@ export const DashboardScene: React.FC<DashboardSceneProps> = ({ width, height })
     easing: Easing.out(Easing.cubic),
   });
 
-  // Hero text fade in and slide (30-90 frames)
-  const heroOpacity = interpolate(frame, [30, 60], [0, 1], {
+  // Player overlay fade in (30-60 frames)
+  const playerOpacity = interpolate(frame, [30, 60], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.out(Easing.cubic),
   });
 
-  const heroY = interpolate(frame, [30, 60], [20, 0], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-    easing: Easing.out(Easing.cubic),
-  });
-
-  // Dashboard blur start (at frame 180, prepare for transition)
-  const dashboardBlur = interpolate(frame, [180, 195], [0, 8], {
+  // Waveform progress (60-1800 frames = 30-60 seconds at 30fps, covers the podcast playing)
+  const waveProgress = interpolate(frame, [60, 1800], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
@@ -41,83 +37,113 @@ export const DashboardScene: React.FC<DashboardSceneProps> = ({ width, height })
       {/* Background */}
       <rect width={width} height={height} fill={COLORS.background} />
 
-      {/* Dashboard screenshot */}
+      {/* Dashboard screenshot - stays visible throughout */}
       <image
-        href="dashboard.png"
+        href={dashboardImage}
         x="0"
         y="0"
         width={width}
         height={height}
         opacity={dashboardOpacity}
-        style={{
-          filter: `blur(${dashboardBlur}px)`,
-        }}
       />
 
-      {/* Dark overlay for text readability */}
+      {/* Dark overlay for player readability */}
       <rect
         width={width}
         height={height}
         fill={COLORS.black}
-        opacity={heroOpacity * 0.2}
+        opacity={playerOpacity * 0.3}
       />
 
-      {/* Hero text container */}
-      <g opacity={heroOpacity} transform={`translate(0, ${heroY})`}>
-        {/* Text background (optional subtle box) */}
+      {/* Podcast player card - centered, appears after intro */}
+      <g opacity={playerOpacity}>
+        {/* Card background */}
         <rect
-          x="80"
-          y="200"
-          width="1760"
-          height="300"
-          fill="none"
-          rx="12"
+          x={width / 2 - 400}
+          y={height / 2 - 200}
+          width="800"
+          height="400"
+          fill={COLORS.gray900}
+          rx="20"
+          style={{
+            boxShadow: `0 20px 60px rgba(0,0,0,0.5)`,
+          }}
         />
 
-        {/* Main headline */}
+        {/* Border accent */}
+        <rect
+          x={width / 2 - 400}
+          y={height / 2 - 200}
+          width="800"
+          height="400"
+          fill="none"
+          stroke={COLORS.accent}
+          strokeWidth="2"
+          rx="20"
+          opacity="0.3"
+        />
+
+        {/* Now Playing label */}
         <text
           x={width / 2}
-          y="280"
+          y={height / 2 - 130}
           textAnchor="middle"
-          fontSize="56"
-          fontWeight="700"
-          fill={COLORS.white}
-          style={{
-            fontFamily: 'Inter, system-ui, sans-serif',
-            textShadow: `0 2px 16px rgba(0,0,0,0.5)`,
-          }}
+          fontSize="14"
+          fill={COLORS.accent}
+          fontWeight="600"
+          style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
         >
-          Your daily market podcast,
+          NOW PLAYING
         </text>
 
+        {/* Episode title */}
         <text
           x={width / 2}
-          y="360"
+          y={height / 2 - 80}
           textAnchor="middle"
-          fontSize="56"
+          fontSize="32"
           fontWeight="700"
           fill={COLORS.white}
-          style={{
-            fontFamily: 'Inter, system-ui, sans-serif',
-            textShadow: `0 2px 16px rgba(0,0,0,0.5)`,
-          }}
+          style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
         >
-          ready each morning.
+          Market Pulse
         </text>
 
-        {/* Subheader */}
+        {/* Waveform visualization */}
+        <g transform={`translate(${width / 2 - 320}, ${height / 2})`}>
+          <Waveform progress={waveProgress} bars={32} barWidth={12} gap={4} color={COLORS.accent} />
+        </g>
+
+        {/* Play indicator dot */}
+        <circle
+          cx={width / 2 - 350}
+          cy={height / 2 + 100}
+          r="6"
+          fill={COLORS.accent}
+          opacity={interpolate(frame, [60, 90], [0, 1], { extrapolateRight: 'clamp' })}
+        />
+
+        {/* Playing text */}
+        <text
+          x={width / 2 - 320}
+          y={height / 2 + 110}
+          fontSize="14"
+          fill={COLORS.gray300}
+          style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
+        >
+          Playing...
+        </text>
+
+        {/* Market Pulse subtitle */}
         <text
           x={width / 2}
-          y="430"
+          y={height / 2 + 150}
           textAnchor="middle"
-          fontSize="18"
-          fill={COLORS.gray200}
-          style={{
-            fontFamily: 'Inter, system-ui, sans-serif',
-            textShadow: `0 1px 8px rgba(0,0,0,0.5)`,
-          }}
+          fontSize="16"
+          fill={COLORS.gray400}
+          style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
         >
-          Powered by multi-agent AI orchestration.
+          AI-powered market insights, daily.
         </text>
       </g>
     </svg>

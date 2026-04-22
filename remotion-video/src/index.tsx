@@ -1,25 +1,25 @@
 import React from 'react';
-import { Composition, registerRoot } from 'remotion';
+import { Composition, registerRoot, Audio } from 'remotion';
 import { DashboardScene } from './scenes/DashboardScene';
-import { AgentFlowScene } from './scenes/AgentFlowScene';
 import { ResultScene } from './scenes/ResultScene';
+import podcastAudio from '../public/podcast.mp3';
 
 const Root: React.FC = () => {
   const width = 1920;
   const height = 1080;
   const fps = 30;
-  const durationInSeconds = 20;
+  const durationInSeconds = 62;
   const durationInFrames = durationInSeconds * fps;
 
   return (
     <Composition
       id="MarketPulseVideo"
       component={() => (
-        <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
+        <div style={{ width, height, position: 'relative', overflow: 'hidden', backgroundColor: '#000' }}>
+          <Audio src={podcastAudio} startFrom={0} />
           <DashboardScene width={width} height={height} />
-          <AgentFlowScene width={width} height={height} />
           <ResultScene width={width} height={height} />
-        </svg>
+        </div>
       )}
       durationInFrames={durationInFrames}
       fps={fps}
