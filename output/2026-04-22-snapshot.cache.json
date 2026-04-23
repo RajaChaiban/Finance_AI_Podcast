@@ -1,0 +1,1730 @@
+{
+  "date": "2026-04-22",
+  "indices": {
+    "DOW": {
+      "current": 49490.03,
+      "change_percent": 0.6930911437743497
+    },
+    "S&P 500": {
+      "current": 7137.9,
+      "change_percent": 1.0460064467632324
+    },
+    "NASDAQ": {
+      "current": 24657.566,
+      "change_percent": 1.6389182754385623
+    },
+    "Russell 2000": {
+      "current": 2785.377,
+      "change_percent": -0.27150406736938887
+    }
+  },
+  "top_gainers": [
+    {
+      "symbol": "TSM",
+      "name": "TSM",
+      "price": 387.44,
+      "change_percent": 5.2597
+    },
+    {
+      "symbol": "AVGO",
+      "name": "AVGO",
+      "price": 422.65,
+      "change_percent": 5.0924
+    },
+    {
+      "symbol": "ORCL",
+      "name": "ORCL",
+      "price": 187.5,
+      "change_percent": 3.494
+    },
+    {
+      "symbol": "AAPL",
+      "name": "AAPL",
+      "price": 273.17,
+      "change_percent": 2.6299
+    },
+    {
+      "symbol": "AMZN",
+      "name": "AMZN",
+      "price": 255.36,
+      "change_percent": 2.1808
+    }
+  ],
+  "top_losers": [
+    {
+      "symbol": "HD",
+      "name": "HD",
+      "price": 339.5,
+      "change_percent": -1.2852
+    },
+    {
+      "symbol": "NVO",
+      "name": "NVO",
+      "price": 39.15,
+      "change_percent": -0.6849
+    },
+    {
+      "symbol": "BAC",
+      "name": "BAC",
+      "price": 53.12,
+      "change_percent": -0.6731
+    },
+    {
+      "symbol": "BRK-B",
+      "name": "BRK-B",
+      "price": 465.4,
+      "change_percent": -0.6617
+    },
+    {
+      "symbol": "MA",
+      "name": "MA",
+      "price": 510.16,
+      "change_percent": -0.2327
+    }
+  ],
+  "earnings": [],
+  "economic_events": [],
+  "crypto": {
+    "BTC": {
+      "price": 78485,
+      "change_percent": 2.78318
+    },
+    "ETH": {
+      "price": 2377.32,
+      "change_percent": 2.1537
+    }
+  },
+  "forex": {
+    "EUR/USD": {
+      "rate": 1.1716,
+      "change_percent": 0.042694902228669195
+    },
+    "GBP/USD": {
+      "rate": 1.3507,
+      "change_percent": -0.0074030204323355785
+    },
+    "USD/JPY": {
+      "rate": 159.384,
+      "change_percent": 0.015060240963838158
+    },
+    "USD/CNY": {
+      "rate": 6.827,
+      "change_percent": 0
+    },
+    "AUD/USD": {
+      "rate": 0.7165,
+      "change_percent": 0.05585812037425876
+    },
+    "USD/CHF": {
+      "rate": 0.7842,
+      "change_percent": 0.025510204081629843
+    },
+    "USD/CAD": {
+      "rate": 1.3664,
+      "change_percent": -0.036579120637935836
+    }
+  },
+  "commodities": {
+    "VIX": {
+      "price": 18.92,
+      "change_percent": 0.2649708532061511
+    },
+    "Gold": {
+      "price": 4766.5,
+      "change_percent": 0.2840311382284873
+    },
+    "Silver": {
+      "price": 78.115,
+      "change_percent": 0.1975346647682769
+    },
+    "Copper": {
+      "price": 6.145,
+      "change_percent": 0.26923390715509077
+    },
+    "Platinum": {
+      "price": 2088.7,
+      "change_percent": 0.028734256022216804
+    },
+    "Oil (WTI)": {
+      "price": 93.14,
+      "change_percent": 0.19363166953529135
+    },
+    "Oil (Brent)": {
+      "price": 102.26,
+      "change_percent": 0.3434402904523683
+    },
+    "Natural Gas": {
+      "price": 2.724,
+      "change_percent": 0.07347538574578338
+    },
+    "Wheat": {
+      "price": 609.5,
+      "change_percent": 0.41186161449752884
+    },
+    "Coffee": {
+      "price": 289.25,
+      "change_percent": 0.03458412588622609
+    },
+    "Cocoa": {
+      "price": 3404,
+      "change_percent": -0.6711409395973155
+    }
+  },
+  "news": [],
+  "market_sentiment": "bullish",
+  "categories": [
+    "finance_macro",
+    "finance_micro",
+    "crypto",
+    "geopolitics",
+    "ai_updates"
+  ],
+  "macro_indicators": [
+    {
+      "name": "10-Year Treasury Yield",
+      "series_id": "DGS10",
+      "value": 4.3,
+      "previous_value": 4.26,
+      "date": "2026-04-21",
+      "unit": "percent"
+    },
+    {
+      "name": "2-Year Treasury Yield",
+      "series_id": "DGS2",
+      "value": 3.78,
+      "previous_value": 3.72,
+      "date": "2026-04-21",
+      "unit": "percent"
+    },
+    {
+      "name": "Federal Funds Rate",
+      "series_id": "FEDFUNDS",
+      "value": 3.64,
+      "previous_value": 3.64,
+      "date": "2026-03-01",
+      "unit": "percent"
+    },
+    {
+      "name": "Unemployment Rate",
+      "series_id": "UNRATE",
+      "value": 4.3,
+      "previous_value": 4.4,
+      "date": "2026-03-01",
+      "unit": "percent"
+    },
+    {
+      "name": "10Y-2Y Yield Spread",
+      "series_id": "T10Y2Y",
+      "value": 0.51,
+      "previous_value": 0.52,
+      "date": "2026-04-22",
+      "unit": "percent"
+    }
+  ],
+  "crypto_extended": [
+    {
+      "symbol": "BTC",
+      "name": "Bitcoin",
+      "price": 78485,
+      "change_percent_24h": 2.78318,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "ETH",
+      "name": "Ethereum",
+      "price": 2377.32,
+      "change_percent_24h": 2.1537,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "BNB",
+      "name": "BNB",
+      "price": 639.18,
+      "change_percent_24h": 1.0377,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "SOL",
+      "name": "Solana",
+      "price": 87.04,
+      "change_percent_24h": 0.94611,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "XRP",
+      "name": "XRP",
+      "price": 1.43,
+      "change_percent_24h": -0.15162,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "ADA",
+      "name": "Cardano",
+      "price": 0.249048,
+      "change_percent_24h": -0.55763,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "DOGE",
+      "name": "Dogecoin",
+      "price": 0.096241,
+      "change_percent_24h": 1.1,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "TRX",
+      "name": "TRON",
+      "price": 0.329694,
+      "change_percent_24h": -0.69276,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "AVAX",
+      "name": "Avalanche",
+      "price": 9.32,
+      "change_percent_24h": -1.03922,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "LINK",
+      "name": "Chainlink",
+      "price": 9.3,
+      "change_percent_24h": -1.20818,
+      "market_cap": 0,
+      "volume_24h": 0
+    }
+  ],
+  "crypto_global": {
+    "total_market_cap_usd": 2697067341315.812,
+    "total_volume_24h_usd": 120026911967.3888,
+    "btc_dominance": 58.160666131050284,
+    "eth_dominance": 10.605367952804844,
+    "active_cryptocurrencies": 17551
+  },
+  "crypto_trending": [
+    "CHIP",
+    "Asteroid Shiba",
+    "RaveDAO",
+    "Pudgy Penguins",
+    "Aave",
+    "Bitcoin",
+    "Aerodrome Finance"
+  ],
+  "geopolitics": [
+    {
+      "title": "N . Korean , Russian public security chiefs discuss closer cooperation",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "MizarVision : Military Intelligence Within Everyone Reach",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Nigeria Reliance On Airpower Is Costing Civilian Lives",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Iran secret nuke confession blows reasons for America war wide open",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "No More Deals With Devils Trump ends the era of illusions . by Joseph Klein",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "US conveys  conditional willingnes to 10 - year moratorium on Iran uranium enrichment : Pakistani sources",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Cuban president vows to defend the country against US invasion",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Trump favors companies that dont seek tariff refund",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Ending aid isnt enough we need sanctions and an arms embargo on Israel now \u2013 Mondoweiss",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Peacock Cancels MCU Star Espionage Drama After One Season Run",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Sheinbaum demands answers after two American officials killed in Mexico",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "After watchdog slams understaffing , AI to vet Pentagon - backed professor China ties",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Iran calls US ship seizure  piracy : Is it ? - Grenada Chronicle \u2013 Daily Grenada And Caribbean News",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Iran calls US ship seizure  piracy : Is it ? | US - Israel war on Iran News",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Iran obliterates ships in devastating Strait of Hormuz attack as WW3 fears soar",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Iran (299 reports)",
+      "description": "",
+      "source": "World Monitor",
+      "published_at": ""
+    },
+    {
+      "title": "United Kingdom (36 reports)",
+      "description": "",
+      "source": "World Monitor",
+      "published_at": ""
+    },
+    {
+      "title": "Pakistan (31 reports)",
+      "description": "",
+      "source": "World Monitor",
+      "published_at": ""
+    },
+    {
+      "title": "Australia (95 reports)",
+      "description": "",
+      "source": "World Monitor",
+      "published_at": ""
+    },
+    {
+      "title": "White House, District Of Columbia, United States (84 reports)",
+      "description": "",
+      "source": "World Monitor",
+      "published_at": ""
+    },
+    {
+      "title": "Ghana to Host Toastmasters District 94 West and Central Africa Leadership Conference 2026",
+      "description": "Ghana is set to welcome over 500 delegates from across West Africa and the global diaspora as Accra prepares to host the 12th District 94 Toastmasters International Conference, a landmark four-day summit themed \"Lead With Purpose, Speak to Impact.\" \u00a0 Scheduled from April 29 to May 2, 2026, the conference\u2026",
+      "source": "News Ghana",
+      "published_at": "2026-04-22T12:41:29Z"
+    },
+    {
+      "title": "Russia to block Kazakh oil flows to Germany via key pipeline",
+      "description": "Germany has confirmed that Russia will block flows of Kazakh oil to a vital refinery that supplies much of Berlin's energy needs from May 1.",
+      "source": "DW.com",
+      "published_at": "2026-04-22T12:39:20Z"
+    },
+    {
+      "title": "Iran calls US ship seizure \u2018piracy\u2019: Is it?",
+      "description": "Since the early days of the war on Iran, the US has been targeting Iranian ships in international waters.",
+      "source": "Al Jazeera",
+      "published_at": "2026-04-22T12:37:59Z"
+    },
+    {
+      "title": "PM2.5 spikes in 38 provinces as North and Northeast face health risks",
+      "description": "PM2.5 pollution hit red levels in 38 provinces on April 22, with the North worst affected as hotspots and cross-border haze raised fresh health concerns.",
+      "source": "Nation Thailand",
+      "published_at": "2026-04-22T12:30:00Z"
+    },
+    {
+      "title": "Russia to Cut Kazakh Oil Transit to Germany",
+      "description": "Russia plans to halt the flow of Kazakh oil through the Druzhba pipeline to a refinery in eastern Germany starting May 1, the energy ministry in Berlin told AFP on Wednesday.",
+      "source": "The Moscow Times",
+      "published_at": "2026-04-22T12:28:00Z"
+    },
+    {
+      "title": "Moldovan oligarch Vladimir Plahotniuc sentenced to 19 years in prison over $1bn fraud",
+      "description": "A former businessman, lawmaker and kingpin in the Democratic Party of Moldova, Plahotniuc fled Moldova in 2019, as he faced a series of corruption charges.",
+      "source": "Euronews.com",
+      "published_at": "2026-04-22T12:27:12Z"
+    },
+    {
+      "title": "Kash Patel opens up about his viral video of guzzling beer: 'I am like an everyday American'",
+      "description": "US News: Amid a major controversy that FBI director Kash Patel's work is suffering because of his alleged intoxication as reported by the Atlantic and legally .",
+      "source": "The Times of India",
+      "published_at": "2026-04-22T12:26:00Z"
+    },
+    {
+      "title": "Is Trump heading to a Pyrrhic victory in Iran?",
+      "description": "Pyrrhus was said to have remarked that one more victory would leave his kingdom \u2018utterly ruined.\u2019 Some see echoes in US interventions in the Middle East.",
+      "source": "The Conversation",
+      "published_at": "2026-04-22T12:24:25Z"
+    },
+    {
+      "title": "Former CJ Mutunga appointed patron of continental housing lobby",
+      "description": "Former Chief Justice Willy Mutunga has been appointed patron of Nyumba Africa, aiming to boost diaspora investment and transparency in Africa\u2019s real estate sector.",
+      "source": "standardmedia.co.ke",
+      "published_at": "2026-04-22T12:23:17Z"
+    },
+    {
+      "title": "Iran seizes ships in Strait of Hormuz after Trump halts attacks",
+      "description": "WASHINGTON/DUBAI/ISLAMABAD, April 22 (Reuters) - Iran seized two ships \u2060in the Strait of Hormuz on Wednesday, tightening its grip on the strategic waterway, after U.S. President Donald Trump called off attacks indefinitely with no sign of peace talks restarting.",
+      "source": "The Star",
+      "published_at": "2026-04-22T12:23:00Z"
+    },
+    {
+      "title": "Health cuts in \u2018darkened rooms in Canberra\u2019 will impact Sydney hospitals",
+      "description": "The premier has warned the Albanese government the state\u2019s hospital system is heaving and cuts to private health rebates will only make it worse.",
+      "source": "Jessica McSweeney; Mary Ward",
+      "published_at": "2026-04-23 00:33:50 +0000"
+    },
+    {
+      "title": "Blues have been \u2018bullied\u2019 over handling of Elijah Hollands: Voss",
+      "description": "Carlton coach Michael Voss says Blues staff have been \u201cbullied\u201d over their handling of Elijah Hollands\u2019 mental health episode in the loss to Collingwood last week and has lashed out at public criticism of the club.",
+      "source": "Sam McClure",
+      "published_at": "2026-04-23 00:32:55 +0000"
+    },
+    {
+      "title": "Microsoft unveils $25b AI splurge in Australia, but key details missing",
+      "description": "The US tech giant makes its largest-ever Australian commitment to expand AI infrastructure, cyber defences and skills \u2013 but stays silent on sites, power and jobs.",
+      "source": "David Swan",
+      "published_at": "2026-04-23 00:29:13 +0000"
+    },
+    {
+      "title": "It could take 6 months to clear all the mines from the Strait of Hormuz: report",
+      "description": "Iran may have deployed more than 20 mines in and around the Strait of Hormuz, some of which are difficult to track, an official said",
+      "source": "Brendan Rascius",
+      "published_at": "2026-04-23 00:20:55 +0000"
+    },
+    {
+      "title": "Step aside Tesla, BYD: Japanese carmakers deepen their hold on India's auto market with hybrids",
+      "description": "In the world's third-largest auto market, demand for hybrid cars is racing ahead of EVs, deepening the hold of Japanese carmakers in India.",
+      "source": "Priyanka Salve",
+      "published_at": "2026-04-23 00:14:48 +0000"
+    },
+    {
+      "title": "Immigration agent charged with assaulting protester outside Colorado ICE facility",
+      "description": "Videos show a masked agent grabbing and dragging Franci Stagi across a street during an October protest",
+      "source": "Colleen Slevin",
+      "published_at": "2026-04-23 00:12:05 +0000"
+    },
+    {
+      "title": "Jamie Ding 'Jeopardy!' win streak hits 29. How much has he won?",
+      "description": "Former Metro Detroiter Jamie Ding won yet again on Wednesday's episode of ",
+      "source": "The Detroit News",
+      "published_at": "2026-04-23 00:09:48 +0000"
+    },
+    {
+      "title": "Michigan men's basketball team, Jared Goff cheering on Pistons in Game 2",
+      "description": "The Pistons were playing the Orlando Magic in Game 2 of their first-round playoff series Wednesday night at Little Caesars Arena in Detroit.",
+      "source": "The Detroit News",
+      "published_at": "2026-04-23 00:02:28 +0000"
+    },
+    {
+      "title": "Butler urges states to \u2018get on\u2019 with NDIS overhaul",
+      "description": "The health minister also sought to reassure disabled Australians worried about being among the 160,000 people to be kicked off the scheme.",
+      "source": "Brittany Busch",
+      "published_at": "2026-04-22 23:58:35 +0000"
+    },
+    {
+      "title": "Customer\u2019s brutal act in \u2018random\u2019 stabbing",
+      "description": "CCTV has captured the terrifying moment a diner was \u201crandomly\u201d stabbed in the chest while eating breakfast at a UK cafe.",
+      "source": "David Wu",
+      "published_at": "2026-04-22 23:55:25 +0000"
+    }
+  ],
+  "ai_updates": [
+    {
+      "title": "A robot is beating human pros at table tennis. Its maker calls it a milestone for machines",
+      "description": "Some of the athletes said they were surprised by the robot\u2019s prowess.",
+      "source": "Daily Press",
+      "published_at": "2026-04-22 12:36:00",
+      "subcategory": "general"
+    },
+    {
+      "title": "BluSky AI Inc. to Present at the AI & Tech Virtual Investor Conference April 23rd",
+      "description": "Company invites individual and institutional investors, as well as advisors and analysts, to attend online at VirtualInvestorConferences.com",
+      "source": "Financialcontent",
+      "published_at": "2026-04-22 12:35:00",
+      "subcategory": "general"
+    },
+    {
+      "title": "AI slop videos aimed at babies are \u2018garbage,\u2019 says pediatrician | CBC News",
+      "description": "Canada A new wave of AI-generated YouTube videos aimed at toddlers and preschoolers are raising concerns among child development experts and advocates who say it could harm early childhood development. They're calling for YouTube parent company Google to change how the videos are displayed and distributed on the platform. Spread of AI videos on YouTube worries child development experts and advocates who are calling for changes Jessica Wong \u00b7 CBC News \u00b7 Posted: Apr 22, 2026 4:00 AM EDT | Last Updated: 8 hours ago Listen to this article Estimated 7 minutes The audio version of this article is generated by AI-based technology. Mispronunciations can occur. We are working with our partners to continually review and improve the results. A screenshot taken from a colourful online video aimed at young kids features trains and a jaunty song about learning letters. It also includes classic signs of being AI-generated, like some of those letters appearing garbled at times. (Jojo Funland/YouTube) With their bright visuals and slickly animated babies or colourful trains, you might think you've stumbled onto your average online video teaching kids their ABCs. But it might actually be an example of nonsensical content mass-generated with artificial intelligence known as",
+      "source": "Social Network Release",
+      "published_at": "2026-04-22 12:32:00",
+      "subcategory": "model_release"
+    },
+    {
+      "title": "Google Claims Gemini AI Uses Just \u2018Five Drops of Water\u2019 Per Prompt, Sparks Debate",
+      "description": "Google says Gemini AI uses only five drops of water and less energy than 9 seconds of TV per prompt. Experts question if the numbers add up.",
+      "source": "Https://business2business.co.in/",
+      "published_at": "2026-04-22 12:25:16",
+      "subcategory": "general"
+    },
+    {
+      "title": "Top News Today: India\u2019s Chip Push, OpenAI UK Expansion & AI Rules Debate",
+      "description": "India plans Rs 1 lakh crore Semiconductor Mission 2.0, OpenAI expands London amid energy costs, AI regulation concerns grow globally, and Indian ship Sanmar Herald faces attack near Hormuz, raising maritime security alarms.",
+      "source": "Analytics And Insight",
+      "published_at": "2026-04-22 12:23:56",
+      "subcategory": "regulation"
+    },
+    {
+      "title": "Google Cloud Releases New TPU Chip Lineup in Bid to Speed Up AI",
+      "description": "Alphabet Inc.\u2019s Google Cloud division unveiled the latest generation of its tensor processing unit, or TPU, a homegrown chip that\u2019s designed to make AI computing services faster and more efficient.",
+      "source": "Financial Post",
+      "published_at": "2026-04-22 12:22:49",
+      "subcategory": "model_release"
+    },
+    {
+      "title": "Organizations in India accelerate AI adoption to build business resilience",
+      "description": "Organizations in India continue to accelerate the adoption of artificial intelligence, signaling a decisive shift from experimentation to enterprise use. As organizations move from AI adoption to scale, executives are... The post Organizations in India accelerate AI adoption to build business resilience appeared first on CIO&Leader .",
+      "source": "Cio&leader",
+      "published_at": "2026-04-22 12:22:22",
+      "subcategory": "general"
+    },
+    {
+      "title": "SpaceX and Cursor team up to boost AI coding development",
+      "description": "Cursor will tap SpaceX-linked computing infrastructure to scale its AI coding models, aiming to improve performance and speed development.",
+      "source": "9news",
+      "published_at": "2026-04-22 12:13:58",
+      "subcategory": "model_release"
+    },
+    {
+      "title": "SpaceX and Cursor team up to boost AI coding development",
+      "description": "Cursor will tap SpaceX-linked computing infrastructure to scale its AI coding models, aiming to improve performance and speed development.",
+      "source": "Kvue",
+      "published_at": "2026-04-22 12:13:58",
+      "subcategory": "model_release"
+    },
+    {
+      "title": "SpaceX and Cursor team up to boost AI coding development",
+      "description": "Cursor will tap SpaceX-linked computing infrastructure to scale its AI coding models, aiming to improve performance and speed development.",
+      "source": "12news",
+      "published_at": "2026-04-22 12:13:58",
+      "subcategory": "model_release"
+    },
+    {
+      "title": "3 key takeaways from BHP's latest results you need to know",
+      "description": "BHP Group Ltd (ASX: BHP) just released its latest update. Here are three key takeaways investors should know.",
+      "source": "Grace Alvino",
+      "published_at": "2026-04-23 00:39:53 +0000",
+      "subcategory": "model_release"
+    },
+    {
+      "title": "Fuel price concerns have driven this e-mobility company\u2019s shares to a 12-month high",
+      "description": "Fuel price concerns have helped drive Vmoto Ltd (ASX: VMT) shares to a 12-month high as people turn to e-mobility solutions.",
+      "source": "Cameron England",
+      "published_at": "2026-04-23 00:35:20 +0000",
+      "subcategory": "general"
+    },
+    {
+      "title": "Elon Musk pushed back the launch of the Tesla Roadster. Again.",
+      "description": "Elon Musk delayed the new Tesla Roadster release yet again, saying it could be coming \"in a month or so.\"",
+      "source": "Kelsey Vlamis",
+      "published_at": "2026-04-23 00:34:50 +0000",
+      "subcategory": "model_release"
+    },
+    {
+      "title": "Reform UK unveils plans for Union flags and \u2018patriotic\u2019 history lessons in schools",
+      "description": "The party has announced a string of education policies ahead of St George\u2019s Day",
+      "source": "Stanley Murphy-Johns",
+      "published_at": "2026-04-23 00:34:33 +0000",
+      "subcategory": "general"
+    },
+    {
+      "title": "Stassi Schroeder Sets Reality Series 'House Of Stassi' At Hulu",
+      "description": "Freeform and Hulu's new reality series House of Stassi will debut this summer, revealed during the Get Real unscripted TV event on Wednesday.",
+      "source": "Katie Campione",
+      "published_at": "2026-04-23 00:34:01 +0000",
+      "subcategory": "general"
+    },
+    {
+      "title": "Health cuts in \u2018darkened rooms in Canberra\u2019 will impact Sydney hospitals",
+      "description": "The premier has warned the Albanese government the state\u2019s hospital system is heaving and cuts to private health rebates will only make it worse.",
+      "source": "Jessica McSweeney; Mary Ward",
+      "published_at": "2026-04-23 00:33:50 +0000",
+      "subcategory": "regulation"
+    },
+    {
+      "title": "'Distressing': Hospital left staff waiting for wages after payroll error",
+      "description": "Health Minister Rachel Stephen-Smith says they are working to resolve the issue that has left thousands of North Canberra Hospital staff waiting for their fortnightly pay.",
+      "source": "Niki Burnside",
+      "published_at": "2026-04-23 00:33:24 +0000",
+      "subcategory": "general"
+    },
+    {
+      "title": "Farmers say an easy solution to the mouse plague has been rejected",
+      "description": "Farmers are pushing for stronger bait approval as mice numbers soar out of control in Western Australia, but stronger poisons are being rejected by the national chemical regulator.",
+      "source": "Joanna Prendergast",
+      "published_at": "2026-04-23 00:33:24 +0000",
+      "subcategory": "general"
+    },
+    {
+      "title": "Bugler practises at veterans' graves daily to get Anzac Day 'right'",
+      "description": "Adam Farquharson feels the honour of Anzac Day every day as he plays to a different veteran's grave.",
+      "source": "Jess Scully",
+      "published_at": "2026-04-23 00:33:24 +0000",
+      "subcategory": "general"
+    },
+    {
+      "title": "\u2018The Secret Lives Of Mormon Wives\u2019 Is Getting An Orange County Spinoff",
+      "description": "The Secret Lives of Mormon Wives: Orange County has been ordered at Hulu but Jen Affleck is not the star.",
+      "source": "Peter White",
+      "published_at": "2026-04-23 00:33:00 +0000",
+      "subcategory": "general"
+    }
+  ],
+  "fear_greed": {
+    "score": 69.8,
+    "label": "Greed",
+    "previous": 69.6
+  },
+  "macro_signals": {
+    "verdict": "BUY",
+    "bullish_count": 4,
+    "total_count": 7,
+    "signals": {
+      "liquidity": {
+        "status": "NORMAL",
+        "value": 0.21,
+        "sparkline": [
+          159.20599365234375,
+          159.5679931640625,
+          159.10499572753906,
+          158.88900756835938,
+          159.7949981689453,
+          157.9239959716797,
+          159.23399353027344,
+          158.47900390625,
+          158.71800231933594,
+          159.38400268554688,
+          159.70399475097656,
+          160.23399353027344,
+          159.84100341796875,
+          158.57899475097656,
+          158.68800354003906,
+          159.49099731445312,
+          159.77999877929688,
+          159.68299865722656,
+          158.71600341796875,
+          158.64199829101562,
+          159.11199951171875,
+          159.67999267578125,
+          159.21400451660156,
+          158.79200744628906,
+          158.8090057373047,
+          159.19500732421875,
+          159.16099548339844,
+          158.843994140625,
+          159.3730010986328,
+          159.41600036621094
+        ]
+      },
+      "flowStructure": {
+        "status": "ALIGNED",
+        "btcReturn5": 1.76,
+        "qqqReturn5": 2.78
+      },
+      "macroRegime": {
+        "status": "RISK-ON",
+        "qqqRoc20": 12.18,
+        "xlpRoc20": 1.23
+      },
+      "technicalTrend": {
+        "status": "BULLISH",
+        "btcPrice": 78485.9609375,
+        "sma50": 70914,
+        "sma200": 85887,
+        "vwap30d": 71736,
+        "mayerMultiple": 0.91,
+        "sparkline": [
+          70517.859375,
+          71309.8828125,
+          68791.625,
+          66338.375,
+          66319.6953125,
+          65954.921875,
+          66691.4453125,
+          68233.3125,
+          68078.5546875,
+          66888.5703125,
+          66931.1015625,
+          67290.515625,
+          68981.8984375,
+          68859.828125,
+          71940.703125,
+          71123.359375,
+          71767.828125,
+          72979.046875,
+          73054.2734375,
+          70753.40625,
+          74484.640625,
+          74181.609375,
+          74805.078125,
+          75152.1328125,
+          77126.875,
+          75726.2109375,
+          73856.3515625,
+          75872.5234375,
+          76352.7734375,
+          78485.9609375
+        ]
+      },
+      "hashRate": {
+        "status": "DECLINING",
+        "change30d": -16.4
+      },
+      "priceMomentum": {
+        "status": "MODERATE"
+      },
+      "fearGreed": {
+        "status": "Fear",
+        "value": 46,
+        "history": [
+          {
+            "value": 14,
+            "date": "2026-03-25"
+          },
+          {
+            "value": 10,
+            "date": "2026-03-26"
+          },
+          {
+            "value": 13,
+            "date": "2026-03-27"
+          },
+          {
+            "value": 12,
+            "date": "2026-03-28"
+          },
+          {
+            "value": 9,
+            "date": "2026-03-29"
+          },
+          {
+            "value": 8,
+            "date": "2026-03-30"
+          },
+          {
+            "value": 11,
+            "date": "2026-03-31"
+          },
+          {
+            "value": 8,
+            "date": "2026-04-01"
+          },
+          {
+            "value": 12,
+            "date": "2026-04-02"
+          },
+          {
+            "value": 9,
+            "date": "2026-04-03"
+          },
+          {
+            "value": 11,
+            "date": "2026-04-04"
+          },
+          {
+            "value": 12,
+            "date": "2026-04-05"
+          },
+          {
+            "value": 13,
+            "date": "2026-04-06"
+          },
+          {
+            "value": 11,
+            "date": "2026-04-07"
+          },
+          {
+            "value": 17,
+            "date": "2026-04-08"
+          },
+          {
+            "value": 14,
+            "date": "2026-04-09"
+          },
+          {
+            "value": 16,
+            "date": "2026-04-10"
+          },
+          {
+            "value": 15,
+            "date": "2026-04-11"
+          },
+          {
+            "value": 16,
+            "date": "2026-04-12"
+          },
+          {
+            "value": 12,
+            "date": "2026-04-13"
+          },
+          {
+            "value": 21,
+            "date": "2026-04-14"
+          },
+          {
+            "value": 23,
+            "date": "2026-04-15"
+          },
+          {
+            "value": 23,
+            "date": "2026-04-16"
+          },
+          {
+            "value": 21,
+            "date": "2026-04-17"
+          },
+          {
+            "value": 26,
+            "date": "2026-04-18"
+          },
+          {
+            "value": 27,
+            "date": "2026-04-19"
+          },
+          {
+            "value": 29,
+            "date": "2026-04-20"
+          },
+          {
+            "value": 33,
+            "date": "2026-04-21"
+          },
+          {
+            "value": 32,
+            "date": "2026-04-22"
+          },
+          {
+            "value": 46,
+            "date": "2026-04-23"
+          }
+        ]
+      }
+    }
+  },
+  "sectors": [
+    {
+      "symbol": "XLK",
+      "name": "XLK",
+      "change": 2.1979
+    },
+    {
+      "symbol": "XLF",
+      "name": "XLF",
+      "change": -0.1721
+    },
+    {
+      "symbol": "XLE",
+      "name": "XLE",
+      "change": 1.1992
+    },
+    {
+      "symbol": "XLV",
+      "name": "XLV",
+      "change": 0.3152
+    },
+    {
+      "symbol": "XLY",
+      "name": "XLY",
+      "change": -0.0336
+    },
+    {
+      "symbol": "XLI",
+      "name": "XLI",
+      "change": -0.2333
+    },
+    {
+      "symbol": "XLP",
+      "name": "XLP",
+      "change": 0.3299
+    },
+    {
+      "symbol": "XLU",
+      "name": "XLU",
+      "change": -0.178
+    },
+    {
+      "symbol": "XLB",
+      "name": "XLB",
+      "change": 0.1159
+    },
+    {
+      "symbol": "XLRE",
+      "name": "XLRE",
+      "change": -0.7309
+    },
+    {
+      "symbol": "XLC",
+      "name": "XLC",
+      "change": 0.6145
+    },
+    {
+      "symbol": "SMH",
+      "name": "SMH",
+      "change": 2.6191
+    }
+  ],
+  "etf_flows": {
+    "summary": {
+      "etfCount": 10,
+      "totalVolume": 63440410,
+      "totalEstFlow": 292202020,
+      "netDirection": "NET INFLOW",
+      "inflowCount": 10,
+      "outflowCount": 0
+    },
+    "etfs": [
+      {
+        "ticker": "IBIT",
+        "issuer": "BlackRock",
+        "price": 44.75,
+        "priceChange": 5.27,
+        "volume": 50913673,
+        "avgVolume": 46566475,
+        "volumeRatio": 1.09,
+        "direction": "inflow",
+        "estFlow": 227838687
+      },
+      {
+        "ticker": "FBTC",
+        "issuer": "Fidelity",
+        "price": 68.69,
+        "priceChange": 5.16,
+        "volume": 4234346,
+        "avgVolume": 4440550,
+        "volumeRatio": 0.95,
+        "direction": "inflow",
+        "estFlow": 29085724
+      },
+      {
+        "ticker": "ARKB",
+        "issuer": "ARK/21Shares",
+        "price": 26.17,
+        "priceChange": 5.14,
+        "volume": 1924161,
+        "avgVolume": 2881075,
+        "volumeRatio": 0.67,
+        "direction": "inflow",
+        "estFlow": 5035529
+      },
+      {
+        "ticker": "BITB",
+        "issuer": "Bitwise",
+        "price": 42.84,
+        "priceChange": 5.1,
+        "volume": 1690326,
+        "avgVolume": 2224500,
+        "volumeRatio": 0.76,
+        "direction": "inflow",
+        "estFlow": 7241357
+      },
+      {
+        "ticker": "GBTC",
+        "issuer": "Grayscale",
+        "price": 61.37,
+        "priceChange": 5.18,
+        "volume": 3058892,
+        "avgVolume": 2595075,
+        "volumeRatio": 1.18,
+        "direction": "inflow",
+        "estFlow": 18772420
+      },
+      {
+        "ticker": "HODL",
+        "issuer": "VanEck",
+        "price": 22.31,
+        "priceChange": 5.19,
+        "volume": 1341433,
+        "avgVolume": 1236500,
+        "volumeRatio": 1.08,
+        "direction": "inflow",
+        "estFlow": 2992737
+      },
+      {
+        "ticker": "BRRR",
+        "issuer": "Valkyrie",
+        "price": 22.27,
+        "priceChange": 5.29,
+        "volume": 104937,
+        "avgVolume": 268075,
+        "volumeRatio": 0.39,
+        "direction": "inflow",
+        "estFlow": 233676
+      },
+      {
+        "ticker": "EZBC",
+        "issuer": "Franklin",
+        "price": 45.6,
+        "priceChange": 5.12,
+        "volume": 109148,
+        "avgVolume": 139025,
+        "volumeRatio": 0.79,
+        "direction": "inflow",
+        "estFlow": 497715
+      },
+      {
+        "ticker": "BTCO",
+        "issuer": "Invesco",
+        "price": 78.5,
+        "priceChange": 5.09,
+        "volume": 52000,
+        "avgVolume": 115950,
+        "volumeRatio": 0.45,
+        "direction": "inflow",
+        "estFlow": 408200
+      },
+      {
+        "ticker": "BTCW",
+        "issuer": "WisdomTree",
+        "price": 83.5,
+        "priceChange": 5.25,
+        "volume": 11494,
+        "avgVolume": 41350,
+        "volumeRatio": 0.28,
+        "direction": "inflow",
+        "estFlow": 95975
+      }
+    ],
+    "crypto_etfs": [
+      {
+        "ticker": "IBIT",
+        "issuer": "BlackRock",
+        "price": 44.75,
+        "priceChange": 5.27,
+        "volume": 50913673,
+        "avgVolume": 46566475,
+        "volumeRatio": 1.09,
+        "direction": "inflow",
+        "estFlow": 227838687
+      },
+      {
+        "ticker": "FBTC",
+        "issuer": "Fidelity",
+        "price": 68.69,
+        "priceChange": 5.16,
+        "volume": 4234346,
+        "avgVolume": 4440550,
+        "volumeRatio": 0.95,
+        "direction": "inflow",
+        "estFlow": 29085724
+      },
+      {
+        "ticker": "ARKB",
+        "issuer": "ARK/21Shares",
+        "price": 26.17,
+        "priceChange": 5.14,
+        "volume": 1924161,
+        "avgVolume": 2881075,
+        "volumeRatio": 0.67,
+        "direction": "inflow",
+        "estFlow": 5035529
+      },
+      {
+        "ticker": "GBTC",
+        "issuer": "Grayscale",
+        "price": 61.37,
+        "priceChange": 5.18,
+        "volume": 3058892,
+        "avgVolume": 2595075,
+        "volumeRatio": 1.18,
+        "direction": "inflow",
+        "estFlow": 18772420
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "title": "2026 Balance of Power: D Senate, D House",
+      "yes_price": 50.5,
+      "volume": 5501071.953056001,
+      "url": "https://polymarket.com/event/balance-of-power-2026-midterms",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Puffpaw FDV above $100M one day after launch?",
+      "yes_price": 50.5,
+      "volume": 5223704.832288124,
+      "url": "https://polymarket.com/event/puffpaw-fdv-above-one-day-after-launch",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Opensea FDV above $500M one day after launch?",
+      "yes_price": 48.8,
+      "volume": 5835738.739864988,
+      "url": "https://polymarket.com/event/opensea-fdv-above-one-day-after-launch",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will Ethereum dip to $1,500 by December 31, 2026?",
+      "yes_price": 48.5,
+      "volume": 4335969.104154001,
+      "url": "https://polymarket.com/event/what-price-will-ethereum-hit-before-2027",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will there be exactly 0 confirmed VEI 4 or higher volcanic eruptions worldwide in 2026?",
+      "yes_price": 52.5,
+      "volume": 1022083.8118839995,
+      "url": "https://polymarket.com/event/how-many-large-volcano-eruption-vei-4-in-2026-657",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Strait of Hormuz traffic returns to normal by end of May?",
+      "yes_price": 45,
+      "volume": 1865721.2676710014,
+      "url": "https://polymarket.com/event/strait-of-hormuz-traffic-returns-to-normal-by-end-of-may",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will Yu Deng win the 2026 Fields Medal?",
+      "yes_price": 45.5,
+      "volume": 509741.69397,
+      "url": "https://polymarket.com/event/who-will-win-the-2026-fields-medal",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will SpaceX's market cap be greater than $2.0T at market close on IPO day?",
+      "yes_price": 55.5,
+      "volume": 785941.0559049997,
+      "url": "https://polymarket.com/event/spacex-ipo-closing-market-cap-higher-strikes",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Who will be the next James Bond?: Callum Turner",
+      "yes_price": 47,
+      "volume": 190524.19,
+      "url": "https://kalshi.com/markets/KXBOND-30-CAL",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will Mojtaba Khamenei be head of state in Iran end of 2026?",
+      "yes_price": 60.5,
+      "volume": 6853954.673478009,
+      "url": "https://polymarket.com/event/iran-leader-end-of-2026",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Puffpaw FDV above $100M one day after launch?",
+      "yes_price": 50.5,
+      "volume": 5223704.832288124,
+      "url": "https://polymarket.com/event/puffpaw-fdv-above-one-day-after-launch",
+      "category": "tech"
+    },
+    {
+      "title": "Opensea FDV above $500M one day after launch?",
+      "yes_price": 48.8,
+      "volume": 5835738.739864988,
+      "url": "https://polymarket.com/event/opensea-fdv-above-one-day-after-launch",
+      "category": "tech"
+    },
+    {
+      "title": "Will Ethereum dip to $1,500 by December 31, 2026?",
+      "yes_price": 48.5,
+      "volume": 4335969.104154001,
+      "url": "https://polymarket.com/event/what-price-will-ethereum-hit-before-2027",
+      "category": "tech"
+    },
+    {
+      "title": "Will there be exactly 0 confirmed VEI 4 or higher volcanic eruptions worldwide in 2026?",
+      "yes_price": 52.5,
+      "volume": 1022083.8118839995,
+      "url": "https://polymarket.com/event/how-many-large-volcano-eruption-vei-4-in-2026-657",
+      "category": "tech"
+    },
+    {
+      "title": "Strait of Hormuz traffic returns to normal by end of May?",
+      "yes_price": 45,
+      "volume": 1865721.2676710014,
+      "url": "https://polymarket.com/event/strait-of-hormuz-traffic-returns-to-normal-by-end-of-may",
+      "category": "tech"
+    },
+    {
+      "title": "Will Yu Deng win the 2026 Fields Medal?",
+      "yes_price": 45.5,
+      "volume": 509741.69397,
+      "url": "https://polymarket.com/event/who-will-win-the-2026-fields-medal",
+      "category": "tech"
+    },
+    {
+      "title": "Will SpaceX's market cap be greater than $2.0T at market close on IPO day?",
+      "yes_price": 55.5,
+      "volume": 785941.0559049997,
+      "url": "https://polymarket.com/event/spacex-ipo-closing-market-cap-higher-strikes",
+      "category": "tech"
+    },
+    {
+      "title": "Will no Fed rate cuts happen in 2026?",
+      "yes_price": 36.9,
+      "volume": 20268431.56324007,
+      "url": "https://polymarket.com/event/how-many-fed-rate-cuts-in-2026",
+      "category": "tech"
+    },
+    {
+      "title": "Will Anthropic have the best AI model at the end of May 2026?",
+      "yes_price": 56.5,
+      "volume": 327162.4832360001,
+      "url": "https://polymarket.com/event/which-company-has-the-best-ai-model-end-of-may",
+      "category": "tech"
+    },
+    {
+      "title": "5kt meteor strike in 2026?",
+      "yes_price": 43.5,
+      "volume": 294092.5049000001,
+      "url": "https://polymarket.com/event/5kt-meteor-strike-in-2026",
+      "category": "tech"
+    }
+  ],
+  "forecasts": [
+    {
+      "title": "FX stress from Middle East governance pressure state",
+      "domain": "market",
+      "region": "Middle East"
+    },
+    {
+      "title": "Infrastructure cascade risk: Iran",
+      "domain": "infrastructure",
+      "region": "Iran"
+    },
+    {
+      "title": "Supply chain disruption risk from Red Sea maritime disruption state (market)",
+      "domain": "supply_chain",
+      "region": "Red Sea"
+    },
+    {
+      "title": "FX stress from Brazil cyber pressure state",
+      "domain": "market",
+      "region": "Brazil"
+    },
+    {
+      "title": "Inflation and rates pressure from Red Sea maritime disruption state",
+      "domain": "market",
+      "region": "Red Sea"
+    },
+    {
+      "title": "Sovereign risk repricing from Afghanistan security escalation state",
+      "domain": "market",
+      "region": "Afghanistan"
+    },
+    {
+      "title": "FX stress from India political instability state",
+      "domain": "market",
+      "region": "India"
+    },
+    {
+      "title": "Will the Court Force Trump to Refund Tariffs?",
+      "domain": "market",
+      "region": "Americas"
+    },
+    {
+      "title": "Inflation and rates pressure from Eastern Mediterranean maritime disruption state",
+      "domain": "market",
+      "region": "Eastern Mediterranean"
+    },
+    {
+      "title": "Active armed conflict: Syria",
+      "domain": "conflict",
+      "region": "Syria"
+    }
+  ],
+  "sanctions": {
+    "total_count": 19923,
+    "vessel_count": 1461,
+    "aircraft_count": 344,
+    "top_countries": [
+      {
+        "country": "Russia",
+        "count": 0
+      },
+      {
+        "country": "Unknown",
+        "count": 0
+      },
+      {
+        "country": "Iran",
+        "count": 0
+      },
+      {
+        "country": "China",
+        "count": 0
+      },
+      {
+        "country": "Mexico",
+        "count": 0
+      },
+      {
+        "country": "United Arab Emirates",
+        "count": 0
+      },
+      {
+        "country": "Colombia",
+        "count": 0
+      },
+      {
+        "country": "Turkey",
+        "count": 0
+      },
+      {
+        "country": "Lebanon",
+        "count": 0
+      },
+      {
+        "country": "Syria",
+        "count": 0
+      }
+    ]
+  },
+  "unrest_events": [
+    {
+      "title": "Iran (299 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Iran",
+      "city": "Iran",
+      "summary": ""
+    },
+    {
+      "title": "United Kingdom (36 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "United Kingdom",
+      "city": "United Kingdom",
+      "summary": ""
+    },
+    {
+      "title": "Pakistan (31 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Pakistan",
+      "city": "Pakistan",
+      "summary": ""
+    },
+    {
+      "title": "Australia (95 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Australia",
+      "city": "Australia",
+      "summary": ""
+    },
+    {
+      "title": "White House, District Of Columbia, United States (84 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "United States",
+      "city": "White House",
+      "summary": ""
+    },
+    {
+      "title": "Mexico (43 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Mexico",
+      "city": "Mexico",
+      "summary": ""
+    },
+    {
+      "title": "China (47 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "China",
+      "city": "China",
+      "summary": ""
+    },
+    {
+      "title": "Brazil (33 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Brazil",
+      "city": "Brazil",
+      "summary": ""
+    },
+    {
+      "title": "Egypt (29 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Egypt",
+      "city": "Egypt",
+      "summary": ""
+    },
+    {
+      "title": "Russia (83 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Russia",
+      "city": "Russia",
+      "summary": ""
+    }
+  ],
+  "conflict_events": [
+    {
+      "country": "Ecuador",
+      "side_a": "Fatales, Los Aguilas",
+      "side_b": "Los Lobos , Los Tiguerones",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "DR Congo (Zaire)",
+      "side_a": "IS",
+      "side_b": "Civilians",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Iraq",
+      "side_a": "Government of Iraq",
+      "side_b": "IS",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Brazil",
+      "side_a": "Comando Vermelho",
+      "side_b": "Terceiro Comando Puro",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Ecuador",
+      "side_a": "Los Choneros",
+      "side_b": "Los Lobos",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Ecuador",
+      "side_a": "Los Choneros",
+      "side_b": "Los Lobos",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Mexico",
+      "side_a": "Juarez Cartel",
+      "side_b": "Sinaloa Cartel",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Mexico",
+      "side_a": "Juarez Cartel",
+      "side_b": "Sinaloa Cartel",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Mexico",
+      "side_a": "Juarez Cartel",
+      "side_b": "Sinaloa Cartel",
+      "date_start": 1735603200000
+    },
+    {
+      "country": "Mexico",
+      "side_a": "Juarez Cartel",
+      "side_b": "Sinaloa Cartel",
+      "date_start": 1735603200000
+    }
+  ],
+  "cross_signals": [
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_MILITARY_FLIGHT_SURGE",
+      "theater": "Global",
+      "summary": "Military flight surge: 18 active sorties tracked in Global",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_CRITICAL"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_GPS_JAMMING",
+      "theater": "Other",
+      "summary": "GPS jamming detected: 1315 high-interference hexagons in Other",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_CRITICAL"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_GPS_JAMMING",
+      "theater": "East-Asia",
+      "summary": "GPS jamming detected: 54 high-interference hexagons in East-Asia",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_CRITICAL"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_GPS_JAMMING",
+      "theater": "Sub-Saharan Africa",
+      "summary": "GPS jamming detected: 62 high-interference hexagons in Sub-Saharan Africa",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_CRITICAL"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_REGULATORY_ACTION",
+      "theater": "Global Markets",
+      "summary": "Federal Reserve: Federal Reserve Board issues enforcement action with former employee of First Financial Bank",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_HIGH"
+    }
+  ],
+  "gdelt_intel": [
+    {
+      "topic": "military",
+      "articles": [
+        {
+          "title": "N . Korean , Russian public security chiefs discuss closer cooperation",
+          "url": "https://www.koreaherald.com/article/10722722"
+        },
+        {
+          "title": "MizarVision : Military Intelligence Within Everyone Reach",
+          "url": "https://www.marketscreener.com/news/mizarvision-military-intelligence-within-everyone-s-reach-ce7f59d8df8ef32c"
+        },
+        {
+          "title": "Nigeria Reliance On Airpower Is Costing Civilian Lives",
+          "url": "https://www.worldpoliticsreview.com/nigeria-boko-haram-iswap-jilli-civilian-casualties/"
+        },
+        {
+          "title": "Expressway to readiness : IAF fighter jets conduct precision drills on Purvanchal Highway",
+          "url": "https://aninews.in/news/national/general-news/expressway-to-readiness-iaf-fighter-jets-conduct-precision-drills-on-purvanchal-highway20260422172457/"
+        },
+        {
+          "title": "North Korean , Russian public security chiefs discuss closer cooperation",
+          "url": "https://www.mangalorean.com/north-korean-russian-public-security-chiefs-discuss-closer-cooperation/"
+        }
+      ]
+    },
+    {
+      "topic": "nuclear",
+      "articles": [
+        {
+          "title": "Iran secret nuke confession blows reasons for America war wide open",
+          "url": "https://www.dailymail.com/sciencetech/article-15732615/iran-nuclear-bomb-confession-ali-motahari.html"
+        },
+        {
+          "title": "No More Deals With Devils Trump ends the era of illusions . by Joseph Klein",
+          "url": "https://www.ruthfullyyours.com/2026/04/21/no-more-deals-with-devils-trump-ends-the-era-of-illusions-by-joseph-klein/"
+        },
+        {
+          "title": "US conveys  conditional willingnes to 10 - year moratorium on Iran uranium enrichment : Pakistani sources",
+          "url": "https://aa.com.tr/en/americas/us-conveys-conditional-willingness-to-10-year-moratorium-on-irans-uranium-enrichment-pakistani-sources/3913410"
+        },
+        {
+          "title": "Iran will not budge on talks during US blockade",
+          "url": "http://www.bignewsnetwork.com/news/279002360/iran-will-not-budge-on-talks-during-us-blockade-envoy-in-china"
+        },
+        {
+          "title": "Iran will not budge on talks during US blockade envoy in China",
+          "url": "http://www.bignewsnetwork.com/news/279002337/iran-will-not-budge-on-talks-during-us-blockade-envoy-in-china"
+        }
+      ]
+    },
+    {
+      "topic": "sanctions",
+      "articles": [
+        {
+          "title": "Cuban president vows to defend the country against US invasion",
+          "url": "https://www.insightnews.com/news/cuban-president-vows-to-defend-the-country-against-us-invasion/article_486616c7-604e-4b87-a375-25545cdc8cea.html"
+        },
+        {
+          "title": "Trump favors companies that dont seek tariff refund",
+          "url": "https://www.cnbc.com/2026/04/21/trump-says-hell-remember-companies-that-dont-seek-tariff-refund.html"
+        },
+        {
+          "title": "Ending aid isnt enough we need sanctions and an arms embargo on Israel now \u2013 Mondoweiss",
+          "url": "https://mondoweiss.net/2026/04/ending-aid-isnt-enough-we-need-sanctions-and-an-arms-embargo-on-israel-now/"
+        },
+        {
+          "title": "Cuba confirms meeting with US officials on island , wants energy blockade lifted",
+          "url": "https://www.kedm.org/npr-news/2026-04-21/cuba-confirms-meeting-with-us-officials-on-island-wants-energy-blockade-lifted"
+        },
+        {
+          "title": "Cuba confirms meeting with US officials on island , wants energy blockade lifted",
+          "url": "https://www.ksut.org/2026-04-20/cuba-confirms-meeting-with-us-officials-on-island-wants-energy-blockade-lifted"
+        }
+      ]
+    },
+    {
+      "topic": "intelligence",
+      "articles": [
+        {
+          "title": "Peacock Cancels MCU Star Espionage Drama After One Season Run",
+          "url": "https://www.aceshowbiz.com/news/view/00254745.html"
+        },
+        {
+          "title": "Sheinbaum demands answers after two American officials killed in Mexico",
+          "url": "https://www.washingtonexaminer.com/news/world/4537133/sheinbaum-demand-answers-two-american-officials-killed-mexico/"
+        },
+        {
+          "title": "After watchdog slams understaffing , AI to vet Pentagon - backed professor China ties",
+          "url": "https://www.chinatechnews.com/2026/04/21/120222-after-watchdog-slams-understaffing-ai-to-vet-pentagon-backed-professors-china-ties"
+        },
+        {
+          "title": "Former CIA spy boss Peter Sichel tells of  lonely  job that  leads to alcoholism  ",
+          "url": "https://www.mirror.co.uk/news/uk-news/the-last-spy-peter-sichel-37045271"
+        },
+        {
+          "title": "Kingsman : The Secret Service",
+          "url": "https://www.tvguide.co.uk/schedule/55569b78-4632-5271-95e2-e6367c2a6f9f/kingsman-the-secret-service"
+        }
+      ]
+    },
+    {
+      "topic": "maritime",
+      "articles": [
+        {
+          "title": "Iran calls US ship seizure  piracy : Is it ? - Grenada Chronicle \u2013 Daily Grenada And Caribbean News",
+          "url": "https://grenadachronicle.com/iran-calls-us-ship-seizure-piracy-is-it/"
+        },
+        {
+          "title": "Iran calls US ship seizure  piracy : Is it ? | US - Israel war on Iran News",
+          "url": "https://www.aljazeera.com/news/2026/4/22/iran-calls-us-ship-seizure-piracy-is-it"
+        },
+        {
+          "title": "Iran obliterates ships in devastating Strait of Hormuz attack as WW3 fears soar",
+          "url": "https://www.express.co.uk/news/world/2196942/iran-issues-horror-threat-destroy"
+        },
+        {
+          "title": "How Asia should deal with the  Malacca dilemma  - The Economic Times",
+          "url": "https://economictimes.indiatimes.com/industry/energy/oil-gas/how-asia-should-deal-with-the-malacca-dilemma/articleshow/130430042.cms"
+        },
+        {
+          "title": "US Seizes Iran Ship , Tehran Vows Retaliation",
+          "url": "https://www.newkerala.com/news/a/us-seizes-iran-ship-tehran-vows-retaliation-919.htm"
+        }
+      ]
+    },
+    {
+      "topic": "cyber",
+      "articles": [
+        {
+          "title": "Spotting the spyware : How modern spies are weaponizing phishing",
+          "url": "https://www.techradar.com/pro/spotting-the-spyware-how-modern-spies-are-weaponizing-phishing"
+        },
+        {
+          "title": "Dark Screens",
+          "url": "https://www.hachettebookgroup.com/titles/anja-shortland/dark-screens/9781541705753/"
+        },
+        {
+          "title": "France ANTS cyberattack 2026 explained : France ANTS cyberattack : Millions at risk as data breach exposes personal details and sparks phishing fears - here what you need to know",
+          "url": "https://economictimes.indiatimes.com/news/international/us/france-ants-cyberattack-millions-at-risk-as-data-breach-exposes-personal-details-and-sparks-phishing-fears-heres-what-you-need-to-know/articleshow/130418936.cms"
+        },
+        {
+          "title": "Hackers accessed personal information for up to 70 , 000 people in Canada Life data breach",
+          "url": "https://www.theglobeandmail.com/business/article-hackers-personal-information-70000-people-canada-life-data-breach/"
+        },
+        {
+          "title": "Thousands of Acres Burn in Montana in Hours",
+          "url": "https://z100missoula.com/ixp/119/p/red-lodge-wildfire-update/"
+        }
+      ]
+    }
+  ],
+  "user_voice_s1": "",
+  "user_voice_s2": "",
+  "user_length_preset": "",
+  "user_target_words": 0
+}

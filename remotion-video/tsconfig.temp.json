@@ -10,17 +10,16 @@
     "strict": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
-    "ignoreDeprecations": "6.0",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "allowJs": true,
-    "jsx": "react-jsx"
+    "allowJs": true
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
-  "include": ["src", "render.ts"]
+  "include": ["src", "render.ts"],
+  
 }

@@ -1,0 +1,580 @@
+{
+  "date": "2026-04-21",
+  "indices": {
+    "DOW": {
+      "current": 49149.38,
+      "change_percent": -0.5929709141274244
+    },
+    "S&P 500": {
+      "current": 7064.01,
+      "change_percent": -0.6348165882230495
+    },
+    "NASDAQ": {
+      "current": 24259.965,
+      "change_percent": -0.591811482465472
+    },
+    "Russell 2000": {
+      "current": 2764.9705,
+      "change_percent": -1.0020915097736067
+    }
+  },
+  "top_gainers": [],
+  "top_losers": [],
+  "earnings": [],
+  "economic_events": [],
+  "crypto": {},
+  "forex": {
+    "EUR/USD": {
+      "rate": 1.1743,
+      "change_percent": 0
+    },
+    "GBP/USD": {
+      "rate": 1.3505,
+      "change_percent": 0.029627435004811194
+    },
+    "USD/JPY": {
+      "rate": 159.306,
+      "change_percent": -0.05897114178167759
+    },
+    "USD/CNY": {
+      "rate": 6.8203,
+      "change_percent": 0
+    },
+    "AUD/USD": {
+      "rate": 0.716,
+      "change_percent": 0.13986013986013998
+    },
+    "USD/CHF": {
+      "rate": 0.7809,
+      "change_percent": 0.012807377049178916
+    },
+    "USD/CAD": {
+      "rate": 1.366,
+      "change_percent": -0.00732010833760259
+    }
+  },
+  "commodities": {
+    "VIX": {
+      "price": 19.5,
+      "change_percent": 3.338632750397451
+    },
+    "Gold": {
+      "price": 4760.2,
+      "change_percent": 0.8602423934231598
+    },
+    "Silver": {
+      "price": 77.515,
+      "change_percent": 1.3426942788411267
+    },
+    "Copper": {
+      "price": 6.0355,
+      "change_percent": 0.41593877381248595
+    },
+    "Platinum": {
+      "price": 2066,
+      "change_percent": 1.23480987847903
+    },
+    "Oil (WTI)": {
+      "price": 89.43,
+      "change_percent": -0.2676480428236811
+    },
+    "Oil (Brent)": {
+      "price": 92.94,
+      "change_percent": -0.32175032175031876
+    },
+    "Natural Gas": {
+      "price": 2.68,
+      "change_percent": -0.6303299962921729
+    },
+    "Wheat": {
+      "price": 611,
+      "change_percent": -0.28559771521827826
+    },
+    "Coffee": {
+      "price": 288.45,
+      "change_percent": 2.0520077834778037
+    },
+    "Cocoa": {
+      "price": 3304,
+      "change_percent": -0.12091898428053204
+    }
+  },
+  "news": [],
+  "market_sentiment": "bullish",
+  "categories": [
+    "finance_macro"
+  ],
+  "macro_indicators": [
+    {
+      "name": "10-Year Treasury Yield",
+      "series_id": "DGS10",
+      "value": 4.26,
+      "previous_value": 4.26,
+      "date": "2026-04-20",
+      "unit": "percent"
+    },
+    {
+      "name": "2-Year Treasury Yield",
+      "series_id": "DGS2",
+      "value": 3.72,
+      "previous_value": 3.71,
+      "date": "2026-04-20",
+      "unit": "percent"
+    },
+    {
+      "name": "Federal Funds Rate",
+      "series_id": "FEDFUNDS",
+      "value": 3.64,
+      "previous_value": 3.64,
+      "date": "2026-03-01",
+      "unit": "percent"
+    },
+    {
+      "name": "Unemployment Rate",
+      "series_id": "UNRATE",
+      "value": 4.3,
+      "previous_value": 4.4,
+      "date": "2026-03-01",
+      "unit": "percent"
+    },
+    {
+      "name": "10Y-2Y Yield Spread",
+      "series_id": "T10Y2Y",
+      "value": 0.52,
+      "previous_value": 0.54,
+      "date": "2026-04-21",
+      "unit": "percent"
+    }
+  ],
+  "crypto_extended": [],
+  "crypto_global": {},
+  "crypto_trending": [],
+  "geopolitics": [],
+  "ai_updates": [],
+  "fear_greed": {
+    "score": 67.6,
+    "label": "Greed",
+    "previous": 67.4
+  },
+  "macro_signals": {
+    "verdict": "BUY",
+    "bullish_count": 4,
+    "total_count": 7,
+    "signals": {
+      "liquidity": {
+        "status": "NORMAL",
+        "value": 0.72,
+        "sparkline": [
+          159.0749969482422,
+          159.20599365234375,
+          159.5679931640625,
+          159.10499572753906,
+          158.88900756835938,
+          159.7949981689453,
+          157.9239959716797,
+          159.23399353027344,
+          158.47900390625,
+          158.71800231933594,
+          159.38400268554688,
+          159.70399475097656,
+          160.23399353027344,
+          159.84100341796875,
+          158.57899475097656,
+          158.68800354003906,
+          159.49099731445312,
+          159.77999877929688,
+          159.68299865722656,
+          158.71600341796875,
+          158.64199829101562,
+          159.11199951171875,
+          159.67999267578125,
+          159.21400451660156,
+          158.79200744628906,
+          158.8090057373047,
+          159.19500732421875,
+          159.16099548339844,
+          158.843994140625,
+          159.2469940185547
+        ]
+      },
+      "flowStructure": {
+        "status": "ALIGNED",
+        "btcReturn5": 1.59,
+        "qqqReturn5": 2.5
+      },
+      "macroRegime": {
+        "status": "RISK-ON",
+        "qqqRoc20": 9.58,
+        "xlpRoc20": 0.81
+      },
+      "technicalTrend": {
+        "status": "BULLISH",
+        "btcPrice": 76343.84375,
+        "sma50": 70710,
+        "sma200": 86107,
+        "vwap30d": 71397,
+        "mayerMultiple": 0.89,
+        "sparkline": [
+          70914.859375,
+          70517.859375,
+          71309.8828125,
+          68791.625,
+          66338.375,
+          66319.6953125,
+          65954.921875,
+          66691.4453125,
+          68233.3125,
+          68078.5546875,
+          66888.5703125,
+          66931.1015625,
+          67290.515625,
+          68981.8984375,
+          68859.828125,
+          71940.703125,
+          71123.359375,
+          71767.828125,
+          72979.046875,
+          73054.2734375,
+          70753.40625,
+          74484.640625,
+          74181.609375,
+          74805.078125,
+          75152.1328125,
+          77126.875,
+          75726.2109375,
+          73856.3515625,
+          75872.5234375,
+          76343.84375
+        ]
+      },
+      "hashRate": {
+        "status": "DECLINING",
+        "change30d": -18.1
+      },
+      "priceMomentum": {
+        "status": "MODERATE"
+      },
+      "fearGreed": {
+        "status": "Fear",
+        "value": 32,
+        "history": [
+          {
+            "value": 11,
+            "date": "2026-03-24"
+          },
+          {
+            "value": 14,
+            "date": "2026-03-25"
+          },
+          {
+            "value": 10,
+            "date": "2026-03-26"
+          },
+          {
+            "value": 13,
+            "date": "2026-03-27"
+          },
+          {
+            "value": 12,
+            "date": "2026-03-28"
+          },
+          {
+            "value": 9,
+            "date": "2026-03-29"
+          },
+          {
+            "value": 8,
+            "date": "2026-03-30"
+          },
+          {
+            "value": 11,
+            "date": "2026-03-31"
+          },
+          {
+            "value": 8,
+            "date": "2026-04-01"
+          },
+          {
+            "value": 12,
+            "date": "2026-04-02"
+          },
+          {
+            "value": 9,
+            "date": "2026-04-03"
+          },
+          {
+            "value": 11,
+            "date": "2026-04-04"
+          },
+          {
+            "value": 12,
+            "date": "2026-04-05"
+          },
+          {
+            "value": 13,
+            "date": "2026-04-06"
+          },
+          {
+            "value": 11,
+            "date": "2026-04-07"
+          },
+          {
+            "value": 17,
+            "date": "2026-04-08"
+          },
+          {
+            "value": 14,
+            "date": "2026-04-09"
+          },
+          {
+            "value": 16,
+            "date": "2026-04-10"
+          },
+          {
+            "value": 15,
+            "date": "2026-04-11"
+          },
+          {
+            "value": 16,
+            "date": "2026-04-12"
+          },
+          {
+            "value": 12,
+            "date": "2026-04-13"
+          },
+          {
+            "value": 21,
+            "date": "2026-04-14"
+          },
+          {
+            "value": 23,
+            "date": "2026-04-15"
+          },
+          {
+            "value": 23,
+            "date": "2026-04-16"
+          },
+          {
+            "value": 21,
+            "date": "2026-04-17"
+          },
+          {
+            "value": 26,
+            "date": "2026-04-18"
+          },
+          {
+            "value": 27,
+            "date": "2026-04-19"
+          },
+          {
+            "value": 29,
+            "date": "2026-04-20"
+          },
+          {
+            "value": 33,
+            "date": "2026-04-21"
+          },
+          {
+            "value": 32,
+            "date": "2026-04-22"
+          }
+        ]
+      }
+    }
+  },
+  "sectors": [
+    {
+      "symbol": "XLK",
+      "name": "XLK",
+      "change": 0.0841
+    },
+    {
+      "symbol": "XLF",
+      "name": "XLF",
+      "change": -0.627
+    },
+    {
+      "symbol": "XLE",
+      "name": "XLE",
+      "change": 1.4527
+    },
+    {
+      "symbol": "XLV",
+      "name": "XLV",
+      "change": -1.0175
+    },
+    {
+      "symbol": "XLY",
+      "name": "XLY",
+      "change": -0.7508
+    },
+    {
+      "symbol": "XLI",
+      "name": "XLI",
+      "change": -1.4146
+    },
+    {
+      "symbol": "XLP",
+      "name": "XLP",
+      "change": -0.6676
+    },
+    {
+      "symbol": "XLU",
+      "name": "XLU",
+      "change": -1.7486
+    },
+    {
+      "symbol": "XLB",
+      "name": "XLB",
+      "change": -0.8807
+    },
+    {
+      "symbol": "XLRE",
+      "name": "XLRE",
+      "change": -1.9265
+    },
+    {
+      "symbol": "XLC",
+      "name": "XLC",
+      "change": -1.3389
+    },
+    {
+      "symbol": "SMH",
+      "name": "SMH",
+      "change": 0.1509
+    }
+  ],
+  "etf_flows": {
+    "summary": {
+      "etfCount": 10,
+      "totalVolume": 40251745,
+      "totalEstFlow": -175433840,
+      "netDirection": "NET OUTFLOW",
+      "inflowCount": 0,
+      "outflowCount": 10
+    },
+    "etfs": [
+      {
+        "ticker": "IBIT",
+        "issuer": "BlackRock",
+        "price": 42.51,
+        "priceChange": -1.71,
+        "volume": 30436027,
+        "avgVolume": 47732225,
+        "volumeRatio": 0.64,
+        "direction": "outflow",
+        "estFlow": -129383546
+      },
+      {
+        "ticker": "FBTC",
+        "issuer": "Fidelity",
+        "price": 65.32,
+        "priceChange": -1.69,
+        "volume": 3214519,
+        "avgVolume": 4425250,
+        "volumeRatio": 0.73,
+        "direction": "outflow",
+        "estFlow": -20997238
+      },
+      {
+        "ticker": "ARKB",
+        "issuer": "ARK/21Shares",
+        "price": 24.89,
+        "priceChange": -1.7,
+        "volume": 2009021,
+        "avgVolume": 2697275,
+        "volumeRatio": 0.74,
+        "direction": "outflow",
+        "estFlow": -5000453
+      },
+      {
+        "ticker": "BITB",
+        "issuer": "Bitwise",
+        "price": 40.76,
+        "priceChange": -1.69,
+        "volume": 1517649,
+        "avgVolume": 2189275,
+        "volumeRatio": 0.69,
+        "direction": "outflow",
+        "estFlow": -6185937
+      },
+      {
+        "ticker": "GBTC",
+        "issuer": "Grayscale",
+        "price": 58.35,
+        "priceChange": -1.72,
+        "volume": 1882174,
+        "avgVolume": 2659975,
+        "volumeRatio": 0.71,
+        "direction": "outflow",
+        "estFlow": -10982485
+      },
+      {
+        "ticker": "HODL",
+        "issuer": "VanEck",
+        "price": 21.21,
+        "priceChange": -1.67,
+        "volume": 1040234,
+        "avgVolume": 1128950,
+        "volumeRatio": 0.92,
+        "direction": "outflow",
+        "estFlow": -2206336
+      },
+      {
+        "ticker": "BRRR",
+        "issuer": "Valkyrie",
+        "price": 21.15,
+        "priceChange": -1.81,
+        "volume": 61478,
+        "avgVolume": 296450,
+        "volumeRatio": 0.21,
+        "direction": "outflow",
+        "estFlow": -130028
+      },
+      {
+        "ticker": "EZBC",
+        "issuer": "Franklin",
+        "price": 43.38,
+        "priceChange": -1.72,
+        "volume": 42237,
+        "avgVolume": 141875,
+        "volumeRatio": 0.3,
+        "direction": "outflow",
+        "estFlow": -183224
+      },
+      {
+        "ticker": "BTCO",
+        "issuer": "Invesco",
+        "price": 74.7,
+        "priceChange": -1.74,
+        "volume": 41933,
+        "avgVolume": 115950,
+        "volumeRatio": 0.36,
+        "direction": "outflow",
+        "estFlow": -313239
+      },
+      {
+        "ticker": "BTCW",
+        "issuer": "WisdomTree",
+        "price": 79.34,
+        "priceChange": -1.81,
+        "volume": 6473,
+        "avgVolume": 42150,
+        "volumeRatio": 0.15,
+        "direction": "outflow",
+        "estFlow": -51354
+      }
+    ]
+  },
+  "predictions": [],
+  "forecasts": [],
+  "sanctions": {},
+  "unrest_events": [],
+  "conflict_events": [],
+  "cross_signals": [],
+  "gdelt_intel": [],
+  "user_voice_s1": "am_adam",
+  "user_voice_s2": "af_jessica",
+  "user_length_preset": "brief",
+  "user_target_words": 900
+}

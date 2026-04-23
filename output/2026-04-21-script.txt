@@ -1,0 +1,8 @@
+[S1] Welcome to Market Pulse -- your daily AI-generated markets briefing. Everything you'll hear is for information only and not financial advice. Let's get into it.
+[S2] It was a pretty broad sell-off across the board yesterday, wasn't it?
+[S1] Yeah, it really was. The Dow, S&P 500, and Nasdaq all slid about 0.6%, and the Russell 2000 took a harder hit, down about 1%.
+[S2] Huh, so everything was red?
+[S1] Almost everything. Energy was the lone standout, up about 1.4%, while defensive sectors like real estate and utilities got hit the hardest.
+[S2] Interesting. And that lines up with the VIX jumping over 3% too, right?
+[S1] Exactly, that "fear gauge" is up to 19.5, which tells you investors are getting a bit more cautious out there.
+[S2] Well, thanks for listening to today’s Market Pulse, your daily AI-generated briefing. We'll be back tomorrow morning to track the moves.
