@@ -3,7 +3,7 @@ import { renderMedia, selectComposition } from '@remotion/renderer';
 import path from 'path';
 import fs from 'fs';
 
-const compositionId = 'MarketPulseVideo';
+const compositionId = 'InteractiveDemoVideo';
 
 const main = async () => {
   try {
@@ -27,10 +27,10 @@ const main = async () => {
       composition,
       serveUrl: bundled,
       codec: 'h264',
-      outputLocation: path.join(outDir, 'market-pulse-video.mp4'),
+      outputLocation: path.join(outDir, 'interactive-demo-video.mp4'),
     });
 
-    console.log('✅ Video rendered successfully: out/market-pulse-video.mp4');
+    console.log('✅ Video rendered successfully: out/interactive-demo-video.mp4');
   } catch (error) {
     console.error('❌ Rendering failed:', error);
     process.exit(1);
