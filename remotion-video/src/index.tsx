@@ -1,22 +1,20 @@
 import React from 'react';
-import { Composition, registerRoot, Audio } from 'remotion';
-import { InteractiveDemoScene } from './scenes/InteractiveDemoScene';
-import demoMusic from '../public/demo-music.mp3';
+import { Composition, registerRoot } from 'remotion';
+import { VideoCompositionScene } from './scenes/VideoCompositionScene';
 
 const Root: React.FC = () => {
   const width = 1920;
   const height = 1080;
   const fps = 30;
-  const durationInSeconds = 30;
+  const durationInSeconds = 20;
   const durationInFrames = durationInSeconds * fps;
 
   return (
     <Composition
-      id="InteractiveDemoVideo"
+      id="VideoComposition"
       component={() => (
         <div style={{ width, height, position: 'relative', overflow: 'hidden', backgroundColor: '#000' }}>
-          <Audio src={demoMusic} startFrom={0} />
-          <InteractiveDemoScene width={width} height={height} />
+          <VideoCompositionScene width={width} height={height} />
         </div>
       )}
       durationInFrames={durationInFrames}
