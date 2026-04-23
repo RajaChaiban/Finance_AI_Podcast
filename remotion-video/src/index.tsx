@@ -1,24 +1,22 @@
 import React from 'react';
 import { Composition, registerRoot, Audio } from 'remotion';
-import { DashboardScene } from './scenes/DashboardScene';
-import { ResultScene } from './scenes/ResultScene';
-import podcastAudio from '../public/podcast-25s.mp3';
+import { InteractiveDemoScene } from './scenes/InteractiveDemoScene';
+import demoMusic from '../public/demo-music.mp3';
 
 const Root: React.FC = () => {
   const width = 1920;
   const height = 1080;
   const fps = 30;
-  const durationInSeconds = 30; // 25s podcast + 5s closing animation
+  const durationInSeconds = 30;
   const durationInFrames = durationInSeconds * fps;
 
   return (
     <Composition
-      id="MarketPulseVideo"
+      id="InteractiveDemoVideo"
       component={() => (
         <div style={{ width, height, position: 'relative', overflow: 'hidden', backgroundColor: '#000' }}>
-          <Audio src={podcastAudio} startFrom={0} />
-          <DashboardScene width={width} height={height} />
-          <ResultScene width={width} height={height} />
+          <Audio src={demoMusic} startFrom={0} />
+          <InteractiveDemoScene width={width} height={height} />
         </div>
       )}
       durationInFrames={durationInFrames}
