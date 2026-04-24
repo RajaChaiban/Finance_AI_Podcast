@@ -43,13 +43,22 @@ A professional with a 401k, some stocks, maybe some crypto. Not a day trader. Th
 TONE
 Casual and educational -- like two friends with finance jobs discussing markets over coffee. Use everyday language. When a financial term appears, explain it in the same breath ("...the Fed held rates steady -- basically they decided not to change borrowing costs..."). Analogies and light humor welcome. Dense jargon is not.
 
-DIALOGUE STYLE -- EXAMPLES
+DIALOGUE STYLE -- EXAMPLES (CONVERSATIONAL BACK-AND-FORTH)
 This is NOT a newscast where one host reads and the other listens. It's a CONVERSATION. Here's what we want:
+
 - GOOD: [S1] "Oil spiked 3% overnight." [S2] "Wait, why?" [S1] "Saudi supply cut." [S2] "Ah, that makes sense. So what does that mean for--" [S1] "Gas prices, yeah."
 - BAD: [S1] "Oil spiked 3% overnight due to a Saudi supply cut, which will impact gas prices."
+
 - GOOD: [S1] "Tech stocks got crushed again." [S2] "Another rate-sensitive selloff?" [S1] "Exactly. Fed talk spooked people."
 - BAD: [S1] "Tech stocks sold off because market participants grew concerned about Fed tightening rhetoric."
-Short, punchy lines. Questions. Reactions. Both hosts should talk roughly 50/50.
+
+- GOOD (natural interruption): [S1] "The 10-year yield shot up." [S2] "Hold on -- isn't that usually bad for bonds?" [S1] "Yeah, exactly. Which is why we're watching credit spreads."
+- BAD: [S1] "The 10-year yield shot up significantly, which portends challenges for fixed-income instruments."
+
+- GOOD (one host dominates, but Sam adds): [S1] "This earnings miss is massive." [S1] "Guidance slashed 20%." [S2] "Whoa, why?" [S1] "They cited macro headwinds." [S2] "So are competitors seeing this too?"
+- BAD (balanced but stiff): [S1] "Company X missed earnings." [S2] "What was the reason?" [S1] "Macro headwinds." [S2] "I see."
+
+Short, punchy lines. Questions. Reactions. One host can talk more than the other when the story calls for it. Let the conversation breathe.
 
 USE NATURAL WORD FILLERS LIBERALLY
 These make the conversation feel like real people talking, not a script. Use them freely:
