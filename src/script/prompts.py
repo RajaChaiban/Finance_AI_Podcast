@@ -113,6 +113,8 @@ IMPORTANT
 CATEGORY_SECTIONS = {
     PodcastCategory.FINANCE_MACRO: {
         "title": "Macro Overview",
+        "leader": "alex",
+        "dialogue_style": "narrative-driven",
         "instruction": (
             "Identify the 2-3 most market-relevant macro stories from the data -- index moves "
             "(S&P 500, DOW, NASDAQ), commodity direction (gold, oil), volatility (VIX), sector "
@@ -121,32 +123,40 @@ CATEGORY_SECTIONS = {
             "it as a risk-on/risk-off indicator -- not as a buy or sell directive to the "
             "listener. If AI-generated forecasts are in the data, reference them as 'one "
             "model's read' and invite appropriate skepticism. Skip routine items with no "
-            "material move."
+            "material move. Sam should ask questions that reveal what listeners need to know."
         ),
     },
     PodcastCategory.FINANCE_MICRO: {
         "title": "Equity Movers & Earnings",
+        "leader": "alex",
+        "dialogue_style": "question-discovery",
         "instruction": (
             "Pick the 2-3 standout movers from the market quotes and explain the story behind "
             "each -- earnings beat/miss, guidance, sector rotation, news catalyst. Tie sector "
             "moves (XLK, XLF, XLE) back to the macro story from the previous segment when "
             "possible. Discuss ETF flow data only when it reveals a clear institutional shift. "
-            "Surface the cross-category connection to crypto or geopolitics if there is one."
+            "Surface the cross-category connection to crypto or geopolitics if there is one. "
+            "Sam asks 'but why did it move?' in real time, discovering the story alongside listeners."
         ),
     },
     PodcastCategory.CRYPTO: {
         "title": "Crypto Corner",
+        "leader": "sam",
+        "dialogue_style": "question-discovery",
         "instruction": (
             "Cover BTC and ETH price action from the crypto quotes and explain the driver -- "
             "regulatory news, ETF flows, macro correlation, whale activity. If crypto ETF "
             "flows (IBIT, FBTC, GBTC) are in the data, mention them only when there's a "
             "notable inflow/outflow story. Connect crypto moves to the broader risk appetite "
             "from the macro segment: is crypto tracking equities or decoupling? Skip altcoin "
-            "noise unless something is truly notable."
+            "noise unless something is truly notable. Alex provides skeptical grounding: "
+            "'is that actually material?' Sam drives the narrative with curiosity."
         ),
     },
     PodcastCategory.GEOPOLITICS: {
         "title": "Geopolitics Briefing",
+        "leader": "alex",
+        "dialogue_style": "narrative-driven",
         "instruction": (
             "Pick the top 1-2 geopolitical stories from conflict_events, unrest_events, and "
             "sanctions data that have material market implications. Reference GDELT topics "
@@ -155,18 +165,21 @@ CATEGORY_SECTIONS = {
             "them as 'what the crowd is pricing'. Most importantly: tie each story to a "
             "market consequence -- commodity prices, currencies, sector exposure, risk "
             "premium. Geopolitics without a market tie-back is news; with a tie-back it's "
-            "analysis."
+            "analysis. Sam connects to markets: 'so what does that mean for commodity prices?'"
         ),
     },
     PodcastCategory.AI_UPDATES: {
         "title": "AI Watch",
+        "leader": "sam",
+        "dialogue_style": "question-discovery",
         "instruction": (
             "Highlight 1-2 meaningful AI developments from the data: major model releases, "
             "funding rounds, regulatory moves, notable research, cyber threats. Focus on "
             "items with company-level or sector-level implications -- skip product press "
             "releases with no market angle. Reference tech prediction markets if present. "
             "Close this segment by naming one specific stock or sector that could be "
-            "affected -- without telling the listener to trade it."
+            "affected -- without telling the listener to trade it. Sam drives with enthusiasm; "
+            "Alex asks 'does this actually move the market?'"
         ),
     },
 }
