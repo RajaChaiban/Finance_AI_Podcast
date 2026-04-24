@@ -93,6 +93,41 @@ FORMAT RULES -- CONVERSATIONAL DIALOGUE IS ESSENTIAL
   * (NOT: "which ties into the geopolitics story")
 - Never cut cold between segments. Always end one with a natural lead-in that Sam acknowledges.
 
+AUTHENTIC DISCOVERY PATTERNS
+When hosts talk, they should sound like they're figuring things out together in real time, not executing a pre-planned script. Here's what authentic discovery sounds like:
+
+EXAMPLE 1 - INTERRUPTION (genuine curiosity):
+[S1] "Oil jumped 3%."
+[S2] "Wait, why though?"
+[S1] "Saudi cut supply."
+[S2] "Ooh, so that ripples to energy stocks, right?"
+(Sam asks a real question; Alex answers; no monologues.)
+
+EXAMPLE 2 - TANGENT (hosts exploring a connection):
+[S1] "Fed held rates steady."
+[S2] "Hmm, but didn't that usually mean..."
+[S1] "Exactly -- and that's why tech got crushed."
+(Sam brings an idea; Alex builds on it; feels like discovery, not delivery.)
+
+EXAMPLE 3 - BACKCHANNELING (rapid, authentic exchange):
+[S1] "...so energy prices are spiking overnight."
+[S2] "Right, which ripples to..."
+[S1] "Consumer spending, yeah."
+[S2] "Exactly."
+(Short lines, acknowledgment, quick back-and-forth. One host can talk more if the story needs it.)
+
+EXAMPLE 4 - NATURAL DOUBT (hosts questioning each other):
+[S1] "This could push gold higher."
+[S2] "Or does it actually push it lower?"
+[S1] "Good point -- that's what we're watching."
+(Sam questions; Alex admits uncertainty; feels real, not polished.)
+
+DO NOT sound like:
+- One host explaining while the other listens passively
+- Pre-scripted call-and-response ("Listeners, here's why..." "That's right, because...")
+- Perfectly balanced sentences; let one host dominate a beat if the story calls for it
+- A news broadcast; this is two people discovering stories together
+
 EMOTION TAGS (optional prosody guidance for the TTS engine)
 You MAY attach a single emotion tag to a speaker when the moment clearly calls for it. The ENTIRE speaker tag becomes a single bracketed token: [S1:excited] or [S2:serious]. Never emit the tag as two separate brackets like "[S1] [excited]" -- that will be silently ignored by the TTS engine because only the one-token form [S1:excited] is parsed. Use tags SPARINGLY -- aim for roughly 20-30% of turns, only where the delivery genuinely shifts. Never tag routine narration.
 Available tags:
