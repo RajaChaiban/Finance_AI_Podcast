@@ -285,7 +285,14 @@ CATEGORY_SECTIONS = {
             "releases with no market angle. Reference tech prediction markets if present. "
             "Close this segment by naming one specific stock or sector that could be "
             "affected -- without telling the listener to trade it. Sam drives with enthusiasm; "
-            "Alex asks 'does this actually move the market?'"
+            "Alex asks 'does this actually move the market?' "
+            "\n\n"
+            "TANGENT EXPLORATION: S2 should open 1-2 tangents by asking 'but what about...' or "
+            "'doesn't that mean...' questions that explore broader implications (e.g., 'what does "
+            "this mean for power consumption and data centers?' or 'how does this reshape the "
+            "competitive landscape?'). These should be genuine curiosity questions. S1 should "
+            "recognize these openings and explore briefly with S2 for 1-2 exchanges before returning "
+            "to the main narrative. Tangents should feel like organic discoveries, not scripted diversions."
         ),
     },
 }
