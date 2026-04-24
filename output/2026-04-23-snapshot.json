@@ -1,0 +1,1742 @@
+{
+  "date": "2026-04-23",
+  "indices": {
+    "DOW": {
+      "current": 49310.32,
+      "change_percent": -0.3631236432873432
+    },
+    "S&P 500": {
+      "current": 7108.4,
+      "change_percent": -0.41328682105381137
+    },
+    "NASDAQ": {
+      "current": 24438.504,
+      "change_percent": -0.8884169670274759
+    },
+    "Russell 2000": {
+      "current": 2775.096,
+      "change_percent": -0.36910622870799714
+    }
+  },
+  "top_gainers": [
+    {
+      "symbol": "JNJ",
+      "name": "JNJ",
+      "price": 230.65,
+      "change_percent": 2.0124
+    },
+    {
+      "symbol": "PG",
+      "name": "PG",
+      "price": 145.71,
+      "change_percent": 2.0021
+    },
+    {
+      "symbol": "WMT",
+      "name": "WMT",
+      "price": 132.03,
+      "change_percent": 1.5772
+    },
+    {
+      "symbol": "BRK-B",
+      "name": "BRK-B",
+      "price": 470.55,
+      "change_percent": 1.1066
+    },
+    {
+      "symbol": "COST",
+      "name": "COST",
+      "price": 1014.38,
+      "change_percent": 1.0641
+    }
+  ],
+  "top_losers": [
+    {
+      "symbol": "ORCL",
+      "name": "ORCL",
+      "price": 176.28,
+      "change_percent": -5.984
+    },
+    {
+      "symbol": "MSFT",
+      "name": "MSFT",
+      "price": 415.75,
+      "change_percent": -3.9661
+    },
+    {
+      "symbol": "TSLA",
+      "name": "TSLA",
+      "price": 373.72,
+      "change_percent": -3.5586
+    },
+    {
+      "symbol": "META",
+      "name": "META",
+      "price": 659.15,
+      "change_percent": -2.3076
+    },
+    {
+      "symbol": "NVO",
+      "name": "NVO",
+      "price": 38.52,
+      "change_percent": -1.6092
+    }
+  ],
+  "earnings": [],
+  "economic_events": [],
+  "crypto": {
+    "BTC": {
+      "price": 78393,
+      "change_percent": 0.06963
+    },
+    "ETH": {
+      "price": 2333.97,
+      "change_percent": -1.54
+    }
+  },
+  "forex": {
+    "EUR/USD": {
+      "rate": 1.1692,
+      "change_percent": 0.03422313483914749
+    },
+    "GBP/USD": {
+      "rate": 1.3471,
+      "change_percent": 0.03713055101737301
+    },
+    "USD/JPY": {
+      "rate": 159.683,
+      "change_percent": 0.008141792446925053
+    },
+    "USD/CNY": {
+      "rate": 6.8255,
+      "change_percent": 0
+    },
+    "AUD/USD": {
+      "rate": 0.7135,
+      "change_percent": 0.0841632767569147
+    },
+    "USD/CHF": {
+      "rate": 0.786,
+      "change_percent": 0.11463507833397171
+    },
+    "USD/CAD": {
+      "rate": 1.3697,
+      "change_percent": 0.014603870025555165
+    }
+  },
+  "commodities": {
+    "VIX": {
+      "price": 19.31,
+      "change_percent": 2.061310782240999
+    },
+    "Gold": {
+      "price": 4714.1,
+      "change_percent": -0.20956816257408206
+    },
+    "Silver": {
+      "price": 75.595,
+      "change_percent": 0.12052341597795344
+    },
+    "Copper": {
+      "price": 6.038,
+      "change_percent": -0.7152840582093213
+    },
+    "Platinum": {
+      "price": 2023,
+      "change_percent": -0.7554945054945099
+    },
+    "Oil (WTI)": {
+      "price": 96.86,
+      "change_percent": 1.0537297861241577
+    },
+    "Oil (Brent)": {
+      "price": 106.27,
+      "change_percent": 1.14209574569335
+    },
+    "Natural Gas": {
+      "price": 2.729,
+      "change_percent": -1.1231884057970905
+    },
+    "Wheat": {
+      "price": 618,
+      "change_percent": -0.36275695284159615
+    },
+    "Coffee": {
+      "price": 300.9,
+      "change_percent": 0.18311969369067904
+    },
+    "Cocoa": {
+      "price": 3453,
+      "change_percent": -0.14459224985540775
+    }
+  },
+  "news": [],
+  "market_sentiment": "bullish",
+  "categories": [
+    "finance_macro",
+    "finance_micro",
+    "crypto",
+    "geopolitics",
+    "ai_updates"
+  ],
+  "macro_indicators": [
+    {
+      "name": "10-Year Treasury Yield",
+      "series_id": "DGS10",
+      "value": 4.3,
+      "previous_value": 4.3,
+      "date": "2026-04-22",
+      "unit": "percent"
+    },
+    {
+      "name": "2-Year Treasury Yield",
+      "series_id": "DGS2",
+      "value": 3.79,
+      "previous_value": 3.78,
+      "date": "2026-04-22",
+      "unit": "percent"
+    },
+    {
+      "name": "Federal Funds Rate",
+      "series_id": "FEDFUNDS",
+      "value": 3.64,
+      "previous_value": 3.64,
+      "date": "2026-03-01",
+      "unit": "percent"
+    },
+    {
+      "name": "Unemployment Rate",
+      "series_id": "UNRATE",
+      "value": 4.3,
+      "previous_value": 4.4,
+      "date": "2026-03-01",
+      "unit": "percent"
+    },
+    {
+      "name": "10Y-2Y Yield Spread",
+      "series_id": "T10Y2Y",
+      "value": 0.51,
+      "previous_value": 0.51,
+      "date": "2026-04-23",
+      "unit": "percent"
+    }
+  ],
+  "crypto_extended": [
+    {
+      "symbol": "BTC",
+      "name": "Bitcoin",
+      "price": 78393,
+      "change_percent_24h": 0.06963,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "ETH",
+      "name": "Ethereum",
+      "price": 2333.97,
+      "change_percent_24h": -1.54,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "BNB",
+      "name": "BNB",
+      "price": 639.55,
+      "change_percent_24h": 0.26394,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "SOL",
+      "name": "Solana",
+      "price": 86.19,
+      "change_percent_24h": -0.79202,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "XRP",
+      "name": "XRP",
+      "price": 1.44,
+      "change_percent_24h": 0.75204,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "ADA",
+      "name": "Cardano",
+      "price": 0.250715,
+      "change_percent_24h": 0.7687,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "DOGE",
+      "name": "Dogecoin",
+      "price": 0.097435,
+      "change_percent_24h": 1.38242,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "TRX",
+      "name": "TRON",
+      "price": 0.328592,
+      "change_percent_24h": -0.2193,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "AVAX",
+      "name": "Avalanche",
+      "price": 9.4,
+      "change_percent_24h": 1.06591,
+      "market_cap": 0,
+      "volume_24h": 0
+    },
+    {
+      "symbol": "LINK",
+      "name": "Chainlink",
+      "price": 9.36,
+      "change_percent_24h": 0.81703,
+      "market_cap": 0,
+      "volume_24h": 0
+    }
+  ],
+  "crypto_global": {
+    "total_market_cap_usd": 2696828164849.624,
+    "total_volume_24h_usd": 102029420653.05156,
+    "btc_dominance": 58.198258882253874,
+    "eth_dominance": 10.441701561308903,
+    "active_cryptocurrencies": 17556
+  },
+  "crypto_trending": [
+    "Pudgy Penguins",
+    "Spark",
+    "CHIP",
+    "Bittensor",
+    "Asteroid Shiba",
+    "RaveDAO",
+    "Bitcoin"
+  ],
+  "geopolitics": [
+    {
+      "title": "Lebanese journalist Amal Khalil killed in Israeli strike on a house where she took cover , paper says",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "MizarVision : Military Intelligence Within Everyone Reach",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Expressway to readiness : IAF fighter jets conduct precision drills on Purvanchal Highway",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Missing from US - Iran talks : plutonium for more than 200 nuclear bombs",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Norman Dombey",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Civilian Nuclear Expansion In The Indo - Pacific : Energy Security Or Latent Proliferation ? \u2013 Analysis",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Cuban president vows to defend the country against US invasion",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Trump favors companies that dont seek tariff refund",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Ending aid isnt enough we need sanctions and an arms embargo on Israel now \u2013 Mondoweiss",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Chinese hackers are using everyday devices to hack united kingdom firms , warns watchdog",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Germany Detains Ukrainian , Latvian Nationals on Suspicion of Sabotage Plot",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Ana de Armas to Star in Apple TV+ Spy Thriller Safe Houses Series",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Iran calls US ship seizure  piracy : Is it ? - Grenada Chronicle \u2013 Daily Grenada And Caribbean News",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Iran calls US ship seizure  piracy : Is it ? | US - Israel war on Iran News",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Iran obliterates ships in devastating Strait of Hormuz attack as WW3 fears soar",
+      "description": "",
+      "source": "GDELT",
+      "published_at": ""
+    },
+    {
+      "title": "Germany (196 reports)",
+      "description": "",
+      "source": "World Monitor",
+      "published_at": ""
+    },
+    {
+      "title": "Israel (165 reports)",
+      "description": "",
+      "source": "World Monitor",
+      "published_at": ""
+    },
+    {
+      "title": "Lebanon (128 reports)",
+      "description": "",
+      "source": "World Monitor",
+      "published_at": ""
+    },
+    {
+      "title": "Iran (119 reports)",
+      "description": "",
+      "source": "World Monitor",
+      "published_at": ""
+    },
+    {
+      "title": "Turkey (25 reports)",
+      "description": "",
+      "source": "World Monitor",
+      "published_at": ""
+    },
+    {
+      "title": "More than 500 killed in Tanzania poll violence: govt",
+      "description": "Tanzania's electoral violence last year left at least 518 dead, a government-appointed commission said Thursday, giving a figure far below opposition estimates and failing to say who was responsible.",
+      "source": "France 24",
+      "published_at": "2026-04-23T12:31:16Z"
+    },
+    {
+      "title": "10 African countries with the highest debt to the IMF in April 2026",
+      "description": "The growing reliance on financing from the International Monetary Fund (IMF) in Africa presents a cause for concern, as more than just a short-term stabilization instrument; it is increasingly affecting long-term economic results in ways that potentially limit growth and policy flexibility. | Business Insider Africa",
+      "source": "Business Insider Africa",
+      "published_at": "2026-04-23T12:30:00Z"
+    },
+    {
+      "title": "Zimbabwe: UK Commits \u00a3500,000 to Fight Gender-Based Violence in Zimbabwe",
+      "description": "The United Kingdom has pledged \u00a3500,000 to support efforts to end violence against women and girls in Zimbabwe, reinforcing national programmes focused on prevention and survivor support.",
+      "source": "allAfrica.com",
+      "published_at": "2026-04-23T12:29:11Z"
+    },
+    {
+      "title": "Trump has locked himself in a forever war and thrown away the key",
+      "description": "Rather than an exit strategy or off-ramp, Trump has constructed a never-ending maze of endless negotiations \u2013 it\u2019s almost as if he doesn\u2019t want to bring this to a close, says Robert Fox",
+      "source": "The Independent",
+      "published_at": "2026-04-23T12:29:00Z"
+    },
+    {
+      "title": "Performing Currencies in Africa in April 2026",
+      "description": "Discover the 10 worst-performing currencies in Africa as of April 2026. The Libyan dinar is Africa's worst-performing currency, falling over 17% against the USD.",
+      "source": "Tuko News",
+      "published_at": "2026-04-23T12:28:34Z"
+    },
+    {
+      "title": "Violent crime did not fall after apartheid - TCS",
+      "description": "Reine Opperman says overall murder rate is no indicator of predatory crime trends post-1994",
+      "source": "Politicsweb",
+      "published_at": "2026-04-23T12:25:15Z"
+    },
+    {
+      "title": "Prince Harry makes unannounced trip to Ukraine",
+      "description": "Prince Harry has warned that the \u201cworld must not grow \u2026 numb\u201d to the ongoing conflict in Ukraine during an unexpected trip to the country to show his support.",
+      "source": "News.com.au",
+      "published_at": "2026-04-23T12:23:43Z"
+    },
+    {
+      "title": "Nigerian Streamer Peller Battling Serious Skin Disease, Says Jarvis",
+      "description": "Nigerian streamer Peller has suffered a severe skin disorder, sparking concerns among friends and family. Confirming this was his partner Jarvis in a video.",
+      "source": "Yen News",
+      "published_at": "2026-04-23T12:22:45Z"
+    },
+    {
+      "title": "ICJ climate ruling pushes African governments to integrate climate risk into national planning",
+      "description": "African policymakers, legal experts and development institutions convened in Kenya this week to assess the implications of a landmark climate ruling by the",
+      "source": "Africa Sustainability Matters",
+      "published_at": "2026-04-23T12:21:25Z"
+    },
+    {
+      "title": "Trump orders U.S. military to \u2018shoot and kill\u2019 small Iranian boats deploying mines in Hormuz",
+      "description": "Washington seized another tanker associated with the smuggling of Iranian oil, escalating stalemate over strait",
+      "source": "The Globe and Mail",
+      "published_at": "2026-04-23T12:19:30Z"
+    },
+    {
+      "title": "Kyle Sandilands arrives at court over ARN lawsuit",
+      "description": "Kyle Sandilands has arrived at the Federal Court in Sydney ahead of his case being heard against his former employer ARN.",
+      "source": "Currents",
+      "published_at": "2026-04-24 00:20:47 +0000"
+    },
+    {
+      "title": "Trump has cut thousands of law-enforcement jobs despite tough on crime claims: report",
+      "description": "The FBI, DOJ, and Bureau of Alcohol, Tobacco, Firearms and Explosives were some of the hardest-hit agencies",
+      "source": "Josh Marcus",
+      "published_at": "2026-04-24 00:17:28 +0000"
+    },
+    {
+      "title": "Asia-Pacific markets trade mixed as Israel-Lebanon ceasefire extension fails to calm investors",
+      "description": "Asia-Pacific markets traded mixed as investors remained cautious despite a three-week extension of the Israel-Lebanon ceasefire.",
+      "source": "Lee Ying Shan",
+      "published_at": "2026-04-24 00:17:23 +0000"
+    },
+    {
+      "title": "Delta Goodrem on the road to Eurovision",
+      "description": "Australian singer-songwriter Delta Goodrem chats about her journey towards the Eurovision song contest in Vienna this May, 2026.",
+      "source": "Currents",
+      "published_at": "2026-04-24 00:07:44 +0000"
+    },
+    {
+      "title": "An Iranian Ship Tried to Slip the Blockade. A U.S. Destroyer Chased It Down.",
+      "description": "Hundreds of ghost-fleet vessels are playing a game of cat-and-mouse as the U.S. tries to lock down Iran\u2019s oil trade and pressure it to accept President Trump\u2019s terms for peace.",
+      "source": "Shelby Holliday",
+      "published_at": "2026-04-24 00:00:00 +0000"
+    },
+    {
+      "title": "\u2018Sitting ducks\u2019: Hastie says overreliance on US has weakened Australia",
+      "description": "In an ANZAC-themed speech, the Liberal frontbencher called for a rebuilding of Australia\u2019s industrial and defence base.",
+      "source": "Brittany Busch",
+      "published_at": "2026-04-23 23:53:30 +0000"
+    },
+    {
+      "title": "Eastern suburbs principal allegedly assaulted, intimidated senior teacher",
+      "description": "Woollahra Public School principal Kylie McKinnon has pleaded not guilty to the charges involving a staff member.",
+      "source": "Clare Sibthorpe",
+      "published_at": "2026-04-23 23:50:00 +0000"
+    },
+    {
+      "title": "Trump\u2019s DOJ identifies about 400 people it wants to strip citizenship from and deport",
+      "description": "The Trump administration frames the issue as \u2018rooting out\u2019 criminals who defrauded the naturalization process",
+      "source": "Rachel Dobkin",
+      "published_at": "2026-04-23 23:37:41 +0000"
+    },
+    {
+      "title": "Japan core inflation accelerates after five months as Iran war pushes energy prices higher",
+      "description": "Government data showed the inflation figure \u2014 which strips out prices of fresh food \u2014 was in line with the 1.8% expected by economists polled by Reuters.",
+      "source": "Lim Hui Jie",
+      "published_at": "2026-04-23 23:34:31 +0000"
+    },
+    {
+      "title": "US soldier charged with using classified intel to win $560,000 bet on Maduro raid",
+      "description": "Gannon Ken Van Dyke was part of the operation to capture the Venezuelan president and is accused accessing classified information to make money on prediction market site Polymarket.",
+      "source": "Hallie Golden; Konstantin Toropin",
+      "published_at": "2026-04-23 23:32:41 +0000"
+    }
+  ],
+  "ai_updates": [
+    {
+      "title": "CEO Spotlight: Diginex CEO on the $1.5B AI Acquisition Driving Its Shift Toward Enterprise Data Infrastructure",
+      "description": "LONDON, UK / <_apxh3a_a href='https://www.accessnewswire.com/'>ACCESS Newswire / April 23, 2026 / Hawk Point Media recently sat down with Miles Pelham, Chairman and Founder of Diginex Limited (NASDAQ:DGNX), to discuss what may prove to be a defining moment in the company's...",
+      "source": "The Joplin Globe",
+      "published_at": "2026-04-23 12:31:59",
+      "subcategory": "general"
+    },
+    {
+      "title": "Speech-to-Text API Market Expansion Supported by NLP and Machine Learning",
+      "description": "According to a new report Speech-to-Text API Market Size, Share, Competitive Landscape and Trend Analysis Report, by Component (Software, Services), by Enterprise Size (Large Enterprises, SMEs), by Application (Contact Center and Customer Management, Content Transcription, Fraud Detection and Prevention, Risk",
+      "source": "Openpr.com",
+      "published_at": "2026-04-23 12:31:20",
+      "subcategory": "general"
+    },
+    {
+      "title": "Quantum Computing Inc. Announces Deployment-Ready NeuraWave, a Photonic Computing Platform for Real-time AI Inference at the Edge",
+      "description": "Designed for Applications in Telecommunications, Autonomous Vehicles, Robotics, Healthcare and Other Markets Requiring Real-Time Inference HOBOKEN, N.J., April 23, 2026 /PRNewswire/ -- Quantum Computing Inc. (\"QCi\" or the \"Company\") (NASDAQ: QUBT) an innovative, quantum optics and...",
+      "source": "Pr Newswire",
+      "published_at": "2026-04-23 12:30:00",
+      "subcategory": "general"
+    },
+    {
+      "title": "CEO Spotlight: Diginex CEO on the $1.5B AI Acquisition Driving Its Shift Toward Enterprise Data Infrastructure",
+      "description": "",
+      "source": "Financialcontent",
+      "published_at": "2026-04-23 12:30:00",
+      "subcategory": "general"
+    },
+    {
+      "title": "Build an ethical AI framework: 12 top resources",
+      "description": "<p>As <a href=\"https://www.techtarget.com/searchenterpriseai/definition/generative-AI\">generative AI</a> and agentic AI gain a stronger foothold in the enterprise, business executives face serious issues surrounding the responsible application of AI initiatives, including ethics, moral principles and methods that help shape the development and use of AI technologies.</p> <p>An <a href=\"https://www.techtarget.com/searchenterpriseai/feature/Leading-AI-with-ethics-The-new-governance-mandate\">ethical approach to AI</a> is important, not only for making the world a better place but also for protecting a business's bottom line and reputation. That involves understanding the financial and reputational effect of biased data, hallucinations, transparency, <a href=\"https://www.techtarget.com/whatis/definition/explainable-AI-XAI\">explainability</a>, limitations and other factors that erode public trust in AI.</p> <p>\"The most impactful frameworks or approaches to addressing <a href=\"https://www.techtarget.com/whatis/definition/AI-code-of-ethics\">ethical AI</a> issues ... take all aspects of the technology -- its usage, risks and potential outcomes -- into consideration,\" said Tad Roselund, senior advisor and executive coach at Boston Consulting Group.</p> <p>Many firms approach the development of ethical AI frameworks from a purely values-based position, Roselund said. But it's important to take a holistic, ethical AI approach that integrates strategy with process and technical controls, cultural norms and governance. These three elements of an ethical AI framework can help institute <a href=\"https://www.techtarget.com/searchenterpriseai/definition/responsible-AI\">responsible AI</a> policies and initiatives. And it all starts by establishing a set of principles around AI usage.</p> <p>\"Oftentimes, businesses and leaders are narrowly focused on one of these elements when they need to focus on all of them,\" Roselund said. Addressing any one element might be a good starting point, but by considering all three elements -- controls, cultural norms and <a href=\"https://www.techtarget.com/searchenterpriseai/tip/AI-governance-can-make-or-break-data-monetization\">governance</a> -- businesses can devise an all-encompassing ethical AI framework. This approach is especially important when it comes to <a href=\"https://www.techtarget.com/searchenterpriseai/feature/Democratization-of-AI-creates-benefits-and-challenges\">GenAI and its ability to democratize the use of AI</a>.</p> <p>Enterprises must also instill AI ethics in the people who develop and use AI tools and technologies. Open communication, educational resources and enforced guidelines and processes to ensure proper AI use can further bolster an internal AI ethics framework that also addresses GenAI, Roselund added.</p> <figure class=\"main-article-image full-col\" data-img-fullsize=\"https://www.techtarget.com/rms/onlineimages/ethical_ai_challenges_and_concerns-f.png\"> <img data-src=\"https://www.techtarget.com/rms/onlineimages/ethical_ai_challenges_and_concerns-f_mobile.png\" class=\"lazy\" data-srcset=\"https://www.techtarget.com/rms/onlineimages/ethical_ai_challenges_and_concerns-f_mobile.png 960w,https://www.techtarget.com/rms/onlineimages/ethical_ai_challenges_and_concerns-f.png 1280w\" alt=\"Ethical AI issues and concerns\" height=\"374\" width=\"560\"> <figcaption> <i class=\"icon pictures\" data-icon=\"z\"></i>Several issues need to be considered and overcome when devising and establishing an AI ethics framework. </figcaption> <div class=\"main-article-image-enlarge\"> <i class=\"icon\" data-icon=\"w\"></i> </div> </figure> <section class=\"section main-article-chapter\" data-menu-title=\"Top resources that shape an ethical AI framework\"> <h2 class=\"section-title\"><i class=\"icon\" data-icon=\"1\"></i>Top resources that shape an ethical AI framework</h2> <p>The following is an alphabetical list of standards, tools, organizations and other resources to help shape a company's internal ethical AI framework.</p> <h3>1. AI Now Institute</h3> <p>This institute focuses on the social implications of AI and policy research in responsible AI. Research areas include algorithmic accountability, antitrust concerns, biometrics, worker data rights, large-scale AI models and privacy. The institute's \"Artificial Power: 2025 Landscape Report\" <a target=\"_blank\" href=\"https://ainowinstitute.org/publications/research/ai-now-2025-landscape-report\" rel=\"noopener\">explores</a> the many ways AI innovations are imposed on humans and suggests concrete strategies for enterprises, policymakers and the public to develop more responsible AI policies.</p> <h3>2. Apart Research</h3> <p>This organization stewards collaboration, research and development across various aspects of ethical AI through hackathons, frameworks and practical solutions. One such project, called a medical agent controller, <a target=\"_blank\" href=\"https://apartresearch.com/project/medical-agent-controller\" rel=\"noopener\">provides</a> a multi-agent governance framework for medical chatbots. Other projects support innovations in physics and safety, <a href=\"https://www.techtarget.com/searchenterpriseai/feature/Optimize-AI-models-to-generate-more-bang-for-your-buck\">model evaluation and testing</a>, and the management of multi-agent risks.</p> <h3>3. Cooperative AI Foundation</h3> <p>This foundation conducts cross-industry research on the ethical and beneficial use of agentic AI. One of its white papers, \"Multi-Agent Risks from Advanced AI,\" <a target=\"_blank\" href=\"https://arxiv.org/pdf/2502.14143\" rel=\"noopener\">analyzes</a> novel and unexplored risks of multi-agent systems across three failure modes relating to miscoordination, conflict and collusion. This information can help ethical teams identify the root causes of AI risk, such as information asymmetries, network effects, selection pressures, destabilization dynamics, commitment problems, emergent agency and multi-agent security.</p> <h3>4. IEEE Global Initiative 2.0 on Ethics of Autonomous and Intelligent Systems</h3> <p>This initiative focuses on <a href=\"https://www.techtarget.com/searchenterpriseai/tip/Generative-AI-ethics-8-biggest-concerns\">ethical issues associated with incorporating GenAI</a> into future autonomous and agentic systems. In particular, the working group explores how to extend traditional safety concepts to prioritize scientific integrity and public safety. Notably, it examines how the concept of safety has sometimes been misappropriated and misunderstood with regard to <a href=\"https://www.techtarget.com/searchenterpriseai/feature/AI-deployments-gone-wrong-The-fallout-and-lessons-learned\">GenAI deployment risks</a>. The group is developing new standards, toolkits, AI safety champions and awareness campaigns to improve the ethical use of GenAI tools and infrastructure.</p> <h3>5. Institute for Technology, Ethics and Culture Handbook</h3> <p>The ITEC Handbook was a collaborative effort between Santa Clara University's Markkula Center for Applied Ethics and the Vatican to develop a practical, incremental roadmap for technology ethics. The <a target=\"_blank\" href=\"https://www.scu.edu/institute-for-technology-ethics-and-culture/\" rel=\"noopener\">handbook</a> includes a five-stage maturity model with specific, measurable steps that enterprises can take at each level of maturity. It also promotes an operational approach for implementing ethics as an ongoing practice, akin to <a href=\"https://www.techtarget.com/searchitoperations/definition/DevSecOps\">DevSecOps</a> for ethics. The core idea is to bring legal, technical and business teams together during ethical AI's early stages to root out bugs at a time when they're much cheaper to fix than after responsible AI is implemented.</p> <h3>6. ISO/IEC 23894:2023 Information technology -- AI -- guidance on risk management</h3> <p>This <a target=\"_blank\" href=\"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:23894:ed-1:v1:en\" rel=\"noopener\">standard</a> describes how an organization can manage risks specifically related to AI. It can help standardize the technical language that characterizes the underlying principles and how these principles apply to developing, provisioning or offering AI systems. It also covers policies, procedures and practices to assess, treat, monitor, review and record risk. It's highly technical and oriented to engineers rather than business experts.</p> <h3>7. NIST AI Risk Management Framework</h3> <p>AI RMF 1.0 <a target=\"_blank\" href=\"https://www.nist.gov/itl/ai-risk-management-framework\" rel=\"noopener\">guides</a> government agencies and the private sector in managing new AI risks and promoting responsible AI. According to NIST, the framework is \"intended to be voluntary, rights-preserving, non-sector-specific and use-case agnostic.\"</p> <figure class=\"main-article-image full-col\" data-img-fullsize=\"https://www.techtarget.com/rms/onlineimages/trustworthy_ai_framework-f.png\"> <img data-src=\"https://www.techtarget.com/rms/onlineimages/trustworthy_ai_framework-f_mobile.png\" class=\"lazy\" data-srcset=\"https://www.techtarget.com/rms/onlineimages/trustworthy_ai_framework-f_mobile.png 960w,https://www.techtarget.com/rms/onlineimages/trustworthy_ai_framework-f.png 1280w\" alt=\"Graphic listing several elements of a trustworthy AI framework.\" height=\"493\" width=\"560\"> <figcaption> <i class=\"icon pictures\" data-icon=\"z\"></i>A trusted AI framework needs to be built on a foundation of quality data, models and governance. </figcaption> <div class=\"main-article-image-enlarge\"> <i class=\"icon\" data-icon=\"w\"></i> </div> </figure> <h3>8. Partnership on AI</h3> <p>This nonprofit partnership of academic, civil society, industry and media organizations explores fundamental assumptions about how to build AI systems that benefit all stakeholders. Founding members include executives from Amazon, Facebook, Google, Google DeepMind, Microsoft and IBM. The partnership created an AI incident database to assess, manage and communicate newly discovered AI risks and harms. It's also stewarding a research <a target=\"_blank\" href=\"https://partnershiponai.org/resource/preparing-for-ai-agent-governance/\" rel=\"noopener\">framework</a> for AI agent governance.</p> <h3>9. Psychopathia Machinalis</h3> <p>This <a target=\"_blank\" href=\"https://www.psychopathia.ai/\" rel=\"noopener\">book</a> by Nell Watson and Ali Hessami provides a starting point for characterizing and communicating the different types of systemic AI maladies, akin to the medical taxonomies for mental disorders. It's characterized on its website as \"a conceptual framework for a preliminary synthetic nosology within machine psychology, intended to categorize and interpret these maladaptive AI behaviors.\" The book discusses a broad taxonomy of 32 categories across seven axes of dysfunction that affect the reliability, safety and alignment of AI with human goals. It also provides tools to understand the root causes and develop countermeasures and mitigation strategies.</p> <h3>10. Safer Agentic AI</h3> <p>This <a target=\"_blank\" href=\"https://www.saferagenticai.org/\" rel=\"noopener\">book</a> by Nell Watson and Ali Hessami provides a multidisciplinary foundation for governing agentic AI systems. The framework develops comprehensive terminology and guidance for developers, risk management teams and oversight bodies to enable safer agentic systems. Focus areas include goal alignment, safe operations, transparency, security, value alignment, accurate information management, kill switches and contextual understanding.</p> <h3>11. Stanford Institute for Human-Centered Artificial Intelligence</h3> <p>This institute provides ongoing research and guidance on best practices regarding human-centered AI technologies and applications. One of its early <a target=\"_blank\" href=\"https://drive.google.com/file/d/169gsggMk4_M3MBA8uO_I5160Wga4T-oG/view\" rel=\"noopener\">initiatives</a>, in collaboration with Stanford Medicine, is Responsible AI for Safe and Equitable Health, which addresses ethical and safety issues surrounding AI in health and medicine.</p> <h3>12. World Economic Forum</h3> <p>A WEF <a target=\"_blank\" href=\"https://www.weforum.org/publications/ai-agents-in-action-foundations-for-evaluation-and-governance/\" rel=\"noopener\">white paper</a>, \"AI Agents in Action: Foundations for Evaluation and Governance,\" provides an overview of trends and best practices for evaluating, managing and governing AI agents responsibly. It outlines a technical architecture for safe agentic AI and introduces terminology to clarify roles, describe autonomy levels and contextualize innovations. One of its goals is to support enterprises in moving from one-off AI compliance checks to continuous monitoring and oversight with multi-agent ecosystems.</p> <p><b>Editor's note:</b> <i>This article was updated in April 2026 to reflect the latest developments in ethical AI framework resources.</i></p> <p><i>George Lawton is a journalist based in London. Over the last 30 years, he has written more than 3,000 stories about computers, communications, knowledge management, business, health and other areas that interest him.</i></p> </section>",
+      "source": "Techtarget",
+      "published_at": "2026-04-23 12:27:00",
+      "subcategory": "funding"
+    },
+    {
+      "title": "ET AI Hackathon 2.0: Powering India\u2019s AI builders and real-world innovation",
+      "description": "ET AI Hackathon 2.0 positions itself as a high-impact platform where AI talent moves beyond ideas to real execution. By combining hands-on problem solving with industry exposure, recognition, and tangible rewards, it creates an environment where builders can develop meaningful solutions while unlocking career opportunities. The initiative reflects a broader shift in AI, where progress is driven by those who actively build and apply it in the real world.",
+      "source": "The Economic Times",
+      "published_at": "2026-04-23 12:24:11",
+      "subcategory": "general"
+    },
+    {
+      "title": "Exploring the Frontiers of Knowledge: The International Journal of Advanced Science Computing and Engineering",
+      "description": "Understanding Artificial Intelligence Artificial Intelligence, or AI, is a pretty big deal these days, and for good reason.... The post Exploring the Frontiers of Knowledge: The International Journal of Advanced Science Computing and Engineering appeared first on TechAnnouncer .",
+      "source": "Techannouncer",
+      "published_at": "2026-04-23 12:14:13",
+      "subcategory": "general"
+    },
+    {
+      "title": "ZenaTech Inc.: ZenaTech Registers Phoenix Aero LLC in Ukraine and Establishes Lviv as Base for its Counter-UAS and Interceptor Drone Systems Manufacturing and Testing",
+      "description": "VANCOUVER, British Columbia, April 23, 2026 (GLOBE NEWSWIRE) -- ZenaTech, Inc. (Nasdaq: ZENA) (FSE: 49Q) (BMV: ZENA) (\"ZenaTech\"), a technology solution provider specializing in AI (Artificial Inte...",
+      "source": "Finanznachrichten.de",
+      "published_at": "2026-04-23 12:10:00",
+      "subcategory": "general"
+    },
+    {
+      "title": "The Download: introducing the Nature issue",
+      "description": "This is today\u2019s edition of The Download, our weekday newsletter that provides a daily dose of what\u2019s going on in the world of technology. Introducing: the Nature issue When we talk about \u201cnature,\u201d we usually mean something untouched by humans. But little of that world exists today. From microplastics in rainforest wildlife to artificial light...",
+      "source": "Technologyreview",
+      "published_at": "2026-04-23 12:10:00",
+      "subcategory": "general"
+    },
+    {
+      "title": "Adm. Paparo, Indo-Pacific commander, weighs in on Chinese military's use of AI",
+      "description": "The commander of the Indo-Pacific Command told Congress that the Chinese People's Liberation Army is already using artificial intelligence to enhance the combat power of its forces.",
+      "source": "The Washington Times",
+      "published_at": "2026-04-23 12:09:52",
+      "subcategory": "general"
+    },
+    {
+      "title": "Opposition slams Labor\u2019s five per cent deposit scheme as housing target falls short",
+      "description": "\u2018Labor have failed to meet every single milestone that they\u2019ve set themselves.\u2019",
+      "source": "Aimee Edwards",
+      "published_at": "2026-04-24 00:31:06 +0000",
+      "subcategory": "general"
+    },
+    {
+      "title": "Arab foreign ministers condemn Israeli actions at Jerusalem's holy sites | The Jerusalem Post",
+      "description": "In a joint statement, eight Arab countries condemned Israel's actions at Jerusalem's holy sites, calling them \"provocations\" and violations of international law.",
+      "source": "JAMES GENN",
+      "published_at": "2026-04-24 00:30:56 +0000",
+      "subcategory": "regulation"
+    },
+    {
+      "title": "Robert Irwin lands major US TV role",
+      "description": "Robert Irwin is set to go from the jungle back to the ballroom as he takes on a major hosting gig in the US.",
+      "source": "Christine Salazar",
+      "published_at": "2026-04-24 00:30:42 +0000",
+      "subcategory": "general"
+    },
+    {
+      "title": "Axed movie Coyote vs. Acme finally surfaces after three years",
+      "description": "A big-budget blockbuster axed by the Warner Bros movie studio as part of a tax write-off will finally hit cinemas in August, more than three years after it was originally intended to be released.",
+      "source": "Nick Bond",
+      "published_at": "2026-04-24 00:30:41 +0000",
+      "subcategory": "model_release"
+    },
+    {
+      "title": "Star couple\u2019s engagement confirmed",
+      "description": "Following internet-breaking images of Zo\u00eb Kravitz sporting a ring on that finger, a source tells Page Six the High Fidelity actress and pop superstar Harry Styles are engaged.",
+      "source": "Mara Siegler",
+      "published_at": "2026-04-24 00:30:39 +0000",
+      "subcategory": "general"
+    },
+    {
+      "title": "3 Ultra-High-Yield Dividend Stocks I\u2019m Still Buying",
+      "description": "These three TSX high-yielders try to back up their payouts with real cash flow, not just a flashy headline yield.",
+      "source": "Amy Legate-Wolfe",
+      "published_at": "2026-04-24 00:30:00 +0000",
+      "subcategory": "general"
+    },
+    {
+      "title": "Jeremiyah Love goes No. 3 to Cardinals in NFL draft in statement pick",
+      "description": "Jeremiyah Love became the highest running back drafted since 2018 when he was selected by Arizona with the No. 3 pick in the 2026 NFL Draft. It\u2019s a significant pushback moment in the positional-val\u2026",
+      "source": "Joseph Staszewski",
+      "published_at": "2026-04-24 00:29:32 +0000",
+      "subcategory": "general"
+    },
+    {
+      "title": "EastWest Bank sustains dividend payouts, braces for tougher environment",
+      "description": "Photo from EastWest Banking Corp./FACEBOOK MANILA, Philippines \u2014 East West Banking Corp. kept dividends flowing to shareholders after posting stronger earnings, even as it prepares for a more",
+      "source": "Emmanuel John B Abris",
+      "published_at": "2026-04-24 00:29:23 +0000",
+      "subcategory": "regulation"
+    },
+    {
+      "title": "Stocks mostly fall as US-Iran peace talks stall and oil prices rise",
+      "description": "Traders work on the floor of the New York Stock Exchange (NYSE) at the opening bell in New York. Charly Triballeau//AFP NEW YORK,United States \u2014 Global stocks mostly fell Thursday, retreating",
+      "source": "Agence France-Presse",
+      "published_at": "2026-04-24 00:29:19 +0000",
+      "subcategory": "general"
+    },
+    {
+      "title": "NUAI SHAREHOLDER ALERT: Securities Fraud Lawsuit Filed on Behalf of New Era Energy & Digital, Inc. Investors - Contact Kirby McInerney LLP by June 1, 2026",
+      "description": "NEW YORK, April 23, 2026 (GLOBE NEWSWIRE) -- Kirby McInerney LLP reminds investors who purchased New Era Energy & Digital, Inc. (\u201cNew Era\u201d or the...",
+      "source": "Kirby McInerney LLP",
+      "published_at": "2026-04-24 00:28:02 +0000",
+      "subcategory": "regulation"
+    }
+  ],
+  "fear_greed": {
+    "score": 69.6,
+    "label": "Greed",
+    "previous": 69.3
+  },
+  "macro_signals": {
+    "verdict": "BUY",
+    "bullish_count": 5,
+    "total_count": 7,
+    "signals": {
+      "liquidity": {
+        "status": "NORMAL",
+        "value": 0.3,
+        "sparkline": [
+          159.5679931640625,
+          159.10499572753906,
+          158.88900756835938,
+          159.7949981689453,
+          157.9239959716797,
+          159.23399353027344,
+          158.47900390625,
+          158.71800231933594,
+          159.38400268554688,
+          159.70399475097656,
+          160.23399353027344,
+          159.84100341796875,
+          158.57899475097656,
+          158.68800354003906,
+          159.49099731445312,
+          159.77999877929688,
+          159.68299865722656,
+          158.71600341796875,
+          158.64199829101562,
+          159.11199951171875,
+          159.67999267578125,
+          159.21400451660156,
+          158.79200744628906,
+          158.8090057373047,
+          159.19500732421875,
+          159.16099548339844,
+          158.843994140625,
+          159.3730010986328,
+          159.48800659179688,
+          159.67999267578125
+        ]
+      },
+      "flowStructure": {
+        "status": "ALIGNED",
+        "btcReturn5": 3.58,
+        "qqqReturn5": 1.71
+      },
+      "macroRegime": {
+        "status": "RISK-ON",
+        "qqqRoc20": 10.82,
+        "xlpRoc20": 2.42
+      },
+      "technicalTrend": {
+        "status": "BULLISH",
+        "btcPrice": 78435.28125,
+        "sma50": 71023,
+        "sma200": 85660,
+        "vwap30d": 72001,
+        "mayerMultiple": 0.92,
+        "sparkline": [
+          71309.8828125,
+          68791.625,
+          66338.375,
+          66319.6953125,
+          65954.921875,
+          66691.4453125,
+          68233.3125,
+          68078.5546875,
+          66888.5703125,
+          66931.1015625,
+          67290.515625,
+          68981.8984375,
+          68859.828125,
+          71940.703125,
+          71123.359375,
+          71767.828125,
+          72979.046875,
+          73054.2734375,
+          70753.40625,
+          74484.640625,
+          74181.609375,
+          74805.078125,
+          75152.1328125,
+          77126.875,
+          75726.2109375,
+          73856.3515625,
+          75872.5234375,
+          76352.7734375,
+          78203.1015625,
+          78435.28125
+        ]
+      },
+      "hashRate": {
+        "status": "GROWING",
+        "change30d": 3.7
+      },
+      "priceMomentum": {
+        "status": "MODERATE"
+      },
+      "fearGreed": {
+        "status": "Fear",
+        "value": 39,
+        "history": [
+          {
+            "value": 10,
+            "date": "2026-03-26"
+          },
+          {
+            "value": 13,
+            "date": "2026-03-27"
+          },
+          {
+            "value": 12,
+            "date": "2026-03-28"
+          },
+          {
+            "value": 9,
+            "date": "2026-03-29"
+          },
+          {
+            "value": 8,
+            "date": "2026-03-30"
+          },
+          {
+            "value": 11,
+            "date": "2026-03-31"
+          },
+          {
+            "value": 8,
+            "date": "2026-04-01"
+          },
+          {
+            "value": 12,
+            "date": "2026-04-02"
+          },
+          {
+            "value": 9,
+            "date": "2026-04-03"
+          },
+          {
+            "value": 11,
+            "date": "2026-04-04"
+          },
+          {
+            "value": 12,
+            "date": "2026-04-05"
+          },
+          {
+            "value": 13,
+            "date": "2026-04-06"
+          },
+          {
+            "value": 11,
+            "date": "2026-04-07"
+          },
+          {
+            "value": 17,
+            "date": "2026-04-08"
+          },
+          {
+            "value": 14,
+            "date": "2026-04-09"
+          },
+          {
+            "value": 16,
+            "date": "2026-04-10"
+          },
+          {
+            "value": 15,
+            "date": "2026-04-11"
+          },
+          {
+            "value": 16,
+            "date": "2026-04-12"
+          },
+          {
+            "value": 12,
+            "date": "2026-04-13"
+          },
+          {
+            "value": 21,
+            "date": "2026-04-14"
+          },
+          {
+            "value": 23,
+            "date": "2026-04-15"
+          },
+          {
+            "value": 23,
+            "date": "2026-04-16"
+          },
+          {
+            "value": 21,
+            "date": "2026-04-17"
+          },
+          {
+            "value": 26,
+            "date": "2026-04-18"
+          },
+          {
+            "value": 27,
+            "date": "2026-04-19"
+          },
+          {
+            "value": 29,
+            "date": "2026-04-20"
+          },
+          {
+            "value": 33,
+            "date": "2026-04-21"
+          },
+          {
+            "value": 32,
+            "date": "2026-04-22"
+          },
+          {
+            "value": 46,
+            "date": "2026-04-23"
+          },
+          {
+            "value": 39,
+            "date": "2026-04-24"
+          }
+        ]
+      }
+    }
+  },
+  "sectors": [
+    {
+      "symbol": "XLK",
+      "name": "XLK",
+      "change": -1.4232
+    },
+    {
+      "symbol": "XLF",
+      "name": "XLF",
+      "change": -0.7853
+    },
+    {
+      "symbol": "XLE",
+      "name": "XLE",
+      "change": 0.7782
+    },
+    {
+      "symbol": "XLV",
+      "name": "XLV",
+      "change": -0.0956
+    },
+    {
+      "symbol": "XLY",
+      "name": "XLY",
+      "change": -1.0006
+    },
+    {
+      "symbol": "XLI",
+      "name": "XLI",
+      "change": 1.7715
+    },
+    {
+      "symbol": "XLP",
+      "name": "XLP",
+      "change": 1.6685
+    },
+    {
+      "symbol": "XLU",
+      "name": "XLU",
+      "change": 2.719
+    },
+    {
+      "symbol": "XLB",
+      "name": "XLB",
+      "change": -0.0386
+    },
+    {
+      "symbol": "XLRE",
+      "name": "XLRE",
+      "change": 1.1505
+    },
+    {
+      "symbol": "XLC",
+      "name": "XLC",
+      "change": -0.4157
+    },
+    {
+      "symbol": "SMH",
+      "name": "SMH",
+      "change": 1.0528
+    }
+  ],
+  "etf_flows": {
+    "summary": {
+      "etfCount": 10,
+      "totalVolume": 50444843,
+      "totalEstFlow": -226042724,
+      "netDirection": "NET OUTFLOW",
+      "inflowCount": 0,
+      "outflowCount": 10
+    },
+    "etfs": [
+      {
+        "ticker": "IBIT",
+        "issuer": "BlackRock",
+        "price": 44.05,
+        "priceChange": -1.56,
+        "volume": 39619598,
+        "avgVolume": 50123000,
+        "volumeRatio": 0.79,
+        "direction": "outflow",
+        "estFlow": -174524326
+      },
+      {
+        "ticker": "FBTC",
+        "issuer": "Fidelity",
+        "price": 67.67,
+        "priceChange": -1.48,
+        "volume": 3586051,
+        "avgVolume": 4487325,
+        "volumeRatio": 0.8,
+        "direction": "outflow",
+        "estFlow": -24266806
+      },
+      {
+        "ticker": "ARKB",
+        "issuer": "ARK/21Shares",
+        "price": 25.8,
+        "priceChange": -1.43,
+        "volume": 1915306,
+        "avgVolume": 2237675,
+        "volumeRatio": 0.86,
+        "direction": "outflow",
+        "estFlow": -4940532
+      },
+      {
+        "ticker": "BITB",
+        "issuer": "Bitwise",
+        "price": 42.23,
+        "priceChange": -1.42,
+        "volume": 1881701,
+        "avgVolume": 2221825,
+        "volumeRatio": 0.85,
+        "direction": "outflow",
+        "estFlow": -7946423
+      },
+      {
+        "ticker": "GBTC",
+        "issuer": "Grayscale",
+        "price": 60.48,
+        "priceChange": -1.45,
+        "volume": 1593825,
+        "avgVolume": 2820425,
+        "volumeRatio": 0.57,
+        "direction": "outflow",
+        "estFlow": -9639454
+      },
+      {
+        "ticker": "HODL",
+        "issuer": "VanEck",
+        "price": 21.99,
+        "priceChange": -1.46,
+        "volume": 1510907,
+        "avgVolume": 1281875,
+        "volumeRatio": 1.18,
+        "direction": "outflow",
+        "estFlow": -3321729
+      },
+      {
+        "ticker": "BRRR",
+        "issuer": "Valkyrie",
+        "price": 21.92,
+        "priceChange": -1.56,
+        "volume": 176456,
+        "avgVolume": 261625,
+        "volumeRatio": 0.67,
+        "direction": "outflow",
+        "estFlow": -386792
+      },
+      {
+        "ticker": "EZBC",
+        "issuer": "Franklin",
+        "price": 44.94,
+        "priceChange": -1.45,
+        "volume": 73081,
+        "avgVolume": 134350,
+        "volumeRatio": 0.54,
+        "direction": "outflow",
+        "estFlow": -328426
+      },
+      {
+        "ticker": "BTCO",
+        "issuer": "Invesco",
+        "price": 77.38,
+        "priceChange": -1.43,
+        "volume": 71266,
+        "avgVolume": 115875,
+        "volumeRatio": 0.62,
+        "direction": "outflow",
+        "estFlow": -551456
+      },
+      {
+        "ticker": "BTCW",
+        "issuer": "WisdomTree",
+        "price": 82.14,
+        "priceChange": -1.63,
+        "volume": 16652,
+        "avgVolume": 41725,
+        "volumeRatio": 0.4,
+        "direction": "outflow",
+        "estFlow": -136780
+      }
+    ],
+    "crypto_etfs": [
+      {
+        "ticker": "IBIT",
+        "issuer": "BlackRock",
+        "price": 44.05,
+        "priceChange": -1.56,
+        "volume": 39619598,
+        "avgVolume": 50123000,
+        "volumeRatio": 0.79,
+        "direction": "outflow",
+        "estFlow": -174524326
+      },
+      {
+        "ticker": "FBTC",
+        "issuer": "Fidelity",
+        "price": 67.67,
+        "priceChange": -1.48,
+        "volume": 3586051,
+        "avgVolume": 4487325,
+        "volumeRatio": 0.8,
+        "direction": "outflow",
+        "estFlow": -24266806
+      },
+      {
+        "ticker": "ARKB",
+        "issuer": "ARK/21Shares",
+        "price": 25.8,
+        "priceChange": -1.43,
+        "volume": 1915306,
+        "avgVolume": 2237675,
+        "volumeRatio": 0.86,
+        "direction": "outflow",
+        "estFlow": -4940532
+      },
+      {
+        "ticker": "GBTC",
+        "issuer": "Grayscale",
+        "price": 60.48,
+        "priceChange": -1.45,
+        "volume": 1593825,
+        "avgVolume": 2820425,
+        "volumeRatio": 0.57,
+        "direction": "outflow",
+        "estFlow": -9639454
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "title": "Will Jesus Christ return before GTA VI?",
+      "yes_price": 48.5,
+      "volume": 21326594.85212758,
+      "url": "https://polymarket.com/event/what-will-happen-before-gta-vi",
+      "category": "geopolitical"
+    },
+    {
+      "title": "2026 Balance of Power: D Senate, D House",
+      "yes_price": 50.5,
+      "volume": 5577432.790036002,
+      "url": "https://polymarket.com/event/balance-of-power-2026-midterms",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Puffpaw FDV above $100M one day after launch?",
+      "yes_price": 49.5,
+      "volume": 5226633.846784123,
+      "url": "https://polymarket.com/event/puffpaw-fdv-above-one-day-after-launch",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will Ethereum dip to $1,500 by December 31, 2026?",
+      "yes_price": 50.5,
+      "volume": 4350718.918574001,
+      "url": "https://polymarket.com/event/what-price-will-ethereum-hit-before-2027",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Opensea FDV above $500M one day after launch?",
+      "yes_price": 48,
+      "volume": 5844195.265847988,
+      "url": "https://polymarket.com/event/opensea-fdv-above-one-day-after-launch",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will Morgan Stanley or any of its underwriting affiliates serve as the lead underwriter in SpaceX\u2019s initial public offering?",
+      "yes_price": 49.5,
+      "volume": 1679845.7689820023,
+      "url": "https://polymarket.com/event/lead-bank-in-spacexs-ipo-836",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will there be exactly 0 confirmed VEI 4 or higher volcanic eruptions worldwide in 2026?",
+      "yes_price": 52.5,
+      "volume": 1023490.7484729995,
+      "url": "https://polymarket.com/event/how-many-large-volcano-eruption-vei-4-in-2026-657",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will Mojtaba Khamenei be head of state in Iran end of 2026?",
+      "yes_price": 58.4,
+      "volume": 6889574.053746007,
+      "url": "https://polymarket.com/event/iran-leader-end-of-2026",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will Tom Steyer win the California Governor Election in 2026?",
+      "yes_price": 40.6,
+      "volume": 13053915.077154005,
+      "url": "https://polymarket.com/event/california-governor-election-2026",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Will SpaceX's market cap be greater than $2.0T at market close on IPO day?",
+      "yes_price": 54.5,
+      "volume": 790052.3942809997,
+      "url": "https://polymarket.com/event/spacex-ipo-closing-market-cap-higher-strikes",
+      "category": "geopolitical"
+    },
+    {
+      "title": "Puffpaw FDV above $100M one day after launch?",
+      "yes_price": 49.5,
+      "volume": 5226633.846784123,
+      "url": "https://polymarket.com/event/puffpaw-fdv-above-one-day-after-launch",
+      "category": "tech"
+    },
+    {
+      "title": "Will Ethereum dip to $1,500 by December 31, 2026?",
+      "yes_price": 50.5,
+      "volume": 4350718.918574001,
+      "url": "https://polymarket.com/event/what-price-will-ethereum-hit-before-2027",
+      "category": "tech"
+    },
+    {
+      "title": "Opensea FDV above $500M one day after launch?",
+      "yes_price": 48,
+      "volume": 5844195.265847988,
+      "url": "https://polymarket.com/event/opensea-fdv-above-one-day-after-launch",
+      "category": "tech"
+    },
+    {
+      "title": "Will Morgan Stanley or any of its underwriting affiliates serve as the lead underwriter in SpaceX\u2019s initial public offering?",
+      "yes_price": 49.5,
+      "volume": 1679845.7689820023,
+      "url": "https://polymarket.com/event/lead-bank-in-spacexs-ipo-836",
+      "category": "tech"
+    },
+    {
+      "title": "Will there be exactly 0 confirmed VEI 4 or higher volcanic eruptions worldwide in 2026?",
+      "yes_price": 52.5,
+      "volume": 1023490.7484729995,
+      "url": "https://polymarket.com/event/how-many-large-volcano-eruption-vei-4-in-2026-657",
+      "category": "tech"
+    },
+    {
+      "title": "Will SpaceX's market cap be greater than $2.0T at market close on IPO day?",
+      "yes_price": 54.5,
+      "volume": 790052.3942809997,
+      "url": "https://polymarket.com/event/spacex-ipo-closing-market-cap-higher-strikes",
+      "category": "tech"
+    },
+    {
+      "title": "Will no Fed rate cuts happen in 2026?",
+      "yes_price": 39.7,
+      "volume": 20451830.72231707,
+      "url": "https://polymarket.com/event/how-many-fed-rate-cuts-in-2026",
+      "category": "tech"
+    },
+    {
+      "title": "OpenAI IPO closing market cap above $1T?",
+      "yes_price": 60.5,
+      "volume": 1478547.7843310004,
+      "url": "https://polymarket.com/event/openai-ipo-closing-market-cap-above",
+      "category": "tech"
+    },
+    {
+      "title": "Strait of Hormuz traffic returns to normal by end of May?",
+      "yes_price": 37.5,
+      "volume": 2081611.0078750066,
+      "url": "https://polymarket.com/event/strait-of-hormuz-traffic-returns-to-normal-by-end-of-may",
+      "category": "tech"
+    },
+    {
+      "title": "5kt meteor strike in 2026?",
+      "yes_price": 41,
+      "volume": 294449.4049000001,
+      "url": "https://polymarket.com/event/5kt-meteor-strike-in-2026",
+      "category": "tech"
+    }
+  ],
+  "forecasts": [
+    {
+      "title": "Infrastructure cascade risk: Iran",
+      "domain": "infrastructure",
+      "region": "Iran"
+    },
+    {
+      "title": "Supply chain disruption risk from Red Sea maritime disruption state (market)",
+      "domain": "supply_chain",
+      "region": "Red Sea"
+    },
+    {
+      "title": "FX stress from Russia political instability state",
+      "domain": "market",
+      "region": "Russia"
+    },
+    {
+      "title": "Sovereign risk repricing from Red Sea maritime disruption state",
+      "domain": "market",
+      "region": "Red Sea"
+    },
+    {
+      "title": "Inflation and rates pressure from Baltic Sea maritime disruption state",
+      "domain": "market",
+      "region": "Baltic Sea"
+    },
+    {
+      "title": "Sovereign risk repricing from Afghanistan security escalation state",
+      "domain": "market",
+      "region": "Afghanistan"
+    },
+    {
+      "title": "Active armed conflict: Syria",
+      "domain": "conflict",
+      "region": "Syria"
+    },
+    {
+      "title": "Active armed conflict: Brazil",
+      "domain": "conflict",
+      "region": "Brazil"
+    },
+    {
+      "title": "Oil price impact from Strait of Hormuz disruption",
+      "domain": "market",
+      "region": "Middle East"
+    },
+    {
+      "title": "GPS interference in Black Sea shipping zone",
+      "domain": "supply_chain",
+      "region": "Black Sea"
+    }
+  ],
+  "sanctions": {
+    "total_count": 19975,
+    "vessel_count": 1461,
+    "aircraft_count": 344,
+    "top_countries": [
+      {
+        "country": "Russia",
+        "count": 0
+      },
+      {
+        "country": "Unknown",
+        "count": 0
+      },
+      {
+        "country": "Iran",
+        "count": 0
+      },
+      {
+        "country": "China",
+        "count": 0
+      },
+      {
+        "country": "Mexico",
+        "count": 0
+      },
+      {
+        "country": "United Arab Emirates",
+        "count": 0
+      },
+      {
+        "country": "Colombia",
+        "count": 0
+      },
+      {
+        "country": "Turkey",
+        "count": 0
+      },
+      {
+        "country": "Lebanon",
+        "count": 0
+      },
+      {
+        "country": "Syria",
+        "count": 0
+      }
+    ]
+  },
+  "unrest_events": [
+    {
+      "title": "Germany (196 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Germany",
+      "city": "Germany",
+      "summary": ""
+    },
+    {
+      "title": "Israel (165 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Israel",
+      "city": "Israel",
+      "summary": ""
+    },
+    {
+      "title": "Lebanon (128 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Lebanon",
+      "city": "Lebanon",
+      "summary": ""
+    },
+    {
+      "title": "Iran (119 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Iran",
+      "city": "Iran",
+      "summary": ""
+    },
+    {
+      "title": "Turkey (25 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Turkey",
+      "city": "Turkey",
+      "summary": ""
+    },
+    {
+      "title": "Brazil (27 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Brazil",
+      "city": "Brazil",
+      "summary": ""
+    },
+    {
+      "title": "Italy (58 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Italy",
+      "city": "Italy",
+      "summary": ""
+    },
+    {
+      "title": "France (29 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "France",
+      "city": "France",
+      "summary": ""
+    },
+    {
+      "title": "White House, District Of Columbia, United States (54 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "United States",
+      "city": "White House",
+      "summary": ""
+    },
+    {
+      "title": "Australia (71 reports)",
+      "event_type": "UNREST_EVENT_TYPE_PROTEST",
+      "country": "Australia",
+      "city": "Australia",
+      "summary": ""
+    }
+  ],
+  "conflict_events": [
+    {
+      "country": "Somalia",
+      "side_a": "Government of Somalia",
+      "side_b": "Al-Shabaab",
+      "date_start": 1703980800000
+    },
+    {
+      "country": "Somalia",
+      "side_a": "Government of Somalia",
+      "side_b": "Al-Shabaab",
+      "date_start": 1703980800000
+    },
+    {
+      "country": "Central African Republic",
+      "side_a": "CPC",
+      "side_b": "Civilians",
+      "date_start": 1703980800000
+    },
+    {
+      "country": "Ukraine",
+      "side_a": "Government of Russia (Soviet Union)",
+      "side_b": "Government of Ukraine",
+      "date_start": 1703980800000
+    },
+    {
+      "country": "Israel",
+      "side_a": "Government of Israel",
+      "side_b": "Hamas",
+      "date_start": 1703980800000
+    },
+    {
+      "country": "Myanmar (Burma)",
+      "side_a": "Government of Myanmar (Burma)",
+      "side_b": "KIO",
+      "date_start": 1703980800000
+    },
+    {
+      "country": "Brazil",
+      "side_a": "Comando Vermelho",
+      "side_b": "PCC",
+      "date_start": 1703980800000
+    },
+    {
+      "country": "Brazil",
+      "side_a": "Cartel do Norte",
+      "side_b": "Comando Vermelho",
+      "date_start": 1703980800000
+    },
+    {
+      "country": "Brazil",
+      "side_a": "Cartel do Norte",
+      "side_b": "Comando Vermelho",
+      "date_start": 1703980800000
+    },
+    {
+      "country": "Myanmar (Burma)",
+      "side_a": "Government of Myanmar (Burma)",
+      "side_b": "NUG",
+      "date_start": 1703980800000
+    }
+  ],
+  "cross_signals": [
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_MILITARY_FLIGHT_SURGE",
+      "theater": "Global",
+      "summary": "Military flight surge: 17 active sorties tracked in Global",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_CRITICAL"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_GPS_JAMMING",
+      "theater": "Other",
+      "summary": "GPS jamming detected: 1730 high-interference hexagons in Other",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_CRITICAL"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_GPS_JAMMING",
+      "theater": "Sub-Saharan Africa",
+      "summary": "GPS jamming detected: 66 high-interference hexagons in Sub-Saharan Africa",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_CRITICAL"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_GPS_JAMMING",
+      "theater": "Eastern Europe",
+      "summary": "GPS jamming detected: 158 high-interference hexagons in Eastern Europe",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_CRITICAL"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_REGULATORY_ACTION",
+      "theater": "Global Markets",
+      "summary": "CFTC: CFTC Charges U.S. Service Member with Insider Trading in Nicol\u00e1s Maduro-Related Event Contracts",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_HIGH"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_REGULATORY_ACTION",
+      "theater": "Global Markets",
+      "summary": "Federal Reserve: Federal Reserve Board issues enforcement action with former employee of First Financial Bank",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_HIGH"
+    },
+    {
+      "type": "CROSS_SOURCE_SIGNAL_TYPE_REGULATORY_ACTION",
+      "theater": "Global Markets",
+      "summary": "FDIC: Press Release: Agencies Finalize Changes to Community Bank Leverage Ratio",
+      "severity": "CROSS_SOURCE_SIGNAL_SEVERITY_MEDIUM"
+    }
+  ],
+  "gdelt_intel": [
+    {
+      "topic": "military",
+      "articles": [
+        {
+          "title": "Lebanese journalist Amal Khalil killed in Israeli strike on a house where she took cover , paper says",
+          "url": "https://www.the-messenger.com/news/world/article_c4ebd6f6-b0e0-58fe-91c3-aa162c58459d.html"
+        },
+        {
+          "title": "MizarVision : Military Intelligence Within Everyone Reach",
+          "url": "https://www.marketscreener.com/news/mizarvision-military-intelligence-within-everyone-s-reach-ce7f59d8df8ef32c"
+        },
+        {
+          "title": "Expressway to readiness : IAF fighter jets conduct precision drills on Purvanchal Highway",
+          "url": "https://aninews.in/news/national/general-news/expressway-to-readiness-iaf-fighter-jets-conduct-precision-drills-on-purvanchal-highway20260422172457/"
+        },
+        {
+          "title": "Nigeria Reliance On Airpower Is Costing Civilian Lives",
+          "url": "https://www.worldpoliticsreview.com/nigeria-boko-haram-iswap-jilli-civilian-casualties/"
+        },
+        {
+          "title": "Lebanese journalist Amal Khalil killed in Israeli strike on a house where she took cover , paper says",
+          "url": "http://www.morningsun.net/stories/lebanese-journalist-amal-khalil-killed-in-israeli-strike-on-a-house-where-she-took-cover-paper,334112"
+        }
+      ]
+    },
+    {
+      "topic": "nuclear",
+      "articles": [
+        {
+          "title": "Missing from US - Iran talks : plutonium for more than 200 nuclear bombs",
+          "url": "https://thebulletin.org/2026/04/missing-from-us-iran-talks-plutonium-for-more-than-200-nuclear-bombs/"
+        },
+        {
+          "title": "Norman Dombey",
+          "url": "https://www.lrb.co.uk/blog/author/norman-dombey"
+        },
+        {
+          "title": "Civilian Nuclear Expansion In The Indo - Pacific : Energy Security Or Latent Proliferation ? \u2013 Analysis",
+          "url": "https://www.eurasiareview.com/22042026-civilian-nuclear-expansion-in-the-indo-pacific-energy-security-or-latent-proliferation-analysis/"
+        },
+        {
+          "title": "UN Inspectors : Iran Uranium Stockpile Could Fuel Multiple Nuclear Weapons \u2013 NaturalNews . com",
+          "url": "https://www.naturalnews.com/2026-04-22-inspectors-iran-uranium-stockpile-fuel-multiple-weapons.html"
+        },
+        {
+          "title": "U . N . Nuclear Chief : World Faces Nuclear Arms Race",
+          "url": "https://www.breitbart.com/national-security/2026/04/22/u-n-nuclear-chief-world-faces-new-nuclear-arms-race/"
+        }
+      ]
+    },
+    {
+      "topic": "sanctions",
+      "articles": [
+        {
+          "title": "Cuban president vows to defend the country against US invasion",
+          "url": "https://www.insightnews.com/news/cuban-president-vows-to-defend-the-country-against-us-invasion/article_486616c7-604e-4b87-a375-25545cdc8cea.html"
+        },
+        {
+          "title": "Trump favors companies that dont seek tariff refund",
+          "url": "https://www.cnbc.com/2026/04/21/trump-says-hell-remember-companies-that-dont-seek-tariff-refund.html"
+        },
+        {
+          "title": "Ending aid isnt enough we need sanctions and an arms embargo on Israel now \u2013 Mondoweiss",
+          "url": "https://mondoweiss.net/2026/04/ending-aid-isnt-enough-we-need-sanctions-and-an-arms-embargo-on-israel-now/"
+        },
+        {
+          "title": "Cuba confirms meeting with US officials on island , wants energy blockade lifted",
+          "url": "https://www.kedm.org/npr-news/2026-04-21/cuba-confirms-meeting-with-us-officials-on-island-wants-energy-blockade-lifted"
+        },
+        {
+          "title": "Cuba confirms meeting with US officials on island , wants energy blockade lifted",
+          "url": "https://www.ksut.org/2026-04-20/cuba-confirms-meeting-with-us-officials-on-island-wants-energy-blockade-lifted"
+        }
+      ]
+    },
+    {
+      "topic": "intelligence",
+      "articles": [
+        {
+          "title": "Chinese hackers are using everyday devices to hack united kingdom firms , warns watchdog",
+          "url": "https://www.theguardian.com/technology/2026/apr/23/china-cyber-hacker-using-everyday-devices-hack-uk-firms"
+        },
+        {
+          "title": "Germany Detains Ukrainian , Latvian Nationals on Suspicion of Sabotage Plot",
+          "url": "https://www.kyivpost.com/post/74611"
+        },
+        {
+          "title": "Ana de Armas to Star in Apple TV+ Spy Thriller Safe Houses Series",
+          "url": "https://www.aceshowbiz.com/news/view/00255028.html"
+        },
+        {
+          "title": "Wired for War : Israel Black Cube and the infiltration of Europe",
+          "url": "http://www.israelherald.com/news/279007397/wired-for-war-israel-black-cube-and-the-infiltration-of-europe"
+        },
+        {
+          "title": "Wired for War : Israels Black Cube and the infiltration of Europe",
+          "url": "http://www.russiaherald.com/news/279007380/wired-for-war-israels-black-cube-and-the-infiltration-of-europe"
+        }
+      ]
+    },
+    {
+      "topic": "maritime",
+      "articles": [
+        {
+          "title": "Iran calls US ship seizure  piracy : Is it ? - Grenada Chronicle \u2013 Daily Grenada And Caribbean News",
+          "url": "https://grenadachronicle.com/iran-calls-us-ship-seizure-piracy-is-it/"
+        },
+        {
+          "title": "Iran calls US ship seizure  piracy : Is it ? | US - Israel war on Iran News",
+          "url": "https://www.aljazeera.com/news/2026/4/22/iran-calls-us-ship-seizure-piracy-is-it"
+        },
+        {
+          "title": "Iran obliterates ships in devastating Strait of Hormuz attack as WW3 fears soar",
+          "url": "https://www.express.co.uk/news/world/2196942/iran-issues-horror-threat-destroy"
+        },
+        {
+          "title": "How Asia should deal with the  Malacca dilemma  - The Economic Times",
+          "url": "https://economictimes.indiatimes.com/industry/energy/oil-gas/how-asia-should-deal-with-the-malacca-dilemma/articleshow/130430042.cms"
+        },
+        {
+          "title": "US Seizes Iran Ship , Tehran Vows Retaliation",
+          "url": "https://www.newkerala.com/news/a/us-seizes-iran-ship-tehran-vows-retaliation-919.htm"
+        }
+      ]
+    },
+    {
+      "topic": "cyber",
+      "articles": [
+        {
+          "title": "Citizens Bank Hit With Two Federal Lawsuits After \u2026 ",
+          "url": "https://www.golocalprov.com/business/citizens-bank-hit-with-two-federal-lawsuits-after-cyberattack"
+        },
+        {
+          "title": "UK Warns of Rising State - Backed Cyberattacks from Russia , China and Iran",
+          "url": "https://dailypioneer.com/news/most-serious-cyberattacks-against-now-from-russia-iran-and-china-says-uk-cyber-chief"
+        },
+        {
+          "title": "UK agency warns of foreign cyberattacks | The Arkansas Democrat - Gazette",
+          "url": "https://www.arkansasonline.com/news/2026/apr/23/uk-agency-warns-of-foreign-cyberattacks/"
+        },
+        {
+          "title": "UK must brace for rise in cyberattacks , security chief says",
+          "url": "http://www.torontotelegraph.com/news/279005149/uk-security-chief-says-country-must-brace-for-cyberattacks"
+        },
+        {
+          "title": "UK must brace for rise in cyberattacks , security chief says",
+          "url": "http://www.arabherald.com/news/279005149/uk-security-chief-says-country-must-brace-for-cyberattacks"
+        }
+      ]
+    }
+  ],
+  "user_voice_s1": "am_eric",
+  "user_voice_s2": "af_bella",
+  "user_length_preset": "standard",
+  "user_target_words": 2200
+}
