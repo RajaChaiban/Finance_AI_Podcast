@@ -173,6 +173,31 @@ Test fixtures live in `tests/fixtures/`.
 
 ---
 
-## Architecture
+## Project Structure
 
-See [`ARCHITECTURE.md`](ARCHITECTURE.md) for module layout and pipeline flow.
+```
+Finance_Podcast/
+├── src/                       # Core pipeline code
+│   ├── data/                  # Stage 1: Data collection (8+ sources)
+│   ├── script/                # Stage 2: Script generation (Gemini)
+│   ├── audio/                 # Stage 3: Audio synthesis (Kokoro TTS)
+│   └── utils/                 # Shared utilities (logger, email)
+├── web/                       # FastAPI web UI with HTMX templates
+│   ├── routes/                # Dashboard, Generate, Library, Settings
+│   ├── jobs/                  # Background job runner
+│   ├── templates/             # HTML templates
+│   └── static/                # CSS, JavaScript
+├── scripts/                   # Utility scripts (backfill, voice previews, video tools)
+├── tests/                     # Test suite (pytest)
+├── remotion-video/            # React component video generation
+├── docs/                      # Documentation & design specs
+│   ├── images/                # Screenshots & diagrams
+│   └── superpowers/           # Design specifications & plans
+├── output/                    # Generated artifacts (scripts, MP3s, snapshots)
+├── data/                      # SQLite database
+├── research/                  # Market research & strategy docs
+├── config.yaml                # Pipeline configuration
+└── main.py                    # CLI entry point
+```
+
+**ARCHITECTURE.md**: See [`ARCHITECTURE.md`](ARCHITECTURE.md) for detailed module layout, pipeline flow, and data contracts.
