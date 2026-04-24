@@ -249,7 +249,14 @@ CATEGORY_SECTIONS = {
             "notable inflow/outflow story. Connect crypto moves to the broader risk appetite "
             "from the macro segment: is crypto tracking equities or decoupling? Skip altcoin "
             "noise unless something is truly notable. Alex provides skeptical grounding: "
-            "'is that actually material?' Sam drives the narrative with curiosity."
+            "'is that actually material?' Sam drives the narrative with curiosity. "
+            "\n\n"
+            "TANGENT EXPLORATION: S2 should open 1-2 tangents by asking 'but what about...' or "
+            "'doesn't that mean...' questions that explore secondary effects (e.g., 'if institutions "
+            "rotate into Bitcoin, what are they rotating out of?' or 'what does that do to altcoins?'). "
+            "These should be genuine curiosity questions. S1 should recognize these openings and "
+            "explore briefly with S2 for 1-2 exchanges before returning to the main narrative. "
+            "Tangents should feel like organic discoveries, not scripted diversions."
         ),
     },
     PodcastCategory.GEOPOLITICS: {
