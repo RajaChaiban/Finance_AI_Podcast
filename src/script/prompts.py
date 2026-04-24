@@ -137,6 +137,53 @@ DO NOT sound like:
 - Perfectly balanced sentences; let one host dominate a beat if the story calls for it
 - A news broadcast; this is two people discovering stories together
 
+TANGENT EXPLORATION PATTERNS
+Sometimes the most natural conversations diverge briefly to explore a related angle, then return to the main thread.
+This is how real people discover ideas together. Here's what authentic tangent exploration sounds like:
+
+EXAMPLE 1 - SECONDARY EFFECTS TANGENT:
+[S1] "Bitcoin rallied on this ETF inflow news."
+[S2] "Wait, but doesn't that mean institutions are rotating OUT of something else?"
+[S1] "Oh, good point -- yeah, we're seeing outflows from Ethereum ETFs..."
+[S2] "So they're consolidating into Bitcoin specifically, not just buying crypto broadly?"
+[S1] "Exactly. Which is why we're watching how this shapes the altcoin space."
+[S2] "Right, so if Ethereum weakens relative to Bitcoin..."
+[S1] "...dominance shifts. And that's the macro signal for the next segment."
+
+(S2 opens the tangent with a "but what about..." question: "rotating OUT of something else?"
+This is genuine curiosity, not rhetorical. Both explore briefly together, then S1 naturally closes the tangent
+and bridges to the next topic. The tangent felt like a discovery, not a detour.)
+
+EXAMPLE 2 - EXPECTATION IMPLICATIONS TANGENT:
+[S1] "Fed held rates steady, but signaled more hikes ahead."
+[S2] "Hmm, but if the market was already pricing in hikes, doesn't that mean they're signaling even MORE than expected?"
+[S1] "Exactly -- the forward guidance was hawkish. Bond traders panicked."
+[S2] "So banks benefit from higher rates, but tech gets hit?"
+[S1] "Right. That's why we saw XLK rally and XLT selloff."
+[S2] "Which ties into what we saw in crypto..."
+[S1] "Yep, exactly."
+
+(S2's tangent: "even MORE than expected?" opens discussion about *expectation management*,
+not just the rate decision. Quick exploration, natural flow to next segment.)
+
+EXAMPLE 3 - ECOSYSTEM CONSEQUENCE TANGENT:
+[S1] "AI companies are committing massive infrastructure spending."
+[S2] "But doesn't that drive up power demand and semiconductor scarcity?"
+[S1] "Good catch -- yeah, NVIDIA and the power grid companies are getting a boost."
+[S2] "So geopolitical tensions around chip manufacturing become even MORE relevant?"
+[S1] "Exactly. Which is why the Taiwan situation is so market-sensitive right now."
+[S2] "Got it. So that segues into geopolitics..."
+
+(S2's tangent explores the *upstream consequences* of the AI capex boom. Opens naturally,
+both explore, S1 resolves and transitions.)
+
+PATTERN RECOGNITION:
+- Tangent starts with S2 asking "but what about..." or "doesn't that mean..." (genuine curiosity)
+- Represents a *sideways* exploration (different angle on same topic), not a topic jump
+- Gets 1-2 back-and-forth exchanges (brief, contained)
+- Closes naturally with S1 returning to main narrative or bridging to next segment
+- Feels like organic discovery, not mechanical insertion
+
 EMOTION TAGS (optional prosody guidance for the TTS engine)
 You MAY attach a single emotion tag to a speaker when the moment clearly calls for it. The ENTIRE speaker tag becomes a single bracketed token: [S1:excited] or [S2:serious]. Never emit the tag as two separate brackets like "[S1] [excited]" -- that will be silently ignored by the TTS engine because only the one-token form [S1:excited] is parsed. Use tags SPARINGLY -- aim for roughly 20-30% of turns, only where the delivery genuinely shifts. Never tag routine narration.
 Available tags:
