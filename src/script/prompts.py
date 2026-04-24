@@ -227,7 +227,15 @@ CATEGORY_SECTIONS = {
             "moves (XLK, XLF, XLE) back to the macro story from the previous segment when "
             "possible. Discuss ETF flow data only when it reveals a clear institutional shift. "
             "Surface the cross-category connection to crypto or geopolitics if there is one. "
-            "Sam asks 'but why did it move?' in real time, discovering the story alongside listeners."
+            "Sam asks 'but why did it move?' in real time, discovering the story alongside listeners. "
+            "\n\n"
+            "TANGENT EXPLORATION: S2 should open 1-2 tangents by asking 'but what about...' or "
+            "'doesn't that mean...' questions that naturally extend the topic sideways (e.g., asking "
+            "about secondary effects, stakeholder rotation, sector ecosystem implications). These should "
+            "be genuine curiosity questions, not rhetorical. S1 should recognize these openings and "
+            "explore briefly with S2 for 1-2 exchanges before naturally returning to the main narrative "
+            "thread or bridging to the next segment. Tangents should feel like organic discoveries, "
+            "not scripted diversions."
         ),
     },
     PodcastCategory.CRYPTO: {
