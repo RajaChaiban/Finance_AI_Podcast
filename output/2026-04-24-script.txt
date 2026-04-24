@@ -1,0 +1,13 @@
+[S1] Welcome to Market Pulse -- your daily AI-generated markets briefing. Everything you'll hear is for information only and not financial advice. Let's get into it.
+[S2] It was a rough session for the major indices, Alex. The Dow, S&P 500, and Nasdaq all finished in the red, with the tech-heavy Nasdaq leading the slide, down nearly 0.9%.
+[S1] That’s right, and looking at the macro picture, the 10-year Treasury yield is holding steady at 4.3%. While that stability is usually good, the broader market seems to be grappling with some risk-off sentiment today. Which leads us perfectly into the individual stock movers.
+[S2] It was a tale of two sectors today. While healthcare and consumer staples like JNJ, PG, and WMT saw gains of around 1.5% to 2%, the tech sector took a hit. ORCL was down about 6%, and MSFT slipped nearly 4% as investors pulled back from high-growth tech names.
+[S1] That move in tech is definitely weighing on the mood, and that connects directly to what we're seeing in the digital asset space.
+[S2] Crypto is actually showing some resilience despite the market-wide caution. Bitcoin is up about 1% to 78,176 dollars, though we are seeing significant net outflows from spot Bitcoin ETFs, with BlackRock’s IBIT alone seeing an estimated outflow of over 175 million dollars.
+[S1] It’s a bit of a divergence between price and flow, which is something to keep an eye on as we move into the geopolitics of the day.
+[S2] The situation remains tense in the Middle East, specifically around the Strait of Hormuz. We're seeing reports of continued naval friction, including U.S. forces boarding tankers and ongoing disputes over Iranian energy exports, which is keeping oil prices elevated, with WTI crude trading near 96.80 dollars.
+[S1] That volatility in energy is a major factor for global markets, and it ties into the rapid developments we're tracking in the AI space.
+[S2] Yeah, the AI sector is making headlines for all the wrong reasons today. Meta is reportedly planning to cut 10% of its workforce—about 8,000 jobs—to pivot deeper into artificial intelligence investment.
+[S1] Plus, there’s a new White House memo alleging mass "AI model theft" by Chinese firms, which is adding another layer of regulatory and geopolitical pressure to the tech sector.
+[S2] It’s a lot to digest for one morning, but that’s the pulse of the market right now. Thanks for joining us for this quick briefing.
+[S1] Absolutely, stay informed and we'll catch you back here tomorrow for another Market Pulse.

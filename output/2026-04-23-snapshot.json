@@ -1735,8 +1735,8 @@
       ]
     }
   ],
-  "user_voice_s1": "am_eric",
+  "user_voice_s1": "am_adam",
   "user_voice_s2": "af_bella",
-  "user_length_preset": "standard",
-  "user_target_words": 2200
+  "user_length_preset": "brief",
+  "user_target_words": 900
 }
