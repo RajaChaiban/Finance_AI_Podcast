@@ -281,7 +281,8 @@ def build_system_prompt(
         )
         for i, cat in enumerate(ordered, start=2):
             section = CATEGORY_SECTIONS[cat]
-            prompt += f"{i}. {section['title']} -- biggest story only, 1-2 exchanges.\n"
+            leader = section.get("leader", "alex")
+            prompt += f"{i}. {section['title']} (led by {leader}) -- biggest story only, 1-2 exchanges.\n"
         prompt += (
             f"{len(ordered) + 2}. Sign-off -- one-line warm wrap-up from both hosts, "
             f"AI-generated-briefing reminder.\n"
@@ -294,7 +295,9 @@ def build_system_prompt(
 
         for i, cat in enumerate(ordered, start=2):
             section = CATEGORY_SECTIONS[cat]
-            prompt += f"{i}. {section['title']} -- {section['instruction']}\n"
+            leader = section.get("leader", "alex")
+            dialogue_style = section.get("dialogue_style", "narrative-driven")
+            prompt += f"{i}. {section['title']} (led by {leader}, {dialogue_style}): {section['instruction']}\n"
 
         next_num = len(ordered) + 2
         prompt += (
