@@ -71,23 +71,39 @@ def _stage_collect(config: dict, params: dict, loop, job_id: str):
     return snapshot, preset, snap_path
 
 
-def _resolve_llm_config(config: dict) -> dict:
-    """Overlay DB Setting overrides onto the base config dict.
+def _resolve_llm_config(config: dict, params: dict | None = None) -> dict:
+    """Overlay DB Setting overrides — and any per-run params override — onto
+    the base config dict.
 
-    The web UI persists provider choices in the Setting table (key prefix
-    "default_llm_*"). Those win over .env when present so users can flip
-    between Gemini and Ollama without restarting the server.
+    Precedence (highest wins): per-run ``params`` → DB ``Setting`` → ``config``
+    (which already includes .env). The web UI persists provider choices in
+    the Setting table (key prefix "default_llm_*"); the Generate form can
+    further override that for a single run via ``params['llm_provider']`` +
+    ``params['llm_model']``.
     """
     merged = dict(config)
-    overrides = {
+    db_overrides = {
         "llm_provider": _setting("default_llm_provider"),
         "gemini_model": _setting("default_gemini_model"),
         "ollama_model": _setting("default_ollama_model"),
         "ollama_base_url": _setting("default_ollama_base_url"),
     }
-    for k, v in overrides.items():
+    for k, v in db_overrides.items():
         if v:
             merged[k] = v
+
+    # Per-run override from the Generate form. ``llm_model`` lands in the
+    # provider-specific slot so build_provider() picks it up unchanged.
+    if params:
+        run_provider = params.get("llm_provider")
+        run_model = params.get("llm_model")
+        if run_provider:
+            merged["llm_provider"] = run_provider
+            if run_model:
+                if run_provider == "gemini":
+                    merged["gemini_model"] = run_model
+                elif run_provider == "ollama":
+                    merged["ollama_model"] = run_model
     return merged
 
 
@@ -106,7 +122,7 @@ def _stage_script(snapshot, preset, config: dict, params: dict, loop, job_id: st
     from src.script.llm import build_provider
 
     categories = [PodcastCategory(v) for v in params["categories"]]
-    llm_config = _resolve_llm_config(config)
+    llm_config = _resolve_llm_config(config, params)
     provider = build_provider(llm_config)
     generator = ScriptGenerator(provider=provider)
     _sync_log(

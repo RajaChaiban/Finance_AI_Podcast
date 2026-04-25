@@ -70,6 +70,45 @@
       </div>
     </section>
 
+    <section x-data="{ choice: '{{ defaults.llm_choice }}' }">
+      <h3 class="mp-eyebrow mb-3">Script LLM</h3>
+      <select name="llm_choice" x-model="choice" class="mp-select w-full">
+        <optgroup label="Cloud (Gemini)">
+          {% for opt in llm_options if not opt.is_local %}
+            <option value="{{ opt.id }}" {% if opt.id == defaults.llm_choice %}selected{% endif %}>
+              ☁ {{ opt.label }} — {{ opt.note }}
+            </option>
+          {% endfor %}
+        </optgroup>
+        <optgroup label="Local (Ollama){% if not ollama_reachable %} — server unreachable{% endif %}">
+          {% for opt in llm_options if opt.is_local %}
+            <option value="{{ opt.id }}"
+                    {% if opt.id == defaults.llm_choice %}selected{% endif %}>
+              {% if opt.installed %}🖥{% else %}◌{% endif %} {{ opt.label }} — {{ opt.note }}{% if not opt.installed %} · not pulled{% endif %}
+            </option>
+          {% endfor %}
+        </optgroup>
+      </select>
+
+      {% for opt in llm_options %}
+        <template x-if="choice === '{{ opt.id }}'">
+          <div class="mp-subtle text-xs mt-2 leading-relaxed">
+            {% if opt.is_local %}
+              {% if not ollama_reachable %}
+                <span style="color: var(--mp-warn)">⚠ Ollama not reachable at <code class="mp-numeric">{{ ollama_base_url }}</code>. Start <code class="mp-numeric">ollama serve</code> first.</span>
+              {% elif not opt.installed %}
+                <span style="color: var(--mp-warn)">⚠ Model not installed locally.</span> Pull it first: <code class="mp-numeric">ollama pull {{ opt.model }}</code>
+              {% else %}
+                <span style="color: var(--mp-positive)">✓ Installed.</span> Local generation is meaningfully slower than Gemini Flash and quality is below Gemini 2.5 — review before publishing.
+              {% endif %}
+            {% else %}
+              Cloud Gemini call. Uses your <code class="mp-numeric">GEMINI_API_KEY</code>.
+            {% endif %}
+          </div>
+        </template>
+      {% endfor %}
+    </section>
+
     <section class="grid md:grid-cols-2 gap-6">
       <div>
         <h3 class="mp-eyebrow mb-3">Alex (Speaker 1 — male)</h3>
