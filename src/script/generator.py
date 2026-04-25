@@ -1,7 +1,6 @@
-from google import genai
-from google.genai.types import GenerateContentConfig
 from src.data.models import MarketSnapshot
 from src.data.categories import PodcastCategory, DEFAULT_CATEGORIES
+from src.script.llm.base import LLMProvider
 from src.script.prompts import (
     build_system_prompt,
     build_user_prompt,
@@ -11,9 +10,24 @@ from src.utils.logger import log
 
 
 class ScriptGenerator:
-    def __init__(self, api_key: str, model: str = "gemini-2.5-flash"):
-        self.client = genai.Client(api_key=api_key)
-        self.model = model
+    def __init__(
+        self,
+        api_key: str | None = None,
+        model: str | None = None,
+        *,
+        provider: LLMProvider | None = None,
+    ):
+        if provider is not None:
+            self.provider = provider
+            self.model = getattr(provider, "model", "") or (model or "")
+        else:
+            from src.script.llm.gemini import GeminiProvider
+
+            self.provider = GeminiProvider(
+                api_key=api_key or "",
+                model=model or "gemini-2.5-flash",
+            )
+            self.model = model or "gemini-2.5-flash"
 
     def generate(
         self,
@@ -25,23 +39,19 @@ class ScriptGenerator:
         if categories is None:
             categories = DEFAULT_CATEGORIES
 
-        log.info("Generating podcast script with Gemini...")
+        log.info(f"Generating podcast script with {self.model or self.provider.__class__.__name__}...")
 
         system_prompt = build_system_prompt(categories, target_words=target_words, preset_key=preset_key)
         user_prompt = build_user_prompt(snapshot.to_json(), categories)
 
-        response = self.client.models.generate_content(
-            model=self.model,
-            contents=user_prompt,
-            config=GenerateContentConfig(
-                system_instruction=system_prompt,
-                temperature=0.7,
-                max_output_tokens=8192,
-            ),
+        raw = self.provider.complete(
+            system=system_prompt,
+            user=user_prompt,
+            temperature=0.7,
+            max_tokens=8192,
         )
 
-        script = response.text
-        script = self._clean_script(script)
+        script = self._clean_script(raw)
         self._validate_script(script, len(categories), target_words=target_words, preset_key=preset_key)
         self._validate_content(script)
 
@@ -108,7 +118,7 @@ class ScriptGenerator:
     def _validate_content(self, script: str):
         """Scan for advice-language phrases that must not appear in the script.
 
-        The prompt forbids these, but Gemini occasionally drifts -- particularly
+        The prompt forbids these, but the LLM occasionally drifts -- particularly
         when the data contains explicit buy/sell signals. Logging-only rather
         than regenerating: a reject-and-retry loop would double latency and
         cost, and the prompt-level constraint catches the vast majority. The

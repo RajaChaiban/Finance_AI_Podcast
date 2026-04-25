@@ -77,6 +77,11 @@ def load_config() -> dict:
     config["gnews_api_key"] = os.getenv("GNEWS_API_KEY", "")
     config["newsdata_api_key"] = os.getenv("NEWSDATA_API_KEY", "")
     config["currents_api_key"] = os.getenv("CURRENTS_API_KEY", "")
+    config["llm_provider"] = os.getenv("LLM_PROVIDER", config.get("llm_provider", "gemini"))
+    config["ollama_model"] = os.getenv("OLLAMA_MODEL", config.get("ollama_model", "gemma4:26b"))
+    config["ollama_base_url"] = os.getenv(
+        "OLLAMA_BASE_URL", config.get("ollama_base_url", "http://localhost:11434")
+    )
     return config
 
 
@@ -141,13 +146,13 @@ def run_pipeline_sync(categories: list[PodcastCategory]) -> str:
 
     # Stage 2: Script
     log.info("Bot pipeline: generating script...")
-    api_key = config["gemini_api_key"]
-    if not api_key or api_key == "your_gemini_key_here":
-        raise PipelineConfigError(
-            "GEMINI_API_KEY is not set. Add it to .env and restart the bot."
-        )
+    from src.script.llm import build_provider
 
-    generator = ScriptGenerator(api_key=api_key, model=config.get("gemini_model", "gemini-2.5-flash"))
+    try:
+        provider = build_provider(config)
+    except ValueError as e:
+        raise PipelineConfigError(str(e))
+    generator = ScriptGenerator(provider=provider)
     script = generator.generate(snapshot, categories)
     word_count = len(script.split())
     log.info(f"Bot pipeline: script ready ({word_count} words)")

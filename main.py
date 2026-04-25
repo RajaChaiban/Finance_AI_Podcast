@@ -28,6 +28,12 @@ def load_config() -> dict:
     config["gnews_api_key"] = os.getenv("GNEWS_API_KEY", "")
     config["currents_api_key"] = os.getenv("CURRENTS_API_KEY", "")
     config["newsdata_api_key"] = os.getenv("NEWSDATA_API_KEY", "")
+    # LLM provider switches (CLI uses .env; web UI overrides via DB).
+    config["llm_provider"] = os.getenv("LLM_PROVIDER", config.get("llm_provider", "gemini"))
+    config["ollama_model"] = os.getenv("OLLAMA_MODEL", config.get("ollama_model", "gemma4:26b"))
+    config["ollama_base_url"] = os.getenv(
+        "OLLAMA_BASE_URL", config.get("ollama_base_url", "http://localhost:11434")
+    )
     return config
 
 
@@ -59,16 +65,12 @@ def generate_script(
     categories: list[PodcastCategory],
     preset_key: str | None = None,
 ) -> str:
+    from src.script.llm import build_provider
+
     log.info("=== STAGE 2: Script Generation ===")
 
-    api_key = config["gemini_api_key"]
-    if not api_key or api_key == "your_gemini_key_here":
-        raise ValueError("Gemini API key not set. Edit your .env file with a valid GEMINI_API_KEY.")
-
-    generator = ScriptGenerator(
-        api_key=api_key,
-        model=config.get("gemini_model", "gemini-2.5-flash"),
-    )
+    provider = build_provider(config)
+    generator = ScriptGenerator(provider=provider)
     target_words = LENGTH_PRESETS[preset_key].target_words if preset_key else None
     script = generator.generate(
         snapshot,

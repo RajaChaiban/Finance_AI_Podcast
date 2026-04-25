@@ -24,6 +24,9 @@ ENV_TO_CONFIG = [
     ("EMAIL_APP_PASSWORD", "email_app_password"),
     ("TELEGRAM_BOT_TOKEN", "telegram_bot_token"),
     ("TELEGRAM_CHAT_ID", "telegram_chat_id"),
+    ("LLM_PROVIDER", "llm_provider"),
+    ("OLLAMA_MODEL", "ollama_model"),
+    ("OLLAMA_BASE_URL", "ollama_base_url"),
 ]
 
 
@@ -41,6 +44,14 @@ def load_app_config() -> dict:
     config.setdefault("podcast_name", "Market Pulse")
     config.setdefault("gemini_model", "gemini-2.5-flash")
     config.setdefault("sample_rate", 24000)
+    # LLM provider defaults — DB Settings overrides these at runtime when the
+    # web UI saves a different choice; .env still works as a fallback for CLI.
+    if not config.get("llm_provider"):
+        config["llm_provider"] = "gemini"
+    if not config.get("ollama_model"):
+        config["ollama_model"] = "gemma4:26b"
+    if not config.get("ollama_base_url"):
+        config["ollama_base_url"] = "http://localhost:11434"
     return config
 
 

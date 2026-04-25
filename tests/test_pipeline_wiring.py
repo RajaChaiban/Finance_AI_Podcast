@@ -205,12 +205,12 @@ class TestCollectorRouter:
 
 class TestScriptGenerator:
     def _make_generator(self, response_text: str) -> ScriptGenerator:
-        with patch("src.script.generator.genai.Client") as MockClient:
+        with patch("src.script.llm.gemini.genai.Client") as MockClient:
             mock_client = MagicMock()
             mock_client.models.generate_content.return_value.text = response_text
             MockClient.return_value = mock_client
             gen = ScriptGenerator(api_key="test-key", model="gemini-3.1-flash-lite-preview")
-            gen.client = mock_client  # keep the mock around
+            gen.provider.client = mock_client  # keep the mock around
             return gen
 
     def test_clean_script_drops_orphan_lines(self):

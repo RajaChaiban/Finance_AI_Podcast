@@ -42,8 +42,119 @@
   <h2 class="mp-headline text-xl mb-3">Podcast</h2>
   <div class="mp-card p-5 space-y-2 text-sm">
     <div class="flex justify-between"><span class="mp-subtle">Name</span><span class="font-medium">{{ podcast_name }}</span></div>
-    <div class="flex justify-between"><span class="mp-subtle">LLM</span><span class="mp-numeric">{{ gemini_model }}</span></div>
+    <div class="flex justify-between"><span class="mp-subtle">Active LLM</span><span class="mp-numeric">{{ llm.provider }} / {% if llm.provider == 'ollama' %}{{ llm.ollama_model }}{% else %}{{ llm.gemini_model }}{% endif %}</span></div>
   </div>
+</section>
+
+{# ── LLM Provider toggle ────────────────────────────── #}
+<section class="mb-10">
+  <h2 class="mp-headline text-xl mb-3">Script LLM</h2>
+  <p class="mp-subtle text-sm mb-4">Switch between Gemini (cloud) and a local model served by Ollama. Local models run offline — quality is lower than Gemini Flash; treat it as a dev/cost-saver mode.</p>
+  <form method="post" action="/settings/llm" class="mp-card p-6 space-y-6"
+        x-data="{ provider: '{{ llm.provider }}' }">
+
+    <div>
+      <h3 class="mp-eyebrow mb-2">Provider</h3>
+      <div class="grid md:grid-cols-2 gap-3">
+        <label class="mp-card hoverable p-3 cursor-pointer"
+               :class="provider === 'gemini' ? 'border-[color:var(--mp-accent)]' : ''">
+          <input type="radio" name="llm_provider" value="gemini" x-model="provider" class="sr-only">
+          <div class="flex items-baseline justify-between">
+            <span class="font-medium">Gemini (cloud)</span>
+            <span class="mp-numeric text-xs mp-subtle">requires API key</span>
+          </div>
+        </label>
+        <label class="mp-card hoverable p-3 cursor-pointer"
+               :class="provider === 'ollama' ? 'border-[color:var(--mp-accent)]' : ''">
+          <input type="radio" name="llm_provider" value="ollama" x-model="provider" class="sr-only">
+          <div class="flex items-baseline justify-between">
+            <span class="font-medium">Local (Ollama)</span>
+            <span class="mp-numeric text-xs mp-subtle">runs offline</span>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div x-show="provider === 'gemini'" class="space-y-2">
+      <h3 class="mp-eyebrow mb-2">Gemini model</h3>
+      <input type="text" name="gemini_model" value="{{ llm.gemini_model }}"
+             class="mp-select w-full" placeholder="gemini-2.5-flash">
+      <p class="mp-subtle text-xs">e.g. <code class="mp-numeric">gemini-2.5-flash</code>, <code class="mp-numeric">gemini-2.5-pro</code></p>
+    </div>
+
+    <div x-show="provider === 'ollama'" class="space-y-3"
+         x-data="{
+           ollamaUrl: '{{ llm.ollama_base_url }}',
+           testing: false,
+           result: null,
+           async runTest() {
+             this.testing = true;
+             this.result = null;
+             try {
+               const r = await fetch('/settings/llm/test?base_url=' + encodeURIComponent(this.ollamaUrl));
+               this.result = await r.json();
+             } catch (e) {
+               this.result = { ok: false, error: e.message };
+             } finally {
+               this.testing = false;
+             }
+           }
+         }">
+      <div>
+        <h3 class="mp-eyebrow mb-2">Ollama model tag</h3>
+        <input type="text" name="ollama_model" value="{{ llm.ollama_model }}"
+               class="mp-select w-full" placeholder="gemma4:26b">
+        <p class="mp-subtle text-xs leading-relaxed">
+          <strong class="text-[color:var(--mp-ink)]">Recommended (April 2026):</strong>
+          <code class="mp-numeric">gemma4:26b</code> (16 GB VRAM, MoE — runs at 4B speed; native structured-output support)
+          or <code class="mp-numeric">qwen3.5:27b</code> (top of IFEval / IFBench instruction-following leaderboards).
+          Lower-tier: <code class="mp-numeric">gemma4:e4b</code> (8 GB),
+          <code class="mp-numeric">mistral-small3.1:24b</code> (24 GB).
+          Pull first via <code class="mp-numeric">ollama pull &lt;tag&gt;</code>.
+          Local quality is meaningfully below Gemini 2.5 Flash — review before publishing.
+        </p>
+      </div>
+      <div>
+        <h3 class="mp-eyebrow mb-2">Ollama base URL</h3>
+        <div class="flex gap-2">
+          <input type="text" name="ollama_base_url" x-model="ollamaUrl"
+                 class="mp-select flex-1" placeholder="http://localhost:11434">
+          <button type="button" @click="runTest()" :disabled="testing"
+                  class="mp-btn mp-btn-ghost whitespace-nowrap"
+                  x-text="testing ? 'Testing…' : 'Test connection'"></button>
+        </div>
+
+        <template x-if="result && result.ok">
+          <div class="mt-3 mp-card border-[color:var(--mp-positive)] p-3 text-sm">
+            <div class="flex items-center gap-2 font-medium" style="color: var(--mp-positive)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+              Connected · <span x-text="result.models.length"></span> model(s) installed
+            </div>
+            <div class="mt-2 mp-subtle text-xs" x-show="result.models.length">
+              Available: <span class="mp-numeric" x-text="result.models.join(', ')"></span>
+            </div>
+            <div class="mt-2 mp-subtle text-xs" x-show="!result.models.length">
+              No models installed yet. Run <code class="mp-numeric">ollama pull gemma4:26b</code>.
+            </div>
+          </div>
+        </template>
+
+        <template x-if="result && !result.ok">
+          <div class="mt-3 mp-card border-[color:var(--mp-negative)] p-3 text-sm">
+            <div class="flex items-center gap-2 font-medium" style="color: var(--mp-negative)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg>
+              Connection failed
+            </div>
+            <div class="mt-2 mp-subtle text-xs" x-text="result.error"></div>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <div class="flex justify-end border-t border-[color:var(--mp-grid)] pt-5">
+      <button class="mp-btn mp-btn-primary">Save LLM settings</button>
+    </div>
+  </form>
 </section>
 
 {# ── Default preferences ───────────────────────────── #}

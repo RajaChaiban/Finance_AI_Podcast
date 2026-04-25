@@ -1,6 +1,8 @@
 .env
 output/*.mp3
 output/*.wav
+output/*.txt
+output/*.json
 __pycache__/
 *.pyc
 *.pyo

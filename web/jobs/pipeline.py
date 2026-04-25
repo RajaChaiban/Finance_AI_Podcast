@@ -71,16 +71,49 @@ def _stage_collect(config: dict, params: dict, loop, job_id: str):
     return snapshot, preset, snap_path
 
 
+def _resolve_llm_config(config: dict) -> dict:
+    """Overlay DB Setting overrides onto the base config dict.
+
+    The web UI persists provider choices in the Setting table (key prefix
+    "default_llm_*"). Those win over .env when present so users can flip
+    between Gemini and Ollama without restarting the server.
+    """
+    merged = dict(config)
+    overrides = {
+        "llm_provider": _setting("default_llm_provider"),
+        "gemini_model": _setting("default_gemini_model"),
+        "ollama_model": _setting("default_ollama_model"),
+        "ollama_base_url": _setting("default_ollama_base_url"),
+    }
+    for k, v in overrides.items():
+        if v:
+            merged[k] = v
+    return merged
+
+
+def _setting(key: str):
+    from web.db import session, loads
+    from web.models import Setting
+
+    with session() as s:
+        row = s.get(Setting, key)
+    return loads(row.value, None) if row else None
+
+
 def _stage_script(snapshot, preset, config: dict, params: dict, loop, job_id: str):
     from src.data.categories import PodcastCategory
     from src.script.generator import ScriptGenerator
+    from src.script.llm import build_provider
 
     categories = [PodcastCategory(v) for v in params["categories"]]
-    generator = ScriptGenerator(
-        api_key=config["gemini_api_key"],
-        model=config.get("gemini_model", "gemini-2.5-flash"),
+    llm_config = _resolve_llm_config(config)
+    provider = build_provider(llm_config)
+    generator = ScriptGenerator(provider=provider)
+    _sync_log(
+        job_id,
+        f"Sending data to {llm_config['llm_provider']}/{provider.model}...",
+        loop,
     )
-    _sync_log(job_id, f"Sending data to {generator.model}...", loop)
     script = generator.generate(
         snapshot,
         categories,
@@ -90,7 +123,7 @@ def _stage_script(snapshot, preset, config: dict, params: dict, loop, job_id: st
     date_str = snapshot.date
     script_path = output_dir() / f"{date_str}-script.txt"
     script_path.write_text(script, encoding="utf-8")
-    return script, script_path
+    return script, script_path, provider.model
 
 
 def _stage_audio(script: str, config: dict, params: dict, loop, job_id: str, date_str: str):
@@ -148,7 +181,7 @@ def _run_sync(job_id: str, params: dict, loop) -> int:
     _sync_stage(job_id, "script", 0.34, loop)
     _sync_log(job_id, "Generating script...", loop)
     t0 = time.time()
-    script, script_path = _stage_script(snapshot, preset, config, params, loop, job_id)
+    script, script_path, llm_model = _stage_script(snapshot, preset, config, params, loop, job_id)
     stage_times["script"] = time.time() - t0
     word_count = len(script.split())
     _sync_stage(job_id, "script", 2 / 3, loop)
@@ -181,7 +214,7 @@ def _run_sync(job_id: str, params: dict, loop) -> int:
         snapshot_path=str(snap_path),
         voice_s1=params["voice_s1"],
         voice_s2=params["voice_s2"],
-        gemini_model=config.get("gemini_model", "gemini-2.5-flash"),
+        gemini_model=llm_model,
         stage_times_json=dumps(stage_times),
         created_at=datetime.utcnow(),
     )
