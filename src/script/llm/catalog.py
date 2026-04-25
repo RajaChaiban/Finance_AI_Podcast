@@ -117,10 +117,10 @@ LLM_CATALOG: list[LLMOption] = [
         is_local=True,
     ),
     LLMOption(
-        id="llama3-8b",
-        label="Llama 3 8B",
+        id="llama31-8b",
+        label="Llama 3.1 8B",
         provider="ollama",
-        model="llama3:8b",
+        model="llama3.1:8b",
         note="local · ~5 GB · widely available",
         is_local=True,
     ),
