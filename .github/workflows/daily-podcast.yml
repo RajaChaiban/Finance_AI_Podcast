@@ -17,6 +17,7 @@ jobs:
     timeout-minutes: 30
 
     env:
+      # ── Secrets (sourced from repo settings) ─────────────────────
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
       GNEWS_API_KEY: ${{ secrets.GNEWS_API_KEY }}
@@ -26,6 +27,13 @@ jobs:
       EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      # ── Generation config (edit here to retune the daily run) ────
+      LLM_PROVIDER: gemini
+      GEMINI_MODEL: gemini-2.5-flash-lite
+      CATEGORIES: finance_macro,finance_micro,crypto,geopolitics,ai_updates
+      LENGTH_PRESET: standard
+      VOICE_S1: am_michael
+      VOICE_S2: af_jessica
 
     steps:
       - name: Checkout

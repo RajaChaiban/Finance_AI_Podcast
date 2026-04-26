@@ -30,11 +30,26 @@ def load_config() -> dict:
     config["newsdata_api_key"] = os.getenv("NEWSDATA_API_KEY", "")
     # LLM provider switches (CLI uses .env; web UI overrides via DB).
     config["llm_provider"] = os.getenv("LLM_PROVIDER", config.get("llm_provider", "gemini"))
+    config["gemini_model"] = os.getenv("GEMINI_MODEL", config.get("gemini_model", "gemini-2.5-flash"))
     config["ollama_model"] = os.getenv("OLLAMA_MODEL", config.get("ollama_model", "gemma4:26b"))
     config["ollama_base_url"] = os.getenv(
         "OLLAMA_BASE_URL", config.get("ollama_base_url", "http://localhost:11434")
     )
     return config
+
+
+def _env_categories() -> tuple[str, ...]:
+    """Read ``CATEGORIES`` from env as a comma-separated list.
+
+    The cron workflow uses this to drive ``--categories`` without having
+    to repeat each ``-c`` flag inline. Falls back to the previous default
+    pair when unset so local CLI invocations keep working.
+    """
+    raw = os.getenv("CATEGORIES", "").strip()
+    if not raw:
+        return ("finance_macro", "finance_micro")
+    parts = tuple(c.strip() for c in raw.split(",") if c.strip())
+    return parts or ("finance_macro", "finance_micro")
 
 
 def collect_data(
@@ -118,17 +133,21 @@ CATEGORY_CHOICES = [c.value for c in PodcastCategory]
               help="Run a specific stage or the full pipeline")
 @click.option("--date", default=None, help="Date override (YYYY-MM-DD)")
 @click.option("--categories", "-c", multiple=True, type=click.Choice(CATEGORY_CHOICES),
-              default=["finance_macro", "finance_micro"],
-              help="Categories to include (repeatable, e.g. -c crypto -c geopolitics)")
+              default=_env_categories,
+              help="Categories to include (repeatable, e.g. -c crypto -c geopolitics). "
+                   "Cron sets via CATEGORIES env var (comma-separated).")
 @click.option("--email", "-e", default=None, help="Send episode to this email address after generation")
 @click.option("--telegram-chat-id", default=None,
               help="Push episode to this Telegram chat ID after generation")
-@click.option("--length-preset", type=click.Choice(list(LENGTH_PRESETS.keys())), default=None,
+@click.option("--length-preset", type=click.Choice(list(LENGTH_PRESETS.keys())),
+              envvar="LENGTH_PRESET", default=None,
               help="Episode length preset (brief / standard / deep). Overrides default target length.")
 @click.option("--no-cache", is_flag=True,
               help="Force re-fetch of data even if today's snapshot cache exists.")
-@click.option("--voice-s1", default=None, help="Override speaker 1 (Alex) voice id.")
-@click.option("--voice-s2", default=None, help="Override speaker 2 (Sam) voice id.")
+@click.option("--voice-s1", envvar="VOICE_S1", default=None,
+              help="Override speaker 1 (Alex) voice id.")
+@click.option("--voice-s2", envvar="VOICE_S2", default=None,
+              help="Override speaker 2 (Sam) voice id.")
 def main(stage: str, date: str | None, categories: tuple[str],
          email: str | None, telegram_chat_id: str | None,
          length_preset: str | None, no_cache: bool,
