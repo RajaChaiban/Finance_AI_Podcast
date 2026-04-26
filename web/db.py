@@ -10,7 +10,7 @@ from typing import Iterator
 from sqlalchemy import text
 from sqlmodel import Session, SQLModel, create_engine
 
-from web.models import Episode, Job, Setting  # noqa: F401 — register tables
+from web.models import Episode, Job, Setting, PodcastConfig  # noqa: F401 — register tables
 from web.settings import data_dir
 
 

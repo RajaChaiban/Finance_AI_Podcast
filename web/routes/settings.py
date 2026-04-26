@@ -12,8 +12,9 @@ from src.data.categories import (
 )
 from src.script.length import DEFAULT_PRESET_KEY, LENGTH_PRESETS
 
+from datetime import datetime, timedelta
 from web.db import dumps, loads, session
-from web.models import Setting
+from web.models import Setting, PodcastConfig
 from web.routes._common import ctx
 from web.settings import load_app_config
 
@@ -196,3 +197,62 @@ def save_defaults(
     _set("default_voice_s1", voice_s1)
     _set("default_voice_s2", voice_s2)
     return RedirectResponse("/settings?saved=1", status_code=303)
+
+
+@router.get("/podcast-config")
+def get_podcast_config(date: str = Query(default=None)):
+    """Get podcast config for a specific date (defaults to tomorrow)."""
+    if not date:
+        date = (datetime.utcnow() + timedelta(days=1)).strftime("%Y-%m-%d")
+
+    with session() as s:
+        config = s.get(PodcastConfig, date)
+
+    if config:
+        return {
+            "date": config.date,
+            "length_preset": config.length_preset,
+            "voice_s1": config.voice_s1,
+            "voice_s2": config.voice_s2,
+        }
+
+    # Return defaults if no config exists
+    defaults = {
+        "date": date,
+        "length_preset": _get("default_length_preset", DEFAULT_PRESET_KEY),
+        "voice_s1": _get("default_voice_s1", "am_adam"),
+        "voice_s2": _get("default_voice_s2", "af_bella"),
+    }
+    return defaults
+
+
+@router.post("/podcast-config")
+def save_podcast_config(
+    date: str = Form(...),
+    length_preset: str = Form(DEFAULT_PRESET_KEY),
+    voice_s1: str = Form(...),
+    voice_s2: str = Form(...),
+):
+    """Save podcast config for a specific date."""
+    if length_preset not in LENGTH_PRESETS:
+        length_preset = DEFAULT_PRESET_KEY
+
+    with session() as s:
+        config = s.get(PodcastConfig, date)
+        if config is None:
+            config = PodcastConfig(
+                date=date,
+                length_preset=length_preset,
+                voice_s1=voice_s1,
+                voice_s2=voice_s2,
+            )
+            s.add(config)
+        else:
+            config.length_preset = length_preset
+            config.voice_s1 = voice_s1
+            config.voice_s2 = voice_s2
+            config.updated_at = datetime.utcnow()
+            s.add(config)
+        s.commit()
+
+    return RedirectResponse(f"/settings?podcast_config_date={date}&saved=1", status_code=303)

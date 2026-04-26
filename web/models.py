@@ -56,3 +56,13 @@ class Setting(SQLModel, table=True):
 
     key: str = Field(primary_key=True)
     value: str
+
+
+class PodcastConfig(SQLModel, table=True):
+    __tablename__ = "podcast_config"
+
+    date: str = Field(primary_key=True)  # YYYY-MM-DD format
+    length_preset: str = Field(default="standard")  # brief, standard, deep
+    voice_s1: str = Field(default="am_adam")  # speaker 1 voice id
+    voice_s2: str = Field(default="af_bella")  # speaker 2 voice id
+    updated_at: datetime = Field(default_factory=datetime.utcnow)
