@@ -60,6 +60,38 @@ def test_default_option_id_matches_saved_provider_and_model():
     assert chosen == "gemma4-26b"
 
 
+def test_gemini_3_series_present():
+    """The newest Gemini 3 preview models must be selectable from the
+    Generate UI. Pinning the API model IDs here so a wrong rename in
+    the catalog (e.g. dropping the `-preview` suffix) trips a test
+    instead of returning 404 from the live API."""
+    from src.script.llm.catalog import get_option
+
+    pro = get_option("gemini-31-pro")
+    flash = get_option("gemini-3-flash")
+    lite = get_option("gemini-31-flash-lite")
+
+    assert pro is not None and pro.model == "gemini-3.1-pro-preview"
+    assert flash is not None and flash.model == "gemini-3-flash-preview"
+    assert lite is not None and lite.model == "gemini-3.1-flash-lite-preview"
+    assert all(opt.provider == "gemini" for opt in (pro, flash, lite))
+
+
+def test_default_option_id_resolves_gemini_3_pro():
+    from src.script.llm.catalog import default_option_id
+
+    assert default_option_id("gemini", "gemini-3.1-pro-preview") == "gemini-31-pro"
+
+
+def test_existing_gemini_25_flash_default_still_resolves():
+    """Adding Gemini 3 at the top of the catalog must not silently
+    promote a preview model to the new default for existing users —
+    saved (gemini, gemini-2.5-flash) still maps to gemini-flash."""
+    from src.script.llm.catalog import default_option_id
+
+    assert default_option_id("gemini", "gemini-2.5-flash") == "gemini-flash"
+
+
 def test_default_option_id_falls_back_when_no_match():
     from src.script.llm.catalog import LLM_CATALOG, default_option_id
 

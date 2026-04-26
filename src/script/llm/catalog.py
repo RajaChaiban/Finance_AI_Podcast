@@ -26,7 +26,38 @@ class LLMOption:
 
 
 LLM_CATALOG: list[LLMOption] = [
-    # ── Cloud (Gemini) ─────────────────────────────────────────────
+    # ── Cloud (Gemini 3 — preview, newest) ─────────────────────────
+    # Note: gemini-3-pro-preview was deprecated 2026-03-09; use 3.1 Pro
+    # going forward. Listed first so the dropdown surfaces the newest
+    # options without changing the existing default — _settings_defaults
+    # resolves the saved (provider, model) to its catalog id by exact
+    # match, so Gemini 2.5 Flash stays selected for users who haven't
+    # explicitly switched.
+    LLMOption(
+        id="gemini-31-pro",
+        label="Gemini 3.1 Pro (preview)",
+        provider="gemini",
+        model="gemini-3.1-pro-preview",
+        note="cloud · frontier · preview",
+        is_local=False,
+    ),
+    LLMOption(
+        id="gemini-3-flash",
+        label="Gemini 3 Flash (preview)",
+        provider="gemini",
+        model="gemini-3-flash-preview",
+        note="cloud · frontier-class · preview",
+        is_local=False,
+    ),
+    LLMOption(
+        id="gemini-31-flash-lite",
+        label="Gemini 3.1 Flash Lite (preview)",
+        provider="gemini",
+        model="gemini-3.1-flash-lite-preview",
+        note="cloud · cheapest 3.x · preview",
+        is_local=False,
+    ),
+    # ── Cloud (Gemini 2.5 — stable) ────────────────────────────────
     LLMOption(
         id="gemini-flash",
         label="Gemini 2.5 Flash",
