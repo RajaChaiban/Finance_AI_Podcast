@@ -62,6 +62,81 @@ Data lives in `data/market_pulse.db` (SQLite). Back it up or delete it to reset.
 
 ---
 
+## Where your data lives
+
+Quick map of what is local-only, what gets pushed to GitHub, and what GitHub
+holds in encrypted storage. This pipeline is single-user by design — there is
+no shared database, no third-party telemetry, and no analytics calls.
+
+### Local-only (never tracked by git)
+
+These are listed in [`.gitignore`](.gitignore) and never leave your machine
+unless you copy them yourself:
+
+| Path                          | What it holds                                                                |
+| ----------------------------- | ---------------------------------------------------------------------------- |
+| `.env`                        | All API keys, Gmail App Password, Telegram bot token, allow-listed chat IDs |
+| `data/market_pulse.db`        | Episode history, full-text search index, saved Settings / preferences      |
+| `output/*.mp3` / `*.wav`      | Generated audio                                                              |
+| `output/*.json` / `*.txt`     | Daily snapshots and scripts                                                  |
+| `__pycache__/`, `.venv/`      | Python build artefacts                                                       |
+| `.claude/`                    | Local IDE / agent state                                                      |
+
+If the repo is private, accidentally committing one of these is recoverable
+(rewrite history, rotate any exposed key). If public, treat any commit that
+includes a real key as compromised — rotate immediately. The `.env.example`
+file is committed but contains only placeholder values like
+`your_gemini_key_here`.
+
+### What is pushed to GitHub on every commit
+
+- All source code under `src/`, `web/`, `scripts/`, `tests/`, `remotion-video/`.
+- Configuration with no PII: `config.yaml`, `requirements*.txt`, `.env.example`.
+- The workflow file `.github/workflows/daily-podcast.yml`. Inside its `env:`
+  block, secrets are pulled from `${{ secrets.* }}` (encrypted, never in git).
+  The non-secret cron settings — model, categories, length, voices — are
+  plain text in the file and visible to anyone with read access. None of those
+  values are personal.
+- Your git author identity (name + email) on every commit object. If you'd
+  rather not expose your real address publicly, configure GitHub's noreply
+  alias once: `git config --global user.email YOUR_USERNAME@users.noreply.github.com`.
+
+### What GitHub Actions holds in encrypted secret storage
+
+Set under **Settings → Secrets and variables → Actions**. Visible only to
+workflows on this repo, never printed in logs (GitHub auto-masks them):
+
+`GEMINI_API_KEY`, `FRED_API_KEY`, `GNEWS_API_KEY`, `CURRENTS_API_KEY`,
+`NEWSDATA_API_KEY`, `EMAIL_ADDRESS`, `EMAIL_APP_PASSWORD`,
+`TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
+
+These are mirrors of your local `.env` — the same values, stored separately
+on each side. Rotating a key means updating both places.
+
+### Data the daily cron produces
+
+Each run writes the MP3, snapshot, and script to the runner's filesystem, then:
+
+- Emails the MP3 to `EMAIL_ADDRESS` and pushes it to `TELEGRAM_CHAT_ID`.
+- Uploads the MP3 and `pipeline.log` as **GitHub Actions artifacts** with a
+  7-day retention. Anyone with read access to the repo can download these
+  from the Actions run page. Logs are scrubbed of secret values by the
+  GitHub-side masker, but if you want zero traces, set the artifact retention
+  lower in the workflow or disable the upload steps.
+- Does **not** commit anything back to the repo.
+
+### Note on historical commits
+
+Earlier in this project's history, daily snapshot/script files were
+accidentally committed to `output/`. They contain market data (publicly
+available) plus the voice / length presets used on each run — no API keys
+or credentials. The current `.gitignore` blocks new ones, but the existing
+commits stay in history. If you want them gone for good, that requires
+rewriting history with `git filter-repo` and a force-push, which breaks
+any clones — coordinate before doing it.
+
+---
+
 ## Other entry points
 
 ### CLI (`main.py`)
@@ -128,6 +203,26 @@ Telegram push still fires, and vice versa. On hard failure (both channels down, 
 pipeline crash), a short alert is sent on the same two channels with the log tail
 and a link to the Actions run.
 
+**Retuning the daily run:** the LLM, categories, length, and voices used by the
+cron live in plain text in the workflow's `env:` block (lines 30–36 of
+[`.github/workflows/daily-podcast.yml`](.github/workflows/daily-podcast.yml)):
+
+```yaml
+LLM_PROVIDER: gemini
+GEMINI_MODEL: gemini-3.1-flash-lite-preview
+CATEGORIES: finance_macro,finance_micro,crypto,geopolitics,ai_updates
+LENGTH_PRESET: standard
+VOICE_S1: am_michael
+VOICE_S2: af_jessica
+```
+
+Edit those values, commit, push — the next scheduled run picks them up. To
+swap models without leaving the browser, edit the file directly on GitHub
+(pencil icon → "Commit changes"). Valid `GEMINI_MODEL` values:
+`gemini-2.5-flash`, `gemini-2.5-flash-lite`, `gemini-2.5-pro`,
+`gemini-3-flash-preview`, `gemini-3.1-flash-lite-preview`,
+`gemini-3.1-pro-preview`.
+
 **Cost / limits:** fits comfortably in the free GitHub Actions tier for public repos.
 For private repos, each run uses ~15 minutes of included compute. MP3s are uploaded
 as workflow artifacts with 7-day retention as a safety net.
@@ -145,7 +240,7 @@ as workflow artifacts with 7-day retention as a safety net.
 | `tts.base_speed`       | `1.0`                  | Speech rate multiplier                       |
 | `tts.enable_blending`  | `true`                 | Multi-voice timbre blending                  |
 | `tts.enable_prosody`   | `true`                 | Emotion-based pitch/rate adjustments         |
-| `gemini_model`         | `gemini-2.5-flash`     | Gemini model used by `ScriptGenerator`       |
+| `gemini_model`         | `gemini-3.1-flash-lite-preview` | Gemini model used by `ScriptGenerator` (override per-run from the Generate page or via `GEMINI_MODEL` env) |
 | `output_dir`           | `output`               | Where snapshots / scripts / MP3s land        |
 | `sample_rate`          | `24000`                | Audio sample rate (Hz)                       |
 | `default_categories`   | macro + micro          | Fallback when no categories selected         |
